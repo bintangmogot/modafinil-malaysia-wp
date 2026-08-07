@@ -25,3 +25,17 @@ require_once MODMY_THEME_DIR . '/inc/shortcodes.php';
 
 // 6. WooCommerce customizations
 require_once MODMY_THEME_DIR . '/inc/woocommerce.php';
+
+// 7. ACF Fallbacks (prevents fatal errors if ACF is not active)
+if (!function_exists('get_field')) {
+    function get_field($selector, $post_id = false, $format_value = true) { return false; }
+}
+if (!function_exists('get_sub_field')) {
+    function get_sub_field($selector, $format_value = true) { return false; }
+}
+if (!function_exists('have_rows')) {
+    function have_rows($selector, $post_id = false) { return false; }
+}
+if (!function_exists('the_row')) {
+    function the_row() { return false; }
+}
