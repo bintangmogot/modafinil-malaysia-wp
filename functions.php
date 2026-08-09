@@ -29,8 +29,6 @@ require_once MODMY_THEME_DIR . '/inc/woocommerce.php';
 // 7. Custom Post Types
 require_once MODMY_THEME_DIR . '/inc/post-types.php';
 
-// 8. ACF Flexible Content Modules (Homepage Builder)
-require_once MODMY_THEME_DIR . '/inc/acf-modules.php';
 
 // 7. ACF Fallbacks (prevents fatal errors if ACF is not active)
 if (!function_exists('get_field')) {

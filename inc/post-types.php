@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom Post Types & their ACF fields
+ * Custom Post Types
  */
 
 function modmy_register_post_types() {
@@ -33,7 +33,7 @@ function modmy_register_post_types() {
         'hierarchical'       => false,
         'menu_position'      => 20,
         'menu_icon'          => 'dashicons-star-filled',
-        'supports'           => array( 'title' ), // We will use title for internal reference or author name
+        'supports'           => array( 'title' ),
     );
 
     register_post_type( 'review', $review_args );
@@ -56,7 +56,7 @@ function modmy_register_post_types() {
 
     $city_args = array(
         'labels'             => $city_labels,
-        'public'             => true, // Cities have their own landing pages
+        'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
@@ -73,202 +73,3 @@ function modmy_register_post_types() {
     register_post_type( 'city', $city_args );
 }
 add_action( 'init', 'modmy_register_post_types' );
-
-/**
- * Register ACF Fields for CPTs
- */
-if (function_exists('acf_add_local_field_group')) {
-    add_action('acf/init', function() {
-        
-        // --- REVIEWS FIELD GROUP ---
-        acf_add_local_field_group(array(
-            'key' => 'group_review_data',
-            'title' => 'Review Details',
-            'fields' => array(
-                array(
-                    'key' => 'field_rev_author_name',
-                    'label' => 'Author Name',
-                    'name' => 'author_name',
-                    'type' => 'text',
-                    'required' => 1,
-                ),
-                array(
-                    'key' => 'field_rev_author_meta',
-                    'label' => 'Author Meta (e.g. Verified Buyer)',
-                    'name' => 'author_meta',
-                    'type' => 'text',
-                    'default_value' => 'Verified Buyer',
-                ),
-                array(
-                    'key' => 'field_rev_rating',
-                    'label' => 'Rating',
-                    'name' => 'rating',
-                    'type' => 'number',
-                    'min' => 1,
-                    'max' => 5,
-                    'default_value' => 5,
-                ),
-                array(
-                    'key' => 'field_rev_title_en',
-                    'label' => 'Review Title (EN)',
-                    'name' => 'title_en',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_rev_title_ms',
-                    'label' => 'Review Title (MS)',
-                    'name' => 'title_ms',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_rev_body_en',
-                    'label' => 'Review Body (EN)',
-                    'name' => 'body_en',
-                    'type' => 'textarea',
-                ),
-                array(
-                    'key' => 'field_rev_body_ms',
-                    'label' => 'Review Body (MS)',
-                    'name' => 'body_ms',
-                    'type' => 'textarea',
-                ),
-            ),
-            'location' => array(
-                array(
-                    array(
-                        'param' => 'post_type',
-                        'operator' => '==',
-                        'value' => 'review',
-                    ),
-                ),
-            ),
-        ));
-
-        // --- CITIES FIELD GROUP ---
-        acf_add_local_field_group(array(
-            'key' => 'group_city_data',
-            'title' => 'City Page Details',
-            'fields' => array(
-                array(
-                    'key' => 'field_city_region_en',
-                    'label' => 'Region (EN)',
-                    'name' => 'region_en',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_city_region_ms',
-                    'label' => 'Region (MS)',
-                    'name' => 'region_ms',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_city_population',
-                    'label' => 'Population',
-                    'name' => 'population',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_city_days',
-                    'label' => 'Delivery Days (e.g. 7-12)',
-                    'name' => 'days',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_city_demographic_en',
-                    'label' => 'Target Demographic (EN)',
-                    'name' => 'demographic_en',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_city_demographic_ms',
-                    'label' => 'Target Demographic (MS)',
-                    'name' => 'demographic_ms',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_city_industry_en',
-                    'label' => 'Key Industry (EN)',
-                    'name' => 'industry_en',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_city_industry_ms',
-                    'label' => 'Key Industry (MS)',
-                    'name' => 'industry_ms',
-                    'type' => 'text',
-                ),
-                array(
-                    'key' => 'field_city_hero_desc_en',
-                    'label' => 'Hero Description (EN)',
-                    'name' => 'hero_description_en',
-                    'type' => 'textarea',
-                    'rows' => 3,
-                ),
-                array(
-                    'key' => 'field_city_hero_desc_ms',
-                    'label' => 'Hero Description (MS)',
-                    'name' => 'hero_description_ms',
-                    'type' => 'textarea',
-                    'rows' => 3,
-                ),
-                array(
-                    'key' => 'field_city_desc_en',
-                    'label' => 'Long Description (EN)',
-                    'name' => 'description_en',
-                    'type' => 'wysiwyg',
-                ),
-                array(
-                    'key' => 'field_city_desc_ms',
-                    'label' => 'Long Description (MS)',
-                    'name' => 'description_ms',
-                    'type' => 'wysiwyg',
-                ),
-                array(
-                    'key' => 'field_city_features',
-                    'label' => 'Feature Cards',
-                    'name' => 'features',
-                    'type' => 'repeater',
-                    'layout' => 'table',
-                    'sub_fields' => array(
-                        array(
-                            'key' => 'field_city_feat_icon',
-                            'label' => 'Lucide Icon Name',
-                            'name' => 'icon',
-                            'type' => 'text',
-                        ),
-                        array(
-                            'key' => 'field_city_feat_en',
-                            'label' => 'Text (EN)',
-                            'name' => 'text_en',
-                            'type' => 'text',
-                        ),
-                        array(
-                            'key' => 'field_city_feat_ms',
-                            'label' => 'Text (MS)',
-                            'name' => 'text_ms',
-                            'type' => 'text',
-                        ),
-                    ),
-                ),
-                array(
-                    'key' => 'field_city_reviews',
-                    'label' => 'Featured Reviews for this City',
-                    'name' => 'city_reviews',
-                    'type' => 'relationship',
-                    'post_type' => array('review'),
-                    'filters' => array('search'),
-                    'return_format' => 'id',
-                ),
-            ),
-            'location' => array(
-                array(
-                    array(
-                        'param' => 'post_type',
-                        'operator' => '==',
-                        'value' => 'city',
-                    ),
-                ),
-            ),
-        ));
-    });
-}
