@@ -180,6 +180,61 @@ if (function_exists('acf_add_local_field_group')) {
                         ),
                     ),
                 ),
+
+                // Tab: FAQs
+                array(
+                    'key' => 'field_tab_faqs',
+                    'label' => 'Global FAQs',
+                    'type' => 'tab',
+                ),
+                array(
+                    'key' => 'field_faqs_list',
+                    'label' => 'Frequently Asked Questions',
+                    'name' => 'faqs_list',
+                    'type' => 'repeater',
+                    'layout' => 'block',
+                    'button_label' => 'Add FAQ',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_faq_category',
+                            'label' => 'Category',
+                            'name' => 'category',
+                            'type' => 'select',
+                            'choices' => array(
+                                'Legal Status' => 'Legal Status',
+                                'Delivery' => 'Delivery',
+                                'Payment' => 'Payment',
+                                'Products' => 'Products',
+                            ),
+                        ),
+                        array(
+                            'key' => 'field_faq_q_en',
+                            'label' => 'Question (EN)',
+                            'name' => 'question_en',
+                            'type' => 'text',
+                        ),
+                        array(
+                            'key' => 'field_faq_q_ms',
+                            'label' => 'Question (MS)',
+                            'name' => 'question_ms',
+                            'type' => 'text',
+                        ),
+                        array(
+                            'key' => 'field_faq_a_en',
+                            'label' => 'Answer (EN)',
+                            'name' => 'answer_en',
+                            'type' => 'textarea',
+                            'rows' => 3,
+                        ),
+                        array(
+                            'key' => 'field_faq_a_ms',
+                            'label' => 'Answer (MS)',
+                            'name' => 'answer_ms',
+                            'type' => 'textarea',
+                            'rows' => 3,
+                        ),
+                    ),
+                ),
             ),
             'location' => array(
                 array(
