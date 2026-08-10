@@ -43,3 +43,25 @@ if (!function_exists('have_rows')) {
 if (!function_exists('the_row')) {
     function the_row() { return false; }
 }
+
+// 9. Enable SVG Uploads in Media Library
+add_filter('upload_mimes', function($mimes) {
+    if (current_user_can('manage_options')) {
+        $mimes['svg'] = 'image/svg+xml';
+    }
+    return $mimes;
+});
+
+// 10. Force precise Homepage Title
+add_filter('document_title_parts', function($title) {
+    if (is_front_page()) {
+        $title['title'] = get_bloginfo('name');
+        $title['tagline'] = get_bloginfo('description');
+        unset($title['site']);
+    }
+    return $title;
+});
+add_filter('document_title_separator', function($sep) {
+    if (is_front_page()) { return '|'; }
+    return $sep;
+});
