@@ -21,9 +21,7 @@ if (empty($product) || !$product->is_visible()) {
 $title = $product->get_title();
 $link = $product->get_permalink();
 $image = wp_get_attachment_image_url($product->get_image_id(), 'medium') ?: '';
-$per_tab = $product->get_meta('perTab');
-$price_from = $product->get_meta('priceFrom');
-$price_to = $product->get_meta('priceTo');
+$per_tab = get_field('price_per_unit', $product->get_id()); // From ACF
 $in_stock = $product->is_in_stock();
 ?>
 <article class="group relative flex flex-col overflow-hidden rounded-xl border border-border hover:border-primary bg-card shadow-card transition-shadow hover:shadow-card-hover">
@@ -39,8 +37,8 @@ $in_stock = $product->is_in_stock();
     <?php endif; ?>
 
     <!-- Product Image -->
-    <a href="<?= esc_url($link) ?>" class="block bg-surface p-6 pt-14">
-        <img src="<?= esc_url($image) ?>" alt="Buy <?= esc_attr($title) ?> online in Malaysia" loading="lazy" class="mx-auto h-44 w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]">
+    <a href="<?= esc_url($link) ?>" class="relative block aspect-square overflow-hidden bg-surface p-4">
+        <img src="<?= esc_url($image) ?>" alt="Buy <?= esc_attr($title) ?> online in Malaysia" loading="lazy" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110">
     </a>
 
     <!-- Product Info -->
@@ -53,17 +51,13 @@ $in_stock = $product->is_in_stock();
 
         <!-- Price Range -->
         <p class="mt-4 font-heading text-lg font-bold text-price">
-            <?php if ($price_from && $price_to): ?>
-                RM<?= number_format((float)$price_from, 2) ?> - RM<?= number_format((float)$price_to, 2) ?>
-            <?php else: ?>
-                <?= $product->get_price_html() ?>
-            <?php endif; ?>
+            <?= $product->get_price_html() ?>
         </p>
 
         <!-- As low as -->
         <?php if ($per_tab): ?>
         <p class="mt-1 text-sm font-medium text-primary-dark">
-            <?= modmy_t("As low as", "Serendah") ?> RM<?= number_format((float)$per_tab, 2) ?>/<?= modmy_t("tab", "biji") ?>
+            <?= modmy_t("As low as", "Serendah") ?> <?= esc_html($per_tab) ?>/<?= modmy_t("tab", "biji") ?>
         </p>
         <?php endif; ?>
 
