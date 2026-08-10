@@ -50,11 +50,11 @@ function modmy_remove_wc_elements() {
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 }
 
-// 4. Disable Cart & Checkout pages redirect
-add_action('template_redirect', 'modmy_redirect_cart_checkout');
-function modmy_redirect_cart_checkout() {
-    if (is_cart() || is_checkout()) {
-        wp_redirect(wc_get_page_permalink('shop'));
-        exit;
-    }
-}
+// 4. Disable Cart & Checkout pages redirect (Commented out to allow side cart checkout)
+// add_action('template_redirect', 'modmy_redirect_cart_checkout');
+// function modmy_redirect_cart_checkout() {
+//     if (is_cart() || is_checkout()) {
+//         wp_redirect(wc_get_page_permalink('shop'));
+//         exit;
+//     }
+// }
