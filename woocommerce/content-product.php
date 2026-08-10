@@ -38,7 +38,7 @@ $in_stock = $product->is_in_stock();
 
     <!-- Product Image -->
     <a href="<?= esc_url($link) ?>" class="relative block aspect-square overflow-hidden bg-surface">
-        <img src="<?= esc_url($image) ?>" alt="Buy <?= esc_attr($title) ?> online in Malaysia" loading="lazy" class="h-full w-full scale-110 object-contain transition-transform duration-500 group-hover:scale-125">
+        <img src="<?= esc_url($image) ?>" alt="Buy <?= esc_attr($title) ?> online in Malaysia" loading="lazy" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110">
     </a>
 
     <!-- Product Info -->
