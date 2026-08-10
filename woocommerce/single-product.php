@@ -22,9 +22,7 @@ if (!$product) {
 }
 
 $brand = $product->get_meta('brand') ?: 'HAB Pharma';
-$per_tab = $product->get_meta('perTab');
-$price_from = $product->get_meta('priceFrom');
-$price_to = $product->get_meta('priceTo');
+$per_tab = get_field('price_per_unit', $product->get_id()); // Dynamically loaded via ACF
 $summary_raw = $product->get_short_description();
 
 // Parse bilingual summary from <!-- en -->...<!-- /en --><!-- ms -->...<!-- /ms --> format
@@ -41,6 +39,8 @@ $variations = [];
 if ($product->is_type('variable')) {
     $variations = $product->get_available_variations();
 }
+
+$text_under_image = get_field('text_under_product_image', $product->get_id());
 ?>
 
 <div class="border-b border-border bg-surface">
@@ -55,21 +55,30 @@ if ($product->is_type('variable')) {
 
 <section class="section-y bg-background">
     <div class="container-site grid gap-12 lg:grid-cols-2">
-        <!-- Image Area -->
-        <div class="relative rounded-2xl border border-border bg-surface p-10">
-            <?php if($product->is_in_stock()): ?>
-            <span class="absolute left-5 top-5 rounded-md bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
-                <?= modmy_t("In Stock", "Ada Stok") ?>
-            </span>
-            <?php else: ?>
-            <span class="absolute left-5 top-5 rounded-md bg-destructive px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-destructive-foreground">
-                <?= modmy_t("Out of Stock", "Habis Stok") ?>
-            </span>
+        <!-- Left Column: Image Area -->
+        <div>
+            <div class="relative rounded-2xl border border-border bg-surface p-0 overflow-hidden">
+                <?php if($product->is_in_stock()): ?>
+                <span class="absolute left-5 top-5 rounded-md bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+                    <?= modmy_t("In Stock", "Ada Stok") ?>
+                </span>
+                <?php else: ?>
+                <span class="absolute left-5 top-5 rounded-md bg-destructive px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-destructive-foreground">
+                    <?= modmy_t("Out of Stock", "Habis Stok") ?>
+                </span>
+                <?php endif; ?>
+                <img src="<?= esc_url($image) ?>" alt="<?= esc_attr($product->get_name()) ?>" class="mx-auto h-80 w-full object-contain" />
+            </div>
+
+            <!-- ACF: Text under product image -->
+            <?php if (!empty($text_under_image)): ?>
+                <div class="mt-8 prose prose-slate prose-sm max-w-none rounded-xl border border-border bg-surface p-6">
+                    <?= $text_under_image ?>
+                </div>
             <?php endif; ?>
-            <img src="<?= esc_url($image) ?>" alt="<?= esc_attr($product->get_name()) ?>" class="mx-auto h-80 w-full object-contain" />
         </div>
 
-        <!-- Info Area -->
+        <!-- Right Column: Info Area -->
         <div>
             <p class="text-sm font-semibold uppercase tracking-widest text-primary">
                 <?= esc_html($brand) ?>
@@ -82,15 +91,11 @@ if ($product->is_type('variable')) {
             </p>
 
             <p class="mt-6 font-heading text-2xl font-extrabold text-price">
-                <?php if ($price_from && $price_to): ?>
-                    RM<?= number_format((float)$price_from, 2) ?> - RM<?= number_format((float)$price_to, 2) ?>
-                <?php else: ?>
-                    <?= $price_html ?>
-                <?php endif; ?>
+                <?= $price_html ?>
             </p>
             <p class="mt-1 text-sm font-semibold text-primary-dark">
                 <?php if ($per_tab): ?>
-                    <?= modmy_t("As low as", "Serendah") ?> RM<?= number_format((float)$per_tab, 2) ?>/<?= modmy_t("tab", "biji") ?>
+                    <?= modmy_t("As low as", "Serendah") ?> <?= esc_html($per_tab) ?>/<?= modmy_t("tab", "biji") ?>
                 <?php endif; ?>
             </p>
 
@@ -203,6 +208,31 @@ if ($product->is_type('variable')) {
                     <?= modmy_t("Discreet packaging, with tracking number", "Pembungkusan diskret, berserta nombor penjejakan") ?>
                 </li>
             </ul>
+
+            <!-- ACF: Extra Tabs -->
+            <?php if (have_rows('extra_tabs', $product->get_id())): ?>
+                <div class="mt-10 space-y-4">
+                    <?php while (have_rows('extra_tabs', $product->get_id())): the_row(); 
+                        $tab_title = get_sub_field('tab_title');
+                        $tab_content = get_sub_field('tab_content');
+                    ?>
+                        <details class="group rounded-xl border border-border bg-surface [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 text-sm font-bold text-foreground transition-colors hover:text-primary">
+                                <?= esc_html($tab_title) ?>
+                                <span class="transition-transform group-open:rotate-180">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <div class="border-t border-border p-5 text-sm leading-relaxed text-muted-foreground prose prose-sm prose-slate max-w-none">
+                                <?= $tab_content ?>
+                            </div>
+                        </details>
+                    <?php endwhile; ?>
+                </div>
+            <?php endif; ?>
+            
         </div>
     </div>
 </section>
