@@ -5,10 +5,14 @@
   "private": true,
   "scripts": {
     "build": "npx @tailwindcss/cli -i ./assets/css/source.css -o ./assets/css/main.css --minify",
-    "dev": "npx @tailwindcss/cli -i ./assets/css/source.css -o ./assets/css/main.css --watch"
+    "tailwind": "npx @tailwindcss/cli -i ./assets/css/source.css -o ./assets/css/main.css --watch",
+    "sync": "browser-sync start --proxy \"http://modafinil-malaysia.test\" --files \"**/*.php, assets/css/*.css, assets/js/*.js\"",
+    "dev": "npm-run-all --parallel tailwind sync"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0",
+    "browser-sync": "^3.0.4",
+    "npm-run-all": "^4.1.5",
     "tailwindcss": "^4.0.0"
   },
   "dependencies": {
