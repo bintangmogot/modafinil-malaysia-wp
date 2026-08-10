@@ -92,7 +92,7 @@ $is_en = $lang === 'en';
             $cart_count = WC()->cart->get_cart_contents_count(); 
             ?>
             <button type="button" aria-label="Cart" class="xoo-wsc-cart-trigger relative rounded-md p-2 text-foreground/70 transition-colors hover:text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
                 <span class="xoo-wsc-items-count absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-white" style="display: <?= $cart_count > 0 ? 'flex' : 'none' ?>;">
                     <?= $cart_count ?>
                 </span>
