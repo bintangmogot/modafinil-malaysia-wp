@@ -29,7 +29,7 @@ $desc_ms = get_sub_field('description_ms') ?: "Dari pelajar UM di KL hingga dokt
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <?php if(have_rows('audiences')): ?>
                 <?php while(have_rows('audiences')): the_row(); ?>
-                <div class="bg-white border border-stone-200 rounded-xl p-6 hover:border-primary-soft hover:shadow-md transition-all">
+                <div class="bg-white border border-stone-200 rounded-xl p-6 hover:border-primary hover:shadow-md transition-all">
                     <div class="w-12 h-12 rounded-xl bg-primary-softer text-primary-dark flex items-center justify-center mb-4">
                         <?= get_sub_field('icon_svg') ?>
                     </div>

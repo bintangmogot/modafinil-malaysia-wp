@@ -11,15 +11,32 @@ get_header('shop');
 
 global $product;
 
-$brand = get_field('brand', $product->get_id()) ?: "HAB Pharma";
-$dosage = get_field('dosage', $product->get_id()) ?: "200mg";
-$summary_en = get_field('summary_en', $product->get_id()) ?: "";
-$summary_ms = get_field('summary_ms', $product->get_id()) ?: $summary_en;
-$image = wp_get_attachment_image_url($product->get_image_id(), 'large') ?: MODMY_THEME_URI . '/assets/images/placeholder.jpg';
+// Ensure we have a proper WC_Product object
+if (!is_a($product, 'WC_Product')) {
+    $product = wc_get_product(get_the_ID());
+}
+
+if (!$product) {
+    get_footer('shop');
+    return;
+}
+
+$brand = $product->get_meta('brand') ?: 'HAB Pharma';
+$per_tab = $product->get_meta('perTab');
+$price_from = $product->get_meta('priceFrom');
+$price_to = $product->get_meta('priceTo');
+$summary_raw = $product->get_short_description();
+
+// Parse bilingual summary from <!-- en -->...<!-- /en --><!-- ms -->...<!-- /ms --> format
+preg_match('/<!-- en -->(.+?)<!-- \/en -->/s', $summary_raw, $en_match);
+preg_match('/<!-- ms -->(.+?)<!-- \/ms -->/s', $summary_raw, $ms_match);
+$summary_en = !empty($en_match[1]) ? trim($en_match[1]) : strip_tags($summary_raw);
+$summary_ms = !empty($ms_match[1]) ? trim($ms_match[1]) : $summary_en;
+
+$image = wp_get_attachment_image_url($product->get_image_id(), 'large') ?: '';
 $price_html = $product->get_price_html();
 
-$whatsapp = get_field('whatsapp_number', 'option') ?: '601116284532';
-$whatsapp = preg_replace('/[^0-9]/', '', $whatsapp);
+$whatsapp = '601116284532';
 $message = "Hi ModafinilMY, I'm interested in buying " . $product->get_name();
 $whatsapp_url = "https://wa.me/" . $whatsapp . "?text=" . urlencode($message);
 ?>
@@ -64,7 +81,9 @@ $whatsapp_url = "https://wa.me/" . $whatsapp . "?text=" . urlencode($message);
                 <?= $price_html ?>
             </p>
             <p class="mt-1 text-sm font-semibold text-primary-dark">
-                <?= esc_html($dosage) ?>
+                <?php if ($per_tab): ?>
+                    <?= modmy_t("As low as", "Serendah") ?> RM<?= number_format((float)$per_tab, 2) ?>/<?= modmy_t("tab", "biji") ?>
+                <?php endif; ?>
             </p>
 
             <div class="mt-6 flex flex-wrap gap-3">
