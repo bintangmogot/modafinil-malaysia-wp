@@ -416,13 +416,14 @@
   --gf-button-bg-color-hover: var(--color-primary-dark) !important;
   --gf-button-text-color: var(--color-primary-foreground) !important;
   --gf-button-radius: 9999px !important;
+  --gf-gfield-margin-top: 16px !important;
 }
 
 .gform_wrapper form {
   @apply !flex !flex-col;
 }
 .gform_wrapper .gfield {
-  @apply !flex !flex-col !mb-4;
+  @apply !flex !flex-col;
 }
 .gform_wrapper .gfield_label {
   @apply !text-sm !font-semibold !text-foreground !mb-2;
