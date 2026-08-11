@@ -245,84 +245,85 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                 </div>
             </div>
 
-            <!-- ACF: Extra Tabs -->
-            <?php if (have_rows('extra_tabs', $product->get_id())): ?>
-                <div class="mt-10" id="product-tabs">
-                    <!-- Tab Headers -->
-                    <div class="flex overflow-x-auto border-b border-slate-200" role="tablist">
-                        <?php 
-                        $tab_index = 0;
-                        while (have_rows('extra_tabs', $product->get_id())): the_row(); 
-                            $tab_title = get_sub_field('tab_title');
-                        ?>
-                            <button 
-                                type="button" 
-                                role="tab" 
-                                aria-selected="<?= $tab_index === 0 ? 'true' : 'false' ?>"
-                                aria-controls="tab-panel-<?= $tab_index ?>"
-                                id="tab-<?= $tab_index ?>"
-                                class="tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none <?= $tab_index === 0 ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300' ?>"
-                                data-index="<?= $tab_index ?>"
-                            >
-                                <?= esc_html($tab_title) ?>
-                            </button>
-                        <?php 
-                        $tab_index++;
-                        endwhile; ?>
-                    </div>
 
-                    <!-- Tab Panels -->
-                    <div class="pt-6">
-                        <?php 
-                        $tab_index = 0;
-                        while (have_rows('extra_tabs', $product->get_id())): the_row(); 
-                            $tab_content = get_sub_field('tab_content');
-                        ?>
-                            <div 
-                                id="tab-panel-<?= $tab_index ?>" 
-                                role="tabpanel" 
-                                aria-labelledby="tab-<?= $tab_index ?>"
-                                class="tab-panel prose prose-sm prose-slate max-w-none <?= $tab_index === 0 ? 'block' : 'hidden' ?>"
-                            >
-                                <?= $tab_content ?>
-                            </div>
-                        <?php 
-                        $tab_index++;
-                        endwhile; ?>
-                    </div>
-                </div>
-
-                <!-- Tabs Script -->
-                <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    const tabBtns = document.querySelectorAll('#product-tabs .tab-btn');
-                    const tabPanels = document.querySelectorAll('#product-tabs .tab-panel');
-
-                    tabBtns.forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            const index = this.dataset.index;
-                            
-                            // Reset all
-                            tabBtns.forEach(b => {
-                                b.setAttribute('aria-selected', 'false');
-                                b.className = "tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300";
-                            });
-                            tabPanels.forEach(p => {
-                                p.className = "tab-panel prose prose-sm prose-slate max-w-none hidden";
-                            });
-
-                            // Activate clicked
-                            this.setAttribute('aria-selected', 'true');
-                            this.className = "tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none border-primary text-primary";
-                            document.getElementById('tab-panel-' + index).className = "tab-panel prose prose-sm prose-slate max-w-none block";
-                        });
-                    });
-                });
-                </script>
-            <?php endif; ?>
             
         </div>
     </div>
+    <!-- ACF: Extra Tabs -->
+    <?php if (have_rows('extra_tabs', $product->get_id())): ?>
+        <div class="mt-10" id="product-tabs">
+            <!-- Tab Headers -->
+            <div class="flex overflow-x-auto border-b border-slate-200" role="tablist">
+                <?php 
+                $tab_index = 0;
+                while (have_rows('extra_tabs', $product->get_id())): the_row(); 
+                    $tab_title = get_sub_field('tab_title');
+                ?>
+                    <button 
+                        type="button" 
+                        role="tab" 
+                        aria-selected="<?= $tab_index === 0 ? 'true' : 'false' ?>"
+                        aria-controls="tab-panel-<?= $tab_index ?>"
+                        id="tab-<?= $tab_index ?>"
+                        class="tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none <?= $tab_index === 0 ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300' ?>"
+                        data-index="<?= $tab_index ?>"
+                    >
+                        <?= esc_html($tab_title) ?>
+                    </button>
+                <?php 
+                $tab_index++;
+                endwhile; ?>
+            </div>
+
+            <!-- Tab Panels -->
+            <div class="pt-6">
+                <?php 
+                $tab_index = 0;
+                while (have_rows('extra_tabs', $product->get_id())): the_row(); 
+                    $tab_content = get_sub_field('tab_content');
+                ?>
+                    <div 
+                        id="tab-panel-<?= $tab_index ?>" 
+                        role="tabpanel" 
+                        aria-labelledby="tab-<?= $tab_index ?>"
+                        class="tab-panel prose prose-sm prose-slate max-w-none <?= $tab_index === 0 ? 'block' : 'hidden' ?>"
+                    >
+                        <?= $tab_content ?>
+                    </div>
+                <?php 
+                $tab_index++;
+                endwhile; ?>
+            </div>
+        </div>
+
+        <!-- Tabs Script -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('#product-tabs .tab-btn');
+            const tabPanels = document.querySelectorAll('#product-tabs .tab-panel');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = this.dataset.index;
+                    
+                    // Reset all
+                    tabBtns.forEach(b => {
+                        b.setAttribute('aria-selected', 'false');
+                        b.className = "tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300";
+                    });
+                    tabPanels.forEach(p => {
+                        p.className = "tab-panel prose prose-sm prose-slate max-w-none hidden";
+                    });
+
+                    // Activate clicked
+                    this.setAttribute('aria-selected', 'true');
+                    this.className = "tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none border-primary text-primary";
+                    document.getElementById('tab-panel-' + index).className = "tab-panel prose prose-sm prose-slate max-w-none block";
+                });
+            });
+        });
+        </script>
+    <?php endif; ?>
 </section>
 
 <!-- Reviews Section -->
