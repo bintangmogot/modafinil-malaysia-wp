@@ -187,10 +187,52 @@ add_action('acf/save_post', function($post_id) {
             }
         }
         
-        // Check and translate Content
+        // Helper function to translate HTML safely
+        $translate_html = function($html, $translator) {
+            if (empty(trim($html))) return $html;
+            $dom = new DOMDocument();
+            libxml_use_internal_errors(true);
+            // Use mb_convert_encoding to ensure UTF-8 is handled properly in DOMDocument
+            $html_safe = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+            $dom->loadHTML('<?xml encoding="utf-8" ?>' . $html_safe, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            libxml_clear_errors();
+            
+            $xpath = new DOMXPath($dom);
+            $textNodes = $xpath->query('//text()[normalize-space() != ""]');
+            
+            $separator = ' |###| ';
+            $texts = [];
+            foreach ($textNodes as $node) {
+                $texts[] = $node->nodeValue;
+            }
+            
+            if (!empty($texts)) {
+                $combined = implode($separator, $texts);
+                $translated_combined = $translator->translate($combined);
+                $translated_texts = explode(trim($separator), $translated_combined);
+                
+                // Sometimes Stichoza/Google drops spaces around the separator
+                $translated_texts = array_map('trim', $translated_texts);
+                
+                // Fallback if mismatch
+                if (count($translated_texts) === count($texts)) {
+                    foreach ($textNodes as $index => $node) {
+                        $node->nodeValue = htmlspecialchars($translated_texts[$index], ENT_QUOTES, 'UTF-8');
+                    }
+                } else {
+                    // Fallback to raw translation if separator breaks
+                    return $translator->translate($html);
+                }
+            }
+            $result = $dom->saveHTML();
+            return str_replace(['<?xml encoding="utf-8" ?>', '<html><body>', '</body></html>'], '', $result);
+        };
+        
+        // Check and translate Content Safely
         $content_ms = get_post_meta($post_id, '_content_ms', true);
         if (empty($content_ms) && !empty($post->post_content)) {
-            update_post_meta($post_id, '_content_ms', $tr->translate($post->post_content));
+            $translated_content = $translate_html($post->post_content, $tr);
+            update_post_meta($post_id, '_content_ms', trim($translated_content));
         }
         
         // Check and translate Category (Only for posts)

@@ -3367,6 +3367,153 @@
                             "key": "field_stm_19c8c18574dc"
                         }
                     ]
+                },
+                "layout_city_delivery": {
+                    "key": "layout_city_delivery",
+                    "name": "city_delivery",
+                    "label": "City Delivery Landing Page",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "label": "City Name",
+                            "name": "city_name",
+                            "type": "text",
+                            "required": 1,
+                            "key": "field_city_4e700465560a"
+                        },
+                        {
+                            "label": "Region",
+                            "name": "region",
+                            "type": "text",
+                            "key": "field_city_180016246c8e"
+                        },
+                        {
+                            "label": "Population",
+                            "name": "population",
+                            "type": "text",
+                            "key": "field_city_c2c1a0bb0b2d"
+                        },
+                        {
+                            "label": "Delivery Days",
+                            "name": "delivery_days",
+                            "type": "text",
+                            "key": "field_city_927abea3e5cd"
+                        },
+                        {
+                            "label": "Demographic (EN)",
+                            "name": "demographic_en",
+                            "type": "text",
+                            "key": "field_city_11ce776de785"
+                        },
+                        {
+                            "label": "Demographic (MS)",
+                            "name": "demographic_ms",
+                            "type": "text",
+                            "key": "field_city_f36ad4dd710d"
+                        },
+                        {
+                            "label": "Industry (EN)",
+                            "name": "industry_en",
+                            "type": "text",
+                            "key": "field_city_1d15e28c9f77"
+                        },
+                        {
+                            "label": "Industry (MS)",
+                            "name": "industry_ms",
+                            "type": "text",
+                            "key": "field_city_98df291962f3"
+                        },
+                        {
+                            "label": "Hero Description (EN)",
+                            "name": "hero_desc_en",
+                            "type": "textarea",
+                            "key": "field_city_3fb43d17d5cb"
+                        },
+                        {
+                            "label": "Hero Description (MS)",
+                            "name": "hero_desc_ms",
+                            "type": "textarea",
+                            "key": "field_city_44d647761d90"
+                        },
+                        {
+                            "label": "Description (EN)",
+                            "name": "desc_en",
+                            "type": "textarea",
+                            "key": "field_city_2b8834e47af2"
+                        },
+                        {
+                            "label": "Description (MS)",
+                            "name": "desc_ms",
+                            "type": "textarea",
+                            "key": "field_city_123737155c17"
+                        },
+                        {
+                            "label": "Features",
+                            "name": "features",
+                            "type": "repeater",
+                            "layout": "table",
+                            "sub_fields": [
+                                {
+                                    "label": "Feature (EN)",
+                                    "name": "feat_en",
+                                    "type": "text",
+                                    "key": "feat_en_226dcea21a96"
+                                },
+                                {
+                                    "label": "Feature (MS)",
+                                    "name": "feat_ms",
+                                    "type": "text",
+                                    "key": "feat_ms_bec0a1370a0e"
+                                }
+                            ],
+                            "key": "field_city_b906e20f51a5"
+                        },
+                        {
+                            "label": "Reviews",
+                            "name": "reviews",
+                            "type": "repeater",
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "label": "Author",
+                                    "name": "author",
+                                    "type": "text",
+                                    "key": "rev_auth_bd7dc0a3a5b6"
+                                },
+                                {
+                                    "label": "Rating",
+                                    "name": "rating",
+                                    "type": "number",
+                                    "key": "rev_rat_609f0be1d61e"
+                                },
+                                {
+                                    "label": "Date (EN)",
+                                    "name": "date_en",
+                                    "type": "text",
+                                    "key": "rev_den_e6cd4be66efd"
+                                },
+                                {
+                                    "label": "Date (MS)",
+                                    "name": "date_ms",
+                                    "type": "text",
+                                    "key": "rev_dms_9648d02eff19"
+                                },
+                                {
+                                    "label": "Text (EN)",
+                                    "name": "text_en",
+                                    "type": "textarea",
+                                    "key": "rev_ten_753d322f0a1a"
+                                },
+                                {
+                                    "label": "Text (MS)",
+                                    "name": "text_ms",
+                                    "type": "textarea",
+                                    "key": "rev_tms_9a1e8e61764d"
+                                }
+                            ],
+                            "key": "field_city_56c16bc341bd"
+                        }
+                    ]
                 }
             },
             "min": "",
