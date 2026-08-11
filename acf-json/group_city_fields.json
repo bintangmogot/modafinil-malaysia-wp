@@ -1,0 +1,161 @@
+{
+    "key": "group_city_fields",
+    "title": "City Fields",
+    "fields": [
+        {
+            "key": "field_city_ce059537dd",
+            "label": "City Name",
+            "name": "city_name",
+            "type": "text"
+        },
+        {
+            "key": "field_city_680ced9e34",
+            "label": "Region",
+            "name": "region",
+            "type": "text"
+        },
+        {
+            "key": "field_city_360585b1b5",
+            "label": "Population",
+            "name": "population",
+            "type": "text"
+        },
+        {
+            "key": "field_city_9892e3300e",
+            "label": "Delivery Days",
+            "name": "delivery_days",
+            "type": "text"
+        },
+        {
+            "key": "field_city_abaa91cacc",
+            "label": "Demographic (EN)",
+            "name": "demographic_en",
+            "type": "text"
+        },
+        {
+            "key": "field_city_b9c9a41bb1",
+            "label": "Demographic (MS)",
+            "name": "demographic_ms",
+            "type": "text"
+        },
+        {
+            "key": "field_city_cb3f0ff75b",
+            "label": "Industry (EN)",
+            "name": "industry_en",
+            "type": "text"
+        },
+        {
+            "key": "field_city_14418b873b",
+            "label": "Industry (MS)",
+            "name": "industry_ms",
+            "type": "text"
+        },
+        {
+            "key": "field_city_fa0fc3abac",
+            "label": "Hero Description (EN)",
+            "name": "hero_desc_en",
+            "type": "textarea"
+        },
+        {
+            "key": "field_city_1badd5853a",
+            "label": "Hero Description (MS)",
+            "name": "hero_desc_ms",
+            "type": "textarea"
+        },
+        {
+            "key": "field_city_f770a53d7d",
+            "label": "Description (EN)",
+            "name": "desc_en",
+            "type": "textarea"
+        },
+        {
+            "key": "field_city_13e0593f7f",
+            "label": "Description (MS)",
+            "name": "desc_ms",
+            "type": "textarea"
+        },
+        {
+            "key": "field_city_49979aff46",
+            "label": "Features",
+            "name": "features",
+            "type": "repeater",
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_city_90d4aeda50",
+                    "label": "Feature (EN)",
+                    "name": "feat_en",
+                    "type": "text"
+                },
+                {
+                    "key": "field_city_c32288ef60",
+                    "label": "Feature (MS)",
+                    "name": "feat_ms",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_city_46e61eefb4",
+            "label": "Reviews",
+            "name": "reviews",
+            "type": "repeater",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_city_31a98aede4",
+                    "label": "Author",
+                    "name": "author",
+                    "type": "text"
+                },
+                {
+                    "key": "field_city_da7ad3a5ca",
+                    "label": "Rating",
+                    "name": "rating",
+                    "type": "number"
+                },
+                {
+                    "key": "field_city_d3899a0fe1",
+                    "label": "Date (EN)",
+                    "name": "date_en",
+                    "type": "text"
+                },
+                {
+                    "key": "field_city_3791aea627",
+                    "label": "Date (MS)",
+                    "name": "date_ms",
+                    "type": "text"
+                },
+                {
+                    "key": "field_city_4d580b61ed",
+                    "label": "Text (EN)",
+                    "name": "text_en",
+                    "type": "textarea"
+                },
+                {
+                    "key": "field_city_ddad52d027",
+                    "label": "Text (MS)",
+                    "name": "text_ms",
+                    "type": "textarea"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "city"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": false
+}
