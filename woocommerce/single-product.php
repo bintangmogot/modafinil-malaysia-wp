@@ -250,7 +250,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
     <?php if (have_rows('extra_tabs', $product->get_id())): ?>
         <div class="mt-10 lg:mt-20" id="product-tabs">
             <!-- Tab Headers -->
-            <div class="flex flex-wrap border-b-0 md:border-b border-slate-200" role="tablist">
+            <div class="flex overflow-x-auto hide-scrollbar border-b border-slate-200" role="tablist">
                 <?php 
                 $tab_index = 0;
                 while (have_rows('extra_tabs', $product->get_id())): the_row(); 
@@ -262,7 +262,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                         aria-selected="<?= $tab_index === 0 ? 'true' : 'false' ?>"
                         aria-controls="tab-panel-<?= $tab_index ?>"
                         id="tab-<?= $tab_index ?>"
-                        class="tab-btn whitespace-nowrap text-xs md:text-sm font-bold transition-colors focus:outline-none border rounded-md md:rounded-none md:border-t-0 md:border-x-0 md:border-b-2 px-3.5 py-2 md:py-3 md:px-5 mr-2 mb-2 md:mr-0 md:mb-0 <?= $tab_index === 0 ? 'bg-primary text-white border-primary md:bg-transparent md:text-primary md:border-primary' : 'bg-white text-slate-500 border-slate-200 md:bg-transparent md:text-slate-500 md:border-transparent hover:text-slate-800 hover:border-slate-300' ?>"
+                        class="tab-btn shrink-0 whitespace-nowrap text-sm font-bold transition-colors focus:outline-none border-b-2 px-4 md:px-6 py-3 md:py-4 <?= $tab_index === 0 ? 'text-primary border-primary' : 'text-slate-500 border-transparent hover:text-slate-800 hover:border-slate-300' ?>"
                         data-index="<?= $tab_index ?>"
                     >
                         <?= esc_html($tab_title) ?>
@@ -306,7 +306,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                     // Reset all
                     tabBtns.forEach(b => {
                         b.setAttribute('aria-selected', 'false');
-                        b.className = "tab-btn whitespace-nowrap text-xs md:text-sm font-bold transition-colors focus:outline-none border rounded-md md:rounded-none md:border-t-0 md:border-x-0 md:border-b-2 px-3.5 py-2 md:py-3 md:px-5 mr-2 mb-2 md:mr-0 md:mb-0 bg-white text-slate-500 border-slate-200 md:bg-transparent md:text-slate-500 md:border-transparent hover:text-slate-800 hover:border-slate-300";
+                        b.className = "tab-btn shrink-0 whitespace-nowrap text-sm font-bold transition-colors focus:outline-none border-b-2 px-4 md:px-6 py-3 md:py-4 text-slate-500 border-transparent hover:text-slate-800 hover:border-slate-300";
                     });
                     tabPanels.forEach(p => {
                         p.className = "tab-panel prose prose-sm prose-slate max-w-none hidden";
@@ -314,7 +314,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
 
                     // Activate clicked
                     this.setAttribute('aria-selected', 'true');
-                    this.className = "tab-btn whitespace-nowrap text-xs md:text-sm font-bold transition-colors focus:outline-none border rounded-md md:rounded-none md:border-t-0 md:border-x-0 md:border-b-2 px-3.5 py-2 md:py-3 md:px-5 mr-2 mb-2 md:mr-0 md:mb-0 bg-primary text-white border-primary md:bg-transparent md:text-primary md:border-primary";
+                    this.className = "tab-btn shrink-0 whitespace-nowrap text-sm font-bold transition-colors focus:outline-none border-b-2 px-4 md:px-6 py-3 md:py-4 text-primary border-primary";
                     document.getElementById('tab-panel-' + index).className = "tab-panel prose prose-sm prose-slate max-w-none block";
                 });
             });

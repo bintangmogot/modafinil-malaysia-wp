@@ -77,7 +77,7 @@ $color_map = [
         <span class="mb-5 inline-block rounded-full bg-emerald-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-300 border border-emerald-500/30">
             <?= modmy_t($page_badge_en, $page_badge_ms) ?>
         </span>
-        <h1 class="mb-5 font-heading text-4xl font-black leading-tight md:text-5xl drop-shadow">
+        <h1 class="mb-5 font-heading text-3xl font-black leading-tight md:text-5xl drop-shadow">
             <?= modmy_t($page_title_en, $page_title_ms) ?>
         </h1>
         <p class="max-w-3xl text-lg leading-relaxed text-slate-300">
@@ -95,7 +95,7 @@ $color_map = [
 <section class="section-padding bg-white">
     <div class="container-custom max-w-6xl">
         <div class="mb-10 text-center">
-            <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
+            <h2 class="font-heading text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t('Standard Modafinil Dosages', 'Dos Standard Modafinil') ?>
             </h2>
             <p class="mt-3 text-slate-500 text-sm max-w-xl mx-auto">
@@ -107,7 +107,7 @@ $color_map = [
                 $c = $color_map[$card['color'] ?? 'emerald'] ?? $color_map['emerald'];
             ?>
             <div class="relative flex flex-col overflow-hidden rounded-2xl border <?= $c['border'] ?> <?= $c['bg'] ?> p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-                <p class="mb-2 font-heading text-5xl font-black <?= $c['text'] ?>"><?= esc_html($card['dose']) ?></p>
+                <p class="mb-2 font-heading text-4xl md:text-5xl font-black <?= $c['text'] ?>"><?= esc_html($card['dose']) ?></p>
                 <span class="mx-auto mb-4 inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest <?= $c['badge'] ?>">
                     <?= modmy_t($card['label_en'] ?? '', $card['label_ms'] ?? '') ?>
                 </span>
@@ -124,7 +124,7 @@ $color_map = [
 <section class="section-padding bg-stone-50 border-t border-stone-200">
     <div class="container-custom max-w-6xl">
         <div class="mb-10 text-center">
-            <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
+            <h2 class="font-heading text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t('Which Product Matches Your Dose?', 'Produk Mana yang Sesuai dengan Dos Anda?') ?>
             </h2>
         </div>
@@ -160,7 +160,7 @@ $color_map = [
 <section class="section-padding bg-white border-t border-stone-200">
     <div class="container-custom max-w-5xl">
         <div class="mb-10 text-center">
-            <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
+            <h2 class="font-heading text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t('Best Time to Take Modafinil in Malaysia', 'Masa Terbaik untuk Mengambil Modafinil di Malaysia') ?>
             </h2>
             <p class="mt-3 text-sm text-slate-500 max-w-2xl mx-auto">
@@ -186,7 +186,7 @@ $color_map = [
 <section class="section-padding bg-gradient-to-br from-emerald-50 to-stone-50 border-t border-stone-200">
     <div class="container-custom max-w-6xl">
         <div class="mb-10 text-center">
-            <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
+            <h2 class="font-heading text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t("Tips Specific to Malaysia's Climate", "Petua Khusus untuk Cuaca Malaysia") ?>
             </h2>
             <p class="mt-3 text-sm text-slate-500 max-w-xl mx-auto">
@@ -215,7 +215,7 @@ $color_map = [
 <section class="section-padding bg-white border-t border-stone-200">
     <div class="container-custom max-w-6xl">
         <div class="mb-12 text-center">
-            <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
+            <h2 class="font-heading text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t('Frequently Asked Questions', 'Soalan Lazim') ?>
             </h2>
         </div>
