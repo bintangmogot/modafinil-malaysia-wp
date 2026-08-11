@@ -421,9 +421,6 @@
 .gform_wrapper form {
   @apply !flex !flex-col;
 }
-.gform_wrapper .gform_fields {
-  @apply !flex !flex-col !gap-2;
-}
 .gform_wrapper .gfield {
   @apply !flex !flex-col !mb-4;
 }
