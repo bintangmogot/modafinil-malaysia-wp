@@ -423,7 +423,7 @@
   @apply !flex !flex-col;
 }
 .gform_wrapper .gfield {
-  @apply !flex !flex-col;
+  @apply !flex !flex-col !mt-3 !mb-0 !pb-0;
 }
 .gform_wrapper .gfield_label {
   @apply !text-sm !font-semibold !text-foreground !mb-2;
