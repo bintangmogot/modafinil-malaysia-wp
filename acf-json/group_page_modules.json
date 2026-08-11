@@ -1125,7 +1125,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "http:\/\/modafinil-malaysia.test\/faq",
+                            "default_value": "http://modafinil-malaysia.test/faq",
                             "placeholder": ""
                         }
                     ],
@@ -1152,7 +1152,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
+                            "default_value": "Contact Us",
                             "maxlength": "",
                             "placeholder": "",
                             "prepend": "",
@@ -1172,7 +1172,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
+                            "default_value": "Hubungi Kami",
                             "maxlength": "",
                             "placeholder": "",
                             "prepend": "",
@@ -1192,7 +1192,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
+                            "default_value": "WhatsApp Us",
                             "maxlength": "",
                             "placeholder": "",
                             "prepend": "",
@@ -1212,7 +1212,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
+                            "default_value": "WhatsApp Kami",
                             "maxlength": "",
                             "placeholder": "",
                             "prepend": "",
@@ -1896,6 +1896,266 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_about_intro": {
+                    "key": "layout_about_intro",
+                    "name": "about_intro",
+                    "label": "About Intro",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_3e7787969b6a4",
+                            "label": "Tag (EN)",
+                            "name": "tag_en",
+                            "type": "text",
+                            "default_value": "About Us"
+                        },
+                        {
+                            "key": "field_3df3f2d8f79e4",
+                            "label": "Tag (MS)",
+                            "name": "tag_ms",
+                            "type": "text",
+                            "default_value": "Tentang Kami"
+                        },
+                        {
+                            "key": "field_f2349bf4f6724",
+                            "label": "Heading (EN)",
+                            "name": "heading_en",
+                            "type": "text",
+                            "default_value": "Malaysia's Trusted Modafinil Supplier"
+                        },
+                        {
+                            "key": "field_927bc070ff084",
+                            "label": "Heading (MS)",
+                            "name": "heading_ms",
+                            "type": "text",
+                            "default_value": "Pembekal Modafinil Dipercayai Malaysia"
+                        },
+                        {
+                            "key": "field_c475fe4ca3274",
+                            "label": "Desc (EN)",
+                            "name": "desc_en",
+                            "type": "textarea",
+                            "default_value": "ModafinilMY serves students, professionals, and shift workers across Malaysia \u2014 from Kuala Lumpur to Kota Kinabalu."
+                        },
+                        {
+                            "key": "field_b3378e9034bf4",
+                            "label": "Desc (MS)",
+                            "name": "desc_ms",
+                            "type": "textarea",
+                            "default_value": "ModafinilMY berkhidmat untuk pelajar, profesional, dan pekerja syif di seluruh Malaysia \u2014 dari Kuala Lumpur ke Kota Kinabalu."
+                        }
+                    ]
+                },
+                "layout_about_mission": {
+                    "key": "layout_about_mission",
+                    "name": "about_mission",
+                    "label": "About Mission & Vision",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5acecaf188104",
+                            "label": "Mission Heading (EN)",
+                            "name": "mission_heading_en",
+                            "type": "text",
+                            "default_value": "Our Mission"
+                        },
+                        {
+                            "key": "field_f5bc7d65a5cc4",
+                            "label": "Mission Heading (MS)",
+                            "name": "mission_heading_ms",
+                            "type": "text",
+                            "default_value": "Misi Kami"
+                        },
+                        {
+                            "key": "field_483eab146da44",
+                            "label": "Mission Desc (EN)",
+                            "name": "mission_desc_en",
+                            "type": "textarea",
+                            "default_value": "We exist to ensure Malaysians have access to high-quality, genuine Modafinil \u2014 delivered fast, discreetly, and reliably across Peninsular, Sabah, and Sarawak."
+                        },
+                        {
+                            "key": "field_9a67f574b5bb4",
+                            "label": "Mission Desc (MS)",
+                            "name": "mission_desc_ms",
+                            "type": "textarea",
+                            "default_value": "Kami wujud untuk memastikan rakyat Malaysia mempunyai akses kepada Modafinil asli berkualiti tinggi \u2014 dihantar dengan pantas, diskret, dan boleh dipercayai ke seluruh Semenanjung, Sabah, dan Sarawak."
+                        },
+                        {
+                            "key": "field_5eaf710cafea4",
+                            "label": "Vision Heading (EN)",
+                            "name": "vision_heading_en",
+                            "type": "text",
+                            "default_value": "Why Choose Us?"
+                        },
+                        {
+                            "key": "field_9556e4f594314",
+                            "label": "Vision Heading (MS)",
+                            "name": "vision_heading_ms",
+                            "type": "text",
+                            "default_value": "Kenapa Pilih Kami?"
+                        },
+                        {
+                            "key": "field_b6b97d8f0f494",
+                            "label": "Vision Desc (EN)",
+                            "name": "vision_desc_en",
+                            "type": "textarea",
+                            "default_value": "Thousands of Malaysian customers have trusted ModafinilMY since we began operations. We stock genuine Modalert and Modvigil from licensed Indian pharmaceutical manufacturers."
+                        },
+                        {
+                            "key": "field_b6d3a0e6b63e4",
+                            "label": "Vision Desc (MS)",
+                            "name": "vision_desc_ms",
+                            "type": "textarea",
+                            "default_value": "Ribuan pelanggan Malaysia telah mempercayai ModafinilMY sejak kami mula beroperasi. Kami menyimpan Modalert dan Modvigil asli dari pengeluar farmaseutikal berlesen India."
+                        }
+                    ]
+                },
+                "layout_about_products": {
+                    "key": "layout_about_products",
+                    "name": "about_products",
+                    "label": "About Products",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_7d1f064846a34",
+                            "label": "Heading (EN)",
+                            "name": "heading_en",
+                            "type": "text",
+                            "default_value": "Products We Sell"
+                        },
+                        {
+                            "key": "field_b41d4c80c94a4",
+                            "label": "Heading (MS)",
+                            "name": "heading_ms",
+                            "type": "text",
+                            "default_value": "Produk Yang Kami Jual"
+                        },
+                        {
+                            "key": "field_9e5242778e824",
+                            "label": "Desc (EN)",
+                            "name": "desc_en",
+                            "type": "textarea",
+                            "default_value": "We specialize in the two most trusted Modafinil brands globally:"
+                        },
+                        {
+                            "key": "field_952afe100a904",
+                            "label": "Desc (MS)",
+                            "name": "desc_ms",
+                            "type": "textarea",
+                            "default_value": "Kami mengkhususkan diri dalam dua jenama Modafinil yang paling dipercayai secara global:"
+                        },
+                        {
+                            "key": "field_1bfab0f22cce4",
+                            "label": "Products",
+                            "name": "products",
+                            "type": "repeater",
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_a93dd4d00cf34",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "parent_repeater": "field_1bfab0f22cce4"
+                                },
+                                {
+                                    "key": "field_6059624946f94",
+                                    "label": "Desc (EN)",
+                                    "name": "desc_en",
+                                    "type": "textarea",
+                                    "parent_repeater": "field_1bfab0f22cce4"
+                                },
+                                {
+                                    "key": "field_11d3d6657be24",
+                                    "label": "Desc (MS)",
+                                    "name": "desc_ms",
+                                    "type": "textarea",
+                                    "parent_repeater": "field_1bfab0f22cce4"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "layout_about_delivery": {
+                    "key": "layout_about_delivery",
+                    "name": "about_delivery",
+                    "label": "About Delivery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_0d03ea4ccab84",
+                            "label": "Heading (EN)",
+                            "name": "heading_en",
+                            "type": "text",
+                            "default_value": "Delivery Across Malaysia"
+                        },
+                        {
+                            "key": "field_8f374c41ec3f4",
+                            "label": "Heading (MS)",
+                            "name": "heading_ms",
+                            "type": "text",
+                            "default_value": "Penghantaran ke Seluruh Malaysia"
+                        },
+                        {
+                            "key": "field_db0fe9dccbec4",
+                            "label": "Desc (EN)",
+                            "name": "desc_en",
+                            "type": "textarea",
+                            "default_value": "We use Pos Malaysia for reliable delivery to all postcodes across Malaysia:"
+                        },
+                        {
+                            "key": "field_2e05544de4af4",
+                            "label": "Desc (MS)",
+                            "name": "desc_ms",
+                            "type": "textarea",
+                            "default_value": "Kami menggunakan Pos Malaysia untuk penghantaran yang boleh dipercayai ke semua poskod di seluruh Malaysia:"
+                        },
+                        {
+                            "key": "field_3da652fbdede4",
+                            "label": "List Items",
+                            "name": "list_items",
+                            "type": "repeater",
+                            "layout": "table",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5a458ff2de144",
+                                    "label": "Icon SVG",
+                                    "name": "icon_svg",
+                                    "type": "textarea",
+                                    "parent_repeater": "field_3da652fbdede4"
+                                },
+                                {
+                                    "key": "field_b5999682fdcf4",
+                                    "label": "Title (EN)",
+                                    "name": "title_en",
+                                    "type": "text",
+                                    "parent_repeater": "field_3da652fbdede4"
+                                },
+                                {
+                                    "key": "field_45980771444d4",
+                                    "label": "Title (MS)",
+                                    "name": "title_ms",
+                                    "type": "text",
+                                    "parent_repeater": "field_3da652fbdede4"
+                                },
+                                {
+                                    "key": "field_c514df4f69834",
+                                    "label": "Desc (EN)",
+                                    "name": "desc_en",
+                                    "type": "textarea",
+                                    "parent_repeater": "field_3da652fbdede4"
+                                },
+                                {
+                                    "key": "field_1db32dd82e4d4",
+                                    "label": "Desc (MS)",
+                                    "name": "desc_ms",
+                                    "type": "textarea",
+                                    "parent_repeater": "field_3da652fbdede4"
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "min": "",
@@ -1924,6 +2184,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786309878,
-    "local_file": "C:laragonwwwmodafinil-malaysia\/wp-content\/themes\/modafinil-malaysia-wp\/acf-json\/group_page_modules.json"
+    "modified": 1786455914,
+    "local_file": "C:laragonwwwmodafinil-malaysia/wp-content/themes/modafinil-malaysia-wp/acf-json/group_page_modules.json"
 }

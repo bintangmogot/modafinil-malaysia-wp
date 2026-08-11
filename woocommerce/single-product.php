@@ -71,9 +71,6 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
 
         <!-- Right Column: Info Area -->
         <div>
-            <span class="text-sm font-semibold uppercase tracking-widest text-primary mb-2 block">
-                <?= esc_html($brand) ?>
-            </span>
             <h1 class="font-heading text-2xl md:text-3xl font-extrabold mb-3 text-slate-900" data-testid="text-product-title">
                 <?= esc_html($product->get_name()) ?>
             </h1>
