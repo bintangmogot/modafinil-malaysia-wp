@@ -397,3 +397,8 @@
   background-color: var(--primary-dark) !important;
 }
 
+/* Hide the subtotal price beside the cart icon in the header */
+.xoo-wsc-sc-subt {
+  display: none !important;
+}
+
