@@ -481,3 +481,60 @@
 .gform_wrapper .ginput_complex label {
   @apply !text-xs !text-muted-foreground !mt-1 !font-normal;
 }
+
+/*
+ * ============================================================
+ * PROSE TYPOGRAPHY STYLING (For WYSIWYG / Content blocks)
+ * ============================================================
+ */
+.prose {
+  color: var(--color-foreground);
+  line-height: 1.7;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-foreground);
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.prose h1 { font-size: 2.25rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.125rem; }
+.prose h4 { font-size: 1rem; }
+
+.prose p {
+  margin-bottom: 1.25em;
+  color: var(--color-muted-foreground);
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.prose a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: var(--color-primary-dark);
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25em;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25em;
+}
+

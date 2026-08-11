@@ -37,15 +37,23 @@ $desc_ms = get_sub_field('description_ms') ?: "Testimoni sebenar dari pengguna M
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <?php if (have_rows('reviews_list')): ?>
-                <?php while (have_rows('reviews_list')): the_row(); 
-                    $name = get_sub_field('name');
-                    $meta = get_sub_field('meta');
-                    $title_en = get_sub_field('title_en');
-                    $title_ms = get_sub_field('title_ms');
-                    $body_en = get_sub_field('body_en');
-                    $body_ms = get_sub_field('body_ms');
-                    $rating = get_sub_field('rating') ?: 5;
+            <?php
+            $reviews_query = new WP_Query([
+                'post_type' => 'review',
+                'posts_per_page' => -1,
+                'post_status' => 'publish'
+            ]);
+
+            if ($reviews_query->have_posts()):
+                while ($reviews_query->have_posts()): $reviews_query->the_post();
+                    $name = get_the_title();
+                    $meta = get_post_meta(get_the_ID(), 'reviewer_meta', true);
+                    $title_en = get_post_meta(get_the_ID(), 'title_en', true);
+                    $title_ms = get_post_meta(get_the_ID(), 'title_ms', true);
+                    $body_en = get_post_meta(get_the_ID(), 'body_en', true);
+                    $body_ms = get_post_meta(get_the_ID(), 'body_ms', true);
+                    // Default to 5 stars as there's no rating field
+                    $rating = 5;
                     $initial = !empty($name) ? mb_substr($name, 0, 1) : 'M';
                 ?>
                 <div class="bg-white border border-stone-200 rounded-xl p-6 hover:border-emerald-300 hover:shadow-sm transition-all">
@@ -72,8 +80,9 @@ $desc_ms = get_sub_field('description_ms') ?: "Testimoni sebenar dari pengguna M
                         </div>
                     </div>
                 </div>
-                <?php endwhile; ?>
-            <?php else: ?>
+                <?php endwhile;
+                wp_reset_postdata();
+            else: ?>
                 <p class="text-center col-span-full text-slate-500">No reviews found yet.</p>
             <?php endif; ?>
         </div>
