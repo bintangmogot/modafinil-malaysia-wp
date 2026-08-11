@@ -2747,6 +2747,235 @@
                     "label": "Blog Posts Grid",
                     "display": "block",
                     "sub_fields": []
+                },
+                "layout_faq_page": {
+                    "key": "layout_faq_page",
+                    "name": "faq_page",
+                    "label": "FAQ Full Page",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_faq_2a7a6c8b5b25",
+                            "label": "Eyebrow (EN)",
+                            "name": "eyebrow_en",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "FAQ",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_0f923004a21f",
+                            "label": "Eyebrow (MS)",
+                            "name": "eyebrow_ms",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Soalan Lazim",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_43944e673ca3",
+                            "label": "Heading (EN)",
+                            "name": "heading_en",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Frequently Asked Questions / FAQ",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_e654267d06c3",
+                            "label": "Heading (MS)",
+                            "name": "heading_ms",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Soalan Lazim / FAQ",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_51a7b0956e3c",
+                            "label": "Description (EN)",
+                            "name": "description_en",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Everything you need to know about buying Modafinil in Malaysia.",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_71cf86d60c48",
+                            "label": "Description (MS)",
+                            "name": "description_ms",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Semua yang anda perlu tahu tentang membeli Modafinil di Malaysia.",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_f9e298bbadda",
+                            "label": "CTA Heading (EN)",
+                            "name": "cta_heading_en",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Still Have Questions?",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_22468d1880fe",
+                            "label": "CTA Heading (MS)",
+                            "name": "cta_heading_ms",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Masih Ada Soalan?",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_1322847629cc",
+                            "label": "CTA Desc (EN)",
+                            "name": "cta_desc_en",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Our team speaks Malay and English, ready to assist 7 days a week.",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_22e0690fb2af",
+                            "label": "CTA Desc (MS)",
+                            "name": "cta_desc_ms",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Pasukan kami berbahasa Malaysia dan English, sedia membantu 7 hari seminggu.",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_5db0c02a932d",
+                            "label": "CTA Button Text (EN)",
+                            "name": "cta_btn_text_en",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "WhatsApp Us Now",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_073f8d408a6b",
+                            "label": "CTA Button Text (MS)",
+                            "name": "cta_btn_text_ms",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "WhatsApp Kami Sekarang",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_faq_dc6de8b02bb6",
+                            "label": "CTA Button Link",
+                            "name": "cta_btn_link",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "https://wa.me/601116284532",
+                            "placeholder": ""
+                        }
+                    ]
                 }
             },
             "min": "",

@@ -20,7 +20,7 @@ $box_desc_ms = get_sub_field('track_box_desc_ms') ?: "Anda boleh menjejak pesana
 
 $btn_text_en = get_sub_field('track_btn_text_en') ?: "Track at Pos Malaysia";
 $btn_text_ms = get_sub_field('track_btn_text_ms') ?: "Jejak di Pos Malaysia";
-$btn_link = get_sub_field('track_btn_link') ?: "https://track.pos.com.my/";
+$btn_link = get_sub_field('track_btn_link') ?: "https://www.pos.com.my/postal-services/send-domestic/track-and-trace";
 
 $peninsular_days = get_sub_field('est_peninsular_days') ?: "7-12";
 $sabah_sarawak_days = get_sub_field('est_sabah_sarawak_days') ?: "10-16";
