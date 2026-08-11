@@ -96,7 +96,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
 
             <?php if ($product->is_in_stock() && !empty($variations)): ?>
                 
-                <form class="mb-6 cart custom-variations-form" action="<?= esc_url( wc_get_checkout_url() ) ?>" method="post" enctype='multipart/form-data'>
+                <form class="mb-6 cart custom-variations-form" action="" method="post" enctype='multipart/form-data'>
                     
                     <div class="space-y-4" data-testid="variation-selector">
                         <div>
@@ -153,7 +153,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                         <button type="submit" class="w-full flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-sm transition-colors hover:bg-primary-dark disabled:opacity-50">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                             <span id="submit-btn-text">
-                                <?= modmy_t("Checkout & Pay (QRIS)", "Beli & Bayar (QRIS)") ?> - RM<?= number_format((float)$variations[1]['display_price'], 2) ?>
+                                <?= modmy_t("ADD TO CART", "TAMBAHKAN KE KOTAK") ?> - RM<?= number_format((float)$variations[1]['display_price'], 2) ?>
                             </span>
                         </button>
                     </div>
@@ -245,28 +245,80 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                 </div>
             </div>
 
-            <!-- ACF: Extra Tabs Accordion -->
+            <!-- ACF: Extra Tabs -->
             <?php if (have_rows('extra_tabs', $product->get_id())): ?>
-                <div class="mt-8 space-y-3">
-                    <?php while (have_rows('extra_tabs', $product->get_id())): the_row(); 
-                        $tab_title = get_sub_field('tab_title');
-                        $tab_content = get_sub_field('tab_content');
-                    ?>
-                        <details class="group bg-white border border-slate-200 rounded-md [&_summary::-webkit-details-marker]:hidden hover:border-primary/50 transition-colors">
-                            <summary class="flex cursor-pointer items-center justify-between gap-4 p-4 text-sm font-bold text-slate-900">
+                <div class="mt-10" id="product-tabs">
+                    <!-- Tab Headers -->
+                    <div class="flex overflow-x-auto border-b border-slate-200" role="tablist">
+                        <?php 
+                        $tab_index = 0;
+                        while (have_rows('extra_tabs', $product->get_id())): the_row(); 
+                            $tab_title = get_sub_field('tab_title');
+                        ?>
+                            <button 
+                                type="button" 
+                                role="tab" 
+                                aria-selected="<?= $tab_index === 0 ? 'true' : 'false' ?>"
+                                aria-controls="tab-panel-<?= $tab_index ?>"
+                                id="tab-<?= $tab_index ?>"
+                                class="tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none <?= $tab_index === 0 ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300' ?>"
+                                data-index="<?= $tab_index ?>"
+                            >
                                 <?= esc_html($tab_title) ?>
-                                <span class="transition-transform group-open:rotate-180 text-slate-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </summary>
-                            <div class="border-t border-slate-100 p-4 text-sm leading-relaxed text-slate-600 prose prose-sm prose-slate max-w-none">
+                            </button>
+                        <?php 
+                        $tab_index++;
+                        endwhile; ?>
+                    </div>
+
+                    <!-- Tab Panels -->
+                    <div class="pt-6">
+                        <?php 
+                        $tab_index = 0;
+                        while (have_rows('extra_tabs', $product->get_id())): the_row(); 
+                            $tab_content = get_sub_field('tab_content');
+                        ?>
+                            <div 
+                                id="tab-panel-<?= $tab_index ?>" 
+                                role="tabpanel" 
+                                aria-labelledby="tab-<?= $tab_index ?>"
+                                class="tab-panel prose prose-sm prose-slate max-w-none <?= $tab_index === 0 ? 'block' : 'hidden' ?>"
+                            >
                                 <?= $tab_content ?>
                             </div>
-                        </details>
-                    <?php endwhile; ?>
+                        <?php 
+                        $tab_index++;
+                        endwhile; ?>
+                    </div>
                 </div>
+
+                <!-- Tabs Script -->
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const tabBtns = document.querySelectorAll('#product-tabs .tab-btn');
+                    const tabPanels = document.querySelectorAll('#product-tabs .tab-panel');
+
+                    tabBtns.forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const index = this.dataset.index;
+                            
+                            // Reset all
+                            tabBtns.forEach(b => {
+                                b.setAttribute('aria-selected', 'false');
+                                b.className = "tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300";
+                            });
+                            tabPanels.forEach(p => {
+                                p.className = "tab-panel prose prose-sm prose-slate max-w-none hidden";
+                            });
+
+                            // Activate clicked
+                            this.setAttribute('aria-selected', 'true');
+                            this.className = "tab-btn whitespace-nowrap border-b-2 py-3 px-5 text-sm font-bold transition-colors focus:outline-none border-primary text-primary";
+                            document.getElementById('tab-panel-' + index).className = "tab-panel prose prose-sm prose-slate max-w-none block";
+                        });
+                    });
+                });
+                </script>
             <?php endif; ?>
             
         </div>
