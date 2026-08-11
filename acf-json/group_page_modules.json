@@ -3514,6 +3514,251 @@
                             "key": "field_city_56c16bc341bd"
                         }
                     ]
+                },
+                "layout_dosage_guide": {
+                    "key": "layout_dosage_guide",
+                    "name": "dosage_guide",
+                    "label": "Dosage Guide Page",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_dsg_23787a24fc",
+                            "label": "Page Badge (EN)",
+                            "name": "page_badge_en",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_dsg_317c40f54a",
+                            "label": "Page Badge (MS)",
+                            "name": "page_badge_ms",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_dsg_c3e8d94a1d",
+                            "label": "Page Title (EN)",
+                            "name": "page_title_en",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_dsg_eaf9eb6854",
+                            "label": "Page Title (MS)",
+                            "name": "page_title_ms",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_dsg_304d43d200",
+                            "label": "Page Subtitle (EN)",
+                            "name": "page_subtitle_en",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_dsg_a7bb473e51",
+                            "label": "Page Subtitle (MS)",
+                            "name": "page_subtitle_ms",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_dsg_03b5f12065",
+                            "label": "Disclaimer (EN)",
+                            "name": "disclaimer_en",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_dsg_1544da278a",
+                            "label": "Disclaimer (MS)",
+                            "name": "disclaimer_ms",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_dsg_dbd9396588",
+                            "label": "Dosage Cards",
+                            "name": "dosage_cards",
+                            "type": "repeater",
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_dsg_5d9e62cde7",
+                                    "label": "Dose (e.g. 200mg)",
+                                    "name": "dose",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_3653141a2e",
+                                    "label": "Label (EN)",
+                                    "name": "label_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_50bb6166b8",
+                                    "label": "Label (MS)",
+                                    "name": "label_ms",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_79671202e8",
+                                    "label": "Description (EN)",
+                                    "name": "desc_en",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_dsg_1b3b11b478",
+                                    "label": "Description (MS)",
+                                    "name": "desc_ms",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_dsg_4a43414c43",
+                                    "label": "Color (blue/emerald/amber)",
+                                    "name": "color",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_dsg_f78c1dc52c",
+                            "label": "Timing Items",
+                            "name": "timing_items",
+                            "type": "repeater",
+                            "layout": "table",
+                            "sub_fields": [
+                                {
+                                    "key": "field_dsg_0fb1645626",
+                                    "label": "Time Label",
+                                    "name": "time",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_7a681ea9ac",
+                                    "label": "Description (EN)",
+                                    "name": "desc_en",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_dsg_8bb09ec431",
+                                    "label": "Description (MS)",
+                                    "name": "desc_ms",
+                                    "type": "textarea"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_dsg_3233ca758a",
+                            "label": "Malaysia Tips",
+                            "name": "malaysia_tips",
+                            "type": "repeater",
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_dsg_e5fb491019",
+                                    "label": "Emoji",
+                                    "name": "emoji",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_afe52d680f",
+                                    "label": "Title (EN)",
+                                    "name": "title_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_40566ede55",
+                                    "label": "Title (MS)",
+                                    "name": "title_ms",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_a4540d0c41",
+                                    "label": "Description (EN)",
+                                    "name": "desc_en",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_dsg_67f903e85e",
+                                    "label": "Description (MS)",
+                                    "name": "desc_ms",
+                                    "type": "textarea"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_dsg_c5ad7251dc",
+                            "label": "Product Cards",
+                            "name": "product_cards",
+                            "type": "repeater",
+                            "layout": "table",
+                            "sub_fields": [
+                                {
+                                    "key": "field_dsg_131f02b0cb",
+                                    "label": "Product Name",
+                                    "name": "name",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_c6d199f563",
+                                    "label": "Use Case (EN)",
+                                    "name": "use_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_9707b14d07",
+                                    "label": "Use Case (MS)",
+                                    "name": "use_ms",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_8b879d706d",
+                                    "label": "Dose",
+                                    "name": "dose",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_39713e496e",
+                                    "label": "Duration",
+                                    "name": "duration",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_d6b8a2e880",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_dsg_ff966795a6",
+                            "label": "FAQ Items",
+                            "name": "faq_items",
+                            "type": "repeater",
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_dsg_3718ef24da",
+                                    "label": "Question (EN)",
+                                    "name": "q_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_1aa4146200",
+                                    "label": "Question (MS)",
+                                    "name": "q_ms",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_dsg_0264c9a81f",
+                                    "label": "Answer (EN)",
+                                    "name": "a_en",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_dsg_2430f44e42",
+                                    "label": "Answer (MS)",
+                                    "name": "a_ms",
+                                    "type": "textarea"
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "min": "",
