@@ -3331,6 +3331,42 @@
                             ]
                         }
                     ]
+                },
+                "layout_sitemap": {
+                    "key": "layout_sitemap",
+                    "name": "sitemap",
+                    "label": "Sitemap Page",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title (EN)",
+                            "name": "title_en",
+                            "type": "text",
+                            "default": "Sitemap",
+                            "key": "field_stm_231b1e01f7a6"
+                        },
+                        {
+                            "label": "Title (MS)",
+                            "name": "title_ms",
+                            "type": "text",
+                            "default": "Peta Laman",
+                            "key": "field_stm_517a76e2ec33"
+                        },
+                        {
+                            "label": "Subtitle (EN)",
+                            "name": "subtitle_en",
+                            "type": "textarea",
+                            "default": "Browse all pages on ModafinilMY. Find exactly what you're looking for.",
+                            "key": "field_stm_ba3c2400045b"
+                        },
+                        {
+                            "label": "Subtitle (MS)",
+                            "name": "subtitle_ms",
+                            "type": "textarea",
+                            "default": "Semua halaman ModafinilMY dalam satu senarai \u2014 halaman utama, produk, artikel, dan dasar.",
+                            "key": "field_stm_19c8c18574dc"
+                        }
+                    ]
                 }
             },
             "min": "",

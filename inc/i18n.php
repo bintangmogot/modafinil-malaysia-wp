@@ -133,6 +133,13 @@ if (function_exists('acf_add_local_field_group')) {
                     'value' => 'post',
                 ),
             ),
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page',
+                ),
+            ),
         ),
         'menu_order' => 0,
         'position' => 'normal',
@@ -141,6 +148,63 @@ if (function_exists('acf_add_local_field_group')) {
         'instruction_placement' => 'label',
         'hide_on_screen' => '',
         'active' => true,
-        'description' => 'Fields for managing bilingual Malay translations on posts.',
+        'description' => 'Fields for managing bilingual Malay translations on posts and pages.',
     ));
 }
+
+/**
+ * Auto-Translate to Malay on post save using Stichoza
+ */
+add_action('acf/save_post', function($post_id) {
+    if (!in_array(get_post_type($post_id), ['post', 'page'])) return;
+    
+    // Avoid running on revisions
+    if (wp_is_post_revision($post_id)) return;
+    
+    // Load composer autoloader
+    if (file_exists(get_template_directory() . '/vendor/autoload.php')) {
+        require_once get_template_directory() . '/vendor/autoload.php';
+    }
+    
+    if (!class_exists('Stichoza\GoogleTranslate\GoogleTranslate')) return;
+    
+    try {
+        $tr = new \Stichoza\GoogleTranslate\GoogleTranslate('ms', 'en');
+        $post = get_post($post_id);
+        
+        // Check and translate Title
+        $title_ms = get_post_meta($post_id, '_title_ms', true);
+        if (empty($title_ms) && !empty($post->post_title)) {
+            update_post_meta($post_id, '_title_ms', $tr->translate($post->post_title));
+        }
+        
+        // Check and translate Excerpt
+        $excerpt_ms = get_post_meta($post_id, '_excerpt_ms', true);
+        if (empty($excerpt_ms)) {
+            $en_excerpt = !empty($post->post_excerpt) ? $post->post_excerpt : wp_trim_words($post->post_content, 20);
+            if (!empty($en_excerpt)) {
+                update_post_meta($post_id, '_excerpt_ms', $tr->translate($en_excerpt));
+            }
+        }
+        
+        // Check and translate Content
+        $content_ms = get_post_meta($post_id, '_content_ms', true);
+        if (empty($content_ms) && !empty($post->post_content)) {
+            update_post_meta($post_id, '_content_ms', $tr->translate($post->post_content));
+        }
+        
+        // Check and translate Category (Only for posts)
+        if (get_post_type($post_id) === 'post') {
+            $cat_ms = get_post_meta($post_id, '_category_ms', true);
+            if (empty($cat_ms)) {
+                $cats = get_the_category($post_id);
+                if (!empty($cats)) {
+                    update_post_meta($post_id, '_category_ms', $tr->translate($cats[0]->name));
+                }
+            }
+        }
+    } catch (Exception $e) {
+        // Silently fail if translation API errors out
+        error_log('Auto-translation failed: ' . $e->getMessage());
+    }
+}, 20);
