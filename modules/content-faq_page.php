@@ -22,7 +22,8 @@ $cta_btn_en = get_sub_field('cta_btn_text_en') ?: "WhatsApp Us Now";
 $cta_btn_ms = get_sub_field('cta_btn_text_ms') ?: "WhatsApp Kami Sekarang";
 $cta_link = get_sub_field('cta_btn_link') ?: "https://wa.me/601116284532";
 
-$categories = [
+// Default Fallback Categories & Questions if ACF Repeater is empty
+$default_categories = [
     [
         'title_en' => 'Legal Status',
         'title_ms' => 'Status Undang-Undang',
@@ -154,30 +155,68 @@ $categories = [
         </div>
 
         <div class="space-y-10">
-            <?php foreach ($categories as $cat_idx => $cat): ?>
-            <div>
-                <h2 class="font-heading font-black text-xl text-slate-900 mb-5 pb-3 border-b-2 border-emerald-200">
-                    <?= modmy_t($cat['title_ms'] . ' / ' . $cat['title_en'], $cat['title_ms'] . ' / ' . $cat['title_en']) ?>
-                </h2>
-                <div class="space-y-3">
-                    <?php foreach ($cat['items'] as $item_idx => $item): ?>
-                    <details class="group border border-stone-200 rounded-xl">
-                        <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
-                            <h3 class="font-heading font-bold text-slate-900 text-sm">
-                                <?= modmy_t($item['q_en'], $item['q_ms']) ?>
-                            </h3>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-600 flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </summary>
-                        <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed border-t border-stone-100 pt-4">
-                            <?= modmy_t($item['a_en'], $item['a_ms']) ?>
-                        </div>
-                    </details>
-                    <?php endforeach; ?>
+            <?php if (have_rows('faq_categories')): ?>
+                <?php while (have_rows('faq_categories')): the_row();
+                    $cat_t_en = get_sub_field('title_en');
+                    $cat_t_ms = get_sub_field('title_ms');
+                    $cat_label = trim($cat_t_ms . ' / ' . $cat_t_en, ' /');
+                ?>
+                <div>
+                    <h2 class="font-heading font-black text-xl text-slate-900 mb-5 pb-3 border-b-2 border-emerald-200">
+                        <?= esc_html($cat_label) ?>
+                    </h2>
+                    <div class="space-y-3">
+                        <?php if (have_rows('items')): ?>
+                            <?php while (have_rows('items')): the_row();
+                                $q_en = get_sub_field('question_en');
+                                $q_ms = get_sub_field('question_ms');
+                                $a_en = get_sub_field('answer_en');
+                                $a_ms = get_sub_field('answer_ms');
+                            ?>
+                            <details class="group border border-stone-200 rounded-xl">
+                                <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+                                    <h3 class="font-heading font-bold text-slate-900 text-sm">
+                                        <?= modmy_t($q_en, $q_ms) ?>
+                                    </h3>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-600 flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </summary>
+                                <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed border-t border-stone-100 pt-4">
+                                    <?= modmy_t($a_en, $a_ms) ?>
+                                </div>
+                            </details>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
-            <?php endforeach; ?>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <?php foreach ($default_categories as $cat): ?>
+                <div>
+                    <h2 class="font-heading font-black text-xl text-slate-900 mb-5 pb-3 border-b-2 border-emerald-200">
+                        <?= modmy_t($cat['title_ms'] . ' / ' . $cat['title_en'], $cat['title_ms'] . ' / ' . $cat['title_en']) ?>
+                    </h2>
+                    <div class="space-y-3">
+                        <?php foreach ($cat['items'] as $item): ?>
+                        <details class="group border border-stone-200 rounded-xl">
+                            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+                                <h3 class="font-heading font-bold text-slate-900 text-sm">
+                                    <?= modmy_t($item['q_en'], $item['q_ms']) ?>
+                                </h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-600 flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <div class="px-5 pb-5 text-sm text-slate-500 leading-relaxed border-t border-stone-100 pt-4">
+                                <?= modmy_t($item['a_en'], $item['a_ms']) ?>
+                            </div>
+                        </details>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
         <!-- WhatsApp Support Box -->
