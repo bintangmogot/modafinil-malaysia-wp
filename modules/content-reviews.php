@@ -7,6 +7,29 @@ $heading_en = get_sub_field('heading_en') ?: "What Malaysian Customers Say";
 $heading_ms = get_sub_field('heading_ms') ?: "Apa Kata Pelanggan Malaysia";
 $desc_en = get_sub_field('description_en') ?: "Real testimonials from ModafinilMY users across Malaysia.";
 $desc_ms = get_sub_field('description_ms') ?: "Testimoni sebenar dari pengguna ModafinilMY di seluruh Malaysia.";
+
+// Run query first to calculate dynamic stats
+$reviews_query = new WP_Query([
+    'post_type' => 'review',
+    'posts_per_page' => -1,
+    'post_status' => 'publish'
+]);
+
+$total_reviews = $reviews_query->found_posts;
+$total_stars = 0;
+
+if ($reviews_query->have_posts()) {
+    while ($reviews_query->have_posts()) {
+        $reviews_query->the_post();
+        $r = (int) get_post_meta(get_the_ID(), 'rating', true);
+        if (!$r) $r = 5;
+        $total_stars += $r;
+    }
+    $reviews_query->rewind_posts();
+}
+
+$average_rating = $total_reviews > 0 ? round($total_stars / $total_reviews, 1) : 5.0;
+$average_stars = round($average_rating);
 ?>
 <section class="section-padding bg-white">
     <div class="container-custom max-w-5xl">
@@ -23,27 +46,21 @@ $desc_ms = get_sub_field('description_ms') ?: "Testimoni sebenar dari pengguna M
 
             <div class="flex items-center justify-center gap-3 mt-5">
                 <div class="flex gap-0.5 text-emerald-400">
-                    <?php for($i = 0; $i < 5; $i++): ?>
+                    <?php for($i = 0; $i < $average_stars; $i++): ?>
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
                     <?php endfor; ?>
                 </div>
-                <span class="font-heading font-black text-2xl text-slate-900">4.9</span>
+                <span class="font-heading font-black text-2xl text-slate-900"><?= number_format($average_rating, 1) ?></span>
                 <span class="text-slate-500 text-sm">
-                    <?= modmy_t("(10+ verified reviews)", "(10+ ulasan disahkan)") ?>
+                    <?= modmy_t("({$total_reviews} verified reviews)", "({$total_reviews} ulasan disahkan)") ?>
                 </span>
             </div>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             <?php
-            $reviews_query = new WP_Query([
-                'post_type' => 'review',
-                'posts_per_page' => -1,
-                'post_status' => 'publish'
-            ]);
-
             if ($reviews_query->have_posts()):
                 while ($reviews_query->have_posts()): $reviews_query->the_post();
                     $name = get_the_title();
@@ -52,8 +69,10 @@ $desc_ms = get_sub_field('description_ms') ?: "Testimoni sebenar dari pengguna M
                     $title_ms = get_post_meta(get_the_ID(), 'title_ms', true);
                     $body_en = get_post_meta(get_the_ID(), 'body_en', true);
                     $body_ms = get_post_meta(get_the_ID(), 'body_ms', true);
-                    // Default to 5 stars as there's no rating field
-                    $rating = 5;
+                    
+                    $rating = (int) get_post_meta(get_the_ID(), 'rating', true);
+                    if (!$rating) $rating = 5;
+                    
                     $initial = !empty($name) ? mb_substr($name, 0, 1) : 'M';
                 ?>
                 <div class="bg-white border border-stone-200 rounded-xl p-6 hover:border-emerald-300 hover:shadow-sm transition-all">
