@@ -57,6 +57,18 @@ add_filter('get_the_excerpt', function($excerpt, $post = null) {
 }, 10, 2);
 
 /**
+ * Filter post content
+ */
+add_filter('the_content', function($content) {
+    if (is_admin() || !is_main_query() || !in_the_loop()) return $content;
+    $lang = modmy_get_lang();
+    $post_id = get_the_ID();
+    $meta_content = get_post_meta($post_id, '_content_' . $lang, true);
+    return $meta_content ? $meta_content : $content;
+});
+
+
+/**
  * Get category name with bilingual fallback
  */
 function modmy_get_post_category($post_id = null) {
@@ -70,4 +82,65 @@ function modmy_get_post_category($post_id = null) {
         return $categories[0]->name;
     }
     return '';
+}
+
+/**
+ * Register ACF Fields for Bilingual Content
+ */
+if (function_exists('acf_add_local_field_group')) {
+    acf_add_local_field_group(array(
+        'key' => 'group_bilingual_post',
+        'title' => 'Bilingual Post Content (Malay)',
+        'fields' => array(
+            array(
+                'key' => 'field_title_ms',
+                'label' => 'Title (MS)',
+                'name' => '_title_ms',
+                'type' => 'text',
+                'instructions' => 'Enter the Malay translation for the post title.',
+            ),
+            array(
+                'key' => 'field_excerpt_ms',
+                'label' => 'Excerpt (MS)',
+                'name' => '_excerpt_ms',
+                'type' => 'textarea',
+                'instructions' => 'Enter the Malay translation for the post excerpt.',
+                'rows' => 4,
+            ),
+            array(
+                'key' => 'field_category_ms',
+                'label' => 'Category (MS)',
+                'name' => '_category_ms',
+                'type' => 'text',
+                'instructions' => 'Enter the Malay translation for the post category.',
+            ),
+            array(
+                'key' => 'field_content_ms',
+                'label' => 'Content (MS)',
+                'name' => '_content_ms',
+                'type' => 'wysiwyg',
+                'instructions' => 'Enter the Malay translation for the post content.',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'post',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => 'Fields for managing bilingual Malay translations on posts.',
+    ));
 }

@@ -3237,6 +3237,100 @@
                             ]
                         }
                     ]
+                },
+                "layout_terms_of_service": {
+                    "key": "layout_terms_of_service",
+                    "name": "terms_of_service",
+                    "label": "Terms of Service Page",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title (EN)",
+                            "name": "title_en",
+                            "type": "text",
+                            "default": "Terms & Conditions",
+                            "key": "field_trm_14e9f36c3f1a"
+                        },
+                        {
+                            "label": "Title (MS)",
+                            "name": "title_ms",
+                            "type": "text",
+                            "default": "Terma & Syarat",
+                            "key": "field_trm_49e61e52865a"
+                        },
+                        {
+                            "label": "Subtitle (EN)",
+                            "name": "subtitle_en",
+                            "type": "textarea",
+                            "default": "By accessing this website and placing an order, you agree to the terms below.",
+                            "key": "field_trm_017a398b5af1"
+                        },
+                        {
+                            "label": "Subtitle (MS)",
+                            "name": "subtitle_ms",
+                            "type": "textarea",
+                            "default": "Dengan menggunakan laman ini dan membuat pesanan, anda bersetuju dengan terma di bawah.",
+                            "key": "field_trm_2f9e11803ce9"
+                        },
+                        {
+                            "key": "field_trm_32c5220a5e9b",
+                            "label": "Badges / Highlights",
+                            "name": "badges",
+                            "type": "repeater",
+                            "layout": "block",
+                            "button_label": "Add Badge",
+                            "sub_fields": [
+                                {
+                                    "key": "field_trm_71d51e7feaf2",
+                                    "label": "Badge (EN)",
+                                    "name": "badge_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_trm_e692d66037e6",
+                                    "label": "Badge (MS)",
+                                    "name": "badge_ms",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_trm_739b04c8ae36",
+                            "label": "Policy Sections",
+                            "name": "sections",
+                            "type": "repeater",
+                            "layout": "block",
+                            "button_label": "Add Section",
+                            "sub_fields": [
+                                {
+                                    "key": "field_trm_e959ba899200",
+                                    "label": "Section Title (EN)",
+                                    "name": "title_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_trm_21d755862849",
+                                    "label": "Section Title (MS)",
+                                    "name": "title_ms",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_trm_a6bceb1d73df",
+                                    "label": "Content (EN)",
+                                    "name": "content_en",
+                                    "type": "textarea",
+                                    "rows": 4
+                                },
+                                {
+                                    "key": "field_trm_db06cee41104",
+                                    "label": "Content (MS)",
+                                    "name": "content_ms",
+                                    "type": "textarea",
+                                    "rows": 4
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "min": "",
