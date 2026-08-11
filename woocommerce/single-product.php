@@ -253,7 +253,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
     <?php if (have_rows('extra_tabs', $product->get_id())): ?>
         <div class="mt-10" id="product-tabs">
             <!-- Tab Headers -->
-            <div class="flex overflow-x-auto border-b border-slate-200" role="tablist">
+            <div class="flex flex-wrap border-b border-slate-200" role="tablist">
                 <?php 
                 $tab_index = 0;
                 while (have_rows('extra_tabs', $product->get_id())): the_row(); 
