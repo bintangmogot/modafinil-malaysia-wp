@@ -2190,6 +2190,174 @@
                             "rows": 3
                         }
                     ]
+                },
+                "layout_page_hero": {
+                    "key": "layout_page_hero",
+                    "name": "page_hero",
+                    "label": "Page Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_hero_title_en",
+                            "label": "Title (EN)",
+                            "name": "title_en",
+                            "type": "text",
+                            "required": false
+                        },
+                        {
+                            "key": "field_page_hero_title_ms",
+                            "label": "Title (MS)",
+                            "name": "title_ms",
+                            "type": "text",
+                            "required": false
+                        },
+                        {
+                            "key": "field_page_hero_subtitle_en",
+                            "label": "Subtitle (EN)",
+                            "name": "subtitle_en",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": false
+                        },
+                        {
+                            "key": "field_page_hero_subtitle_ms",
+                            "label": "Subtitle (MS)",
+                            "name": "subtitle_ms",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": false
+                        },
+                        {
+                            "key": "field_page_hero_bullets",
+                            "label": "Bullets",
+                            "name": "bullets",
+                            "type": "repeater",
+                            "required": false,
+                            "button_label": "Add Bullet",
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_hero_bullet_en",
+                                    "label": "Bullet (EN)",
+                                    "name": "bullet_en",
+                                    "type": "text",
+                                    "required": false
+                                },
+                                {
+                                    "key": "field_page_hero_bullet_ms",
+                                    "label": "Bullet (MS)",
+                                    "name": "bullet_ms",
+                                    "type": "text",
+                                    "required": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "layout_products_grid": {
+                    "key": "layout_products_grid",
+                    "name": "products_grid",
+                    "label": "Products Grid",
+                    "display": "block",
+                    "sub_fields": []
+                },
+                "layout_product_guide": {
+                    "key": "layout_product_guide",
+                    "name": "product_guide",
+                    "label": "Product Guide",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_product_guide_heading_en",
+                            "label": "Heading (EN)",
+                            "name": "heading_en",
+                            "type": "text",
+                            "required": false
+                        },
+                        {
+                            "key": "field_product_guide_heading_ms",
+                            "label": "Heading (MS)",
+                            "name": "heading_ms",
+                            "type": "text",
+                            "required": false
+                        },
+                        {
+                            "key": "field_product_guide_description_en",
+                            "label": "Description (EN)",
+                            "name": "description_en",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": false
+                        },
+                        {
+                            "key": "field_product_guide_description_ms",
+                            "label": "Description (MS)",
+                            "name": "description_ms",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": false
+                        },
+                        {
+                            "key": "field_product_guide_guide_items",
+                            "label": "Guide Items",
+                            "name": "guide_items",
+                            "type": "repeater",
+                            "required": false,
+                            "button_label": "Add Guide Item",
+                            "sub_fields": [
+                                {
+                                    "key": "field_guide_item_title_en",
+                                    "label": "Title (EN)",
+                                    "name": "title_en",
+                                    "type": "text",
+                                    "required": false
+                                },
+                                {
+                                    "key": "field_guide_item_title_ms",
+                                    "label": "Title (MS)",
+                                    "name": "title_ms",
+                                    "type": "text",
+                                    "required": false
+                                },
+                                {
+                                    "key": "field_guide_item_description_en",
+                                    "label": "Description (EN)",
+                                    "name": "description_en",
+                                    "type": "textarea",
+                                    "rows": 3,
+                                    "required": false
+                                },
+                                {
+                                    "key": "field_guide_item_description_ms",
+                                    "label": "Description (MS)",
+                                    "name": "description_ms",
+                                    "type": "textarea",
+                                    "rows": 3,
+                                    "required": false
+                                },
+                                {
+                                    "key": "field_guide_item_best_for_en",
+                                    "label": "Best For (EN)",
+                                    "name": "best_for_en",
+                                    "type": "text",
+                                    "required": false
+                                },
+                                {
+                                    "key": "field_guide_item_best_for_ms",
+                                    "label": "Best For (MS)",
+                                    "name": "best_for_ms",
+                                    "type": "text",
+                                    "required": false
+                                },
+                                {
+                                    "key": "field_guide_item_product_link",
+                                    "label": "Product Link",
+                                    "name": "product_link",
+                                    "type": "text",
+                                    "required": false
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "min": "",
@@ -2218,6 +2386,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786456911,
+    "modified": 1786457887,
     "local_file": "C:laragonwwwmodafinil-malaysia/wp-content/themes/modafinil-malaysia-wp/acf-json/group_page_modules.json"
 }

@@ -6,6 +6,20 @@
 defined('ABSPATH') || exit;
 
 get_header('shop');
+
+$shop_page_id = wc_get_page_id('shop');
+
+// Check if ACF modules exist on the Shop page
+if (have_rows('modules', $shop_page_id)) {
+    echo '<main>';
+    while (have_rows('modules', $shop_page_id)) {
+        the_row();
+        $layout = get_row_layout();
+        get_template_part('modules/content', $layout);
+    }
+    echo '</main>';
+} else {
+    // Fallback if no ACF modules are configured for the Shop page
 ?>
 
 <section class="bg-background pt-12 pb-6 text-center border-b border-border">
@@ -74,5 +88,9 @@ get_header('shop');
         </div>
     </div>
 </section>
+
+<?php 
+} // End ACF check 
+?>
 
 <?php get_footer('shop'); ?>
