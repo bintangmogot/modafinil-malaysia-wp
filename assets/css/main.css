@@ -647,6 +647,9 @@
   .w-\[320px\] {
     width: 320px;
   }
+  .w-fit {
+    width: fit-content;
+  }
   .w-full {
     width: 100%;
   }
@@ -2575,6 +2578,9 @@
     }
     .lg\:mt-15 {
       margin-top: calc(var(--spacing) * 15);
+    }
+    .lg\:mt-20 {
+      margin-top: calc(var(--spacing) * 20);
     }
     .lg\:ml-0 {
       margin-left: 0px;

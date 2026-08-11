@@ -68,14 +68,14 @@ $color_map = [
 <!-- Hero / Intro -->
 <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 py-16 text-white md:py-24 relative overflow-hidden">
     <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 30% 50%, #10b981 0%, transparent 50%), radial-gradient(circle at 80% 20%, #3b82f6 0%, transparent 40%);"></div>
-    <div class="container-custom max-w-4xl relative z-10">
+    <div class="container-custom max-w-6xl relative z-10">
         <span class="mb-5 inline-block rounded-full bg-emerald-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-300 border border-emerald-500/30">
             <?= modmy_t($page_badge['en'] ?? 'Dosage Guide', $page_badge['ms'] ?? 'Panduan Dos') ?>
         </span>
         <h1 class="mb-5 font-heading text-4xl font-black leading-tight md:text-5xl drop-shadow">
             <?= modmy_t($page_title['en'] ?? '', $page_title['ms'] ?? '') ?>
         </h1>
-        <p class="max-w-2xl text-lg leading-relaxed text-slate-300">
+        <p class="max-w-3xl text-lg leading-relaxed text-slate-300">
             <?= modmy_t($page_subtitle['en'] ?? '', $page_subtitle['ms'] ?? '') ?>
         </p>
         <!-- Disclaimer Banner -->
@@ -88,7 +88,7 @@ $color_map = [
 
 <!-- Dosage Cards -->
 <section class="section-padding bg-white">
-    <div class="container-custom max-w-4xl">
+    <div class="container-custom max-w-6xl">
         <div class="mb-10 text-center">
             <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t('Standard Modafinil Dosages', 'Dos Standard Modafinil') ?>
@@ -117,7 +117,7 @@ $color_map = [
 
 <!-- Product Recommendations -->
 <section class="section-padding bg-stone-50 border-t border-stone-200">
-    <div class="container-custom max-w-4xl">
+    <div class="container-custom max-w-6xl">
         <div class="mb-10 text-center">
             <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t('Which Product Matches Your Dose?', 'Produk Mana yang Sesuai dengan Dos Anda?') ?>
@@ -153,22 +153,22 @@ $color_map = [
 
 <!-- Timing -->
 <section class="section-padding bg-white border-t border-stone-200">
-    <div class="container-custom max-w-3xl">
+    <div class="container-custom max-w-5xl">
         <div class="mb-10 text-center">
             <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t('Best Time to Take Modafinil in Malaysia', 'Masa Terbaik untuk Mengambil Modafinil di Malaysia') ?>
             </h2>
-            <p class="mt-3 text-sm text-slate-500 max-w-xl mx-auto">
+            <p class="mt-3 text-sm text-slate-500 max-w-2xl mx-auto">
                 <?= modmy_t("Malaysia's heat and high humidity can accelerate dehydration, affecting how Modafinil works. Follow this guide:", "Di Malaysia, cuaca panas dan kelembapan tinggi boleh mempercepatkan dehidrasi, yang mempengaruhi cara Modafinil berfungsi. Ikut panduan ini:") ?>
             </p>
         </div>
-        <div class="space-y-4">
+        <div class="grid gap-4 md:grid-cols-3">
             <?php foreach ($timing_items as $item): ?>
-            <div class="flex items-start gap-4 rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-sm">
-                <div class="min-w-[80px] rounded-lg bg-emerald-600 px-3 py-2 text-center">
-                    <p class="text-xs font-black text-white leading-tight"><?= esc_html($item['time'] ?? '') ?></p>
+            <div class="flex flex-col gap-3 rounded-xl border border-stone-200 bg-stone-50 p-6 shadow-sm">
+                <div class="inline-flex w-fit rounded-lg bg-emerald-600 px-4 py-2">
+                    <p class="text-sm font-black text-white"><?= esc_html($item['time'] ?? '') ?></p>
                 </div>
-                <p class="text-sm leading-relaxed text-slate-600 pt-1">
+                <p class="text-sm leading-relaxed text-slate-600">
                     <?= modmy_t($item['desc_en'] ?? '', $item['desc_ms'] ?? '') ?>
                 </p>
             </div>
@@ -179,7 +179,7 @@ $color_map = [
 
 <!-- Malaysia Tips -->
 <section class="section-padding bg-gradient-to-br from-emerald-50 to-stone-50 border-t border-stone-200">
-    <div class="container-custom max-w-4xl">
+    <div class="container-custom max-w-6xl">
         <div class="mb-10 text-center">
             <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t("Tips Specific to Malaysia's Climate", "Petua Khusus untuk Cuaca Malaysia") ?>
@@ -208,13 +208,13 @@ $color_map = [
 
 <!-- FAQ -->
 <section class="section-padding bg-white border-t border-stone-200">
-    <div class="container-custom max-w-3xl">
+    <div class="container-custom max-w-6xl">
         <div class="mb-12 text-center">
             <h2 class="font-heading text-3xl font-black text-slate-900 tracking-tight">
                 <?= modmy_t('Frequently Asked Questions', 'Soalan Lazim') ?>
             </h2>
         </div>
-        <div class="space-y-4">
+        <div class="grid gap-4 md:grid-cols-2">
             <?php foreach ($faq_items as $i => $faq): ?>
             <details class="group cursor-pointer rounded-2xl border border-stone-200 bg-white p-6 shadow-sm open:bg-emerald-50/30 open:border-emerald-200" <?= $i === 0 ? 'open' : '' ?>>
                 <summary class="flex items-center justify-between gap-4 font-heading text-lg font-bold text-slate-900 marker:content-none">
@@ -234,7 +234,7 @@ $color_map = [
 
 <!-- CTA -->
 <section class="bg-gradient-to-r from-emerald-700 to-emerald-600 py-16">
-    <div class="container-custom max-w-3xl text-center text-white">
+    <div class="container-custom max-w-5xl text-center text-white">
         <h2 class="mb-4 font-heading text-3xl font-black drop-shadow">
             <?= modmy_t('Ready to Order? Get Genuine Modafinil Delivered to You.', 'Bersedia untuk Memesan? Dapatkan Modafinil Tulen Dihantar kepada Anda.') ?>
         </h2>

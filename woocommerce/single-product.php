@@ -248,7 +248,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
     </div>
     <!-- ACF: Extra Tabs -->
     <?php if (have_rows('extra_tabs', $product->get_id())): ?>
-        <div class="mt-10 lg:mt-15" id="product-tabs">
+        <div class="mt-10 lg:mt-20" id="product-tabs">
             <!-- Tab Headers -->
             <div class="flex flex-wrap border-b-0 md:border-b border-slate-200" role="tablist">
                 <?php 
