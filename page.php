@@ -28,8 +28,20 @@ get_header();
             </div>
         </div>
 
+        <?php if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ) : ?>
         <div class="section-padding bg-background min-h-[50vh]">
-            <div class="container-site max-w-4xl">
+            <div class="container-custom max-w-6xl">
+                <?php
+                while (have_posts()) :
+                    the_post();
+                    the_content();
+                endwhile;
+                ?>
+            </div>
+        </div>
+        <?php else : ?>
+        <div class="section-padding bg-background min-h-[50vh]">
+            <div class="container-custom max-w-4xl">
                 <div class="prose prose-slate max-w-none prose-a:text-primary hover:prose-a:text-primary-dark prose-headings:font-heading prose-headings:font-bold">
                     <?php
                     while (have_posts()) :
@@ -40,6 +52,7 @@ get_header();
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <?php
     }
     ?>
