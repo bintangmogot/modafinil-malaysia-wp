@@ -12,12 +12,12 @@ $desc_ms = get_sub_field('description_ms') ?: "Pasukan kami berbahasa Malaysia d
 $whatsapp = get_field('whatsapp_number', 'option') ?: 'https://wa.me/601116284532';
 $email = get_field('contact_email', 'option') ?: 'support@modafinil-malaysia.com';
 ?>
-<section class="bg-background pt-16 pb-8 text-center">
+<section class="bg-background pt-8 pb-4 md:pt-16 md:pb-8 text-center">
     <div class="container-site max-w-3xl">
         <span class="inline-block rounded-full bg-primary-softer px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
             <?= modmy_t("Contact Us", "Hubungi Kami") ?>
         </span>
-        <h1 class="mt-4 font-heading text-4xl font-extrabold tracking-tight md:text-5xl">
+        <h1 class="mt-4 font-heading text-3xl sm:text-4xl font-extrabold tracking-tight md:text-5xl">
             <?= modmy_t($heading_en, $heading_ms) ?>
         </h1>
         <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
@@ -26,7 +26,7 @@ $email = get_field('contact_email', 'option') ?: 'support@modafinil-malaysia.com
     </div>
 </section>
 
-<section class="pb-16 pt-8 bg-background">
+<section class="pb-8 pt-4 md:pb-16 md:pt-8 bg-background">
     <div class="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div class="space-y-6">
             <a href="<?= esc_url($whatsapp) ?>" target="_blank" rel="noopener noreferrer" class="flex gap-4 rounded-xl border border-primary/20 bg-primary-softer/30 p-5 shadow-sm transition-all hover:border-primary/50 hover:bg-primary-softer/50">

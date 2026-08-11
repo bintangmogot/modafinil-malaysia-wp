@@ -7,7 +7,7 @@ $heading_ms = get_sub_field('heading_ms') ?: "Penghantaran ke Seluruh Malaysia";
 $desc_en = get_sub_field('desc_en') ?: "We use Pos Malaysia for reliable delivery to all postcodes across Malaysia:";
 $desc_ms = get_sub_field('desc_ms') ?: "Kami menggunakan Pos Malaysia untuk penghantaran yang boleh dipercayai ke semua poskod di seluruh Malaysia:";
 ?>
-<section class="bg-white py-4 pb-12 md:py-8 md:pb-24">
+<section class="bg-white py-4 pb-6 md:py-8 md:pb-12">
     <div class="container-custom max-w-4xl">
         <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-900 mb-4">
             <?= modmy_t($heading_en, $heading_ms) ?>

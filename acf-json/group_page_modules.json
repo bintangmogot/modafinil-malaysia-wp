@@ -2156,6 +2156,40 @@
                             ]
                         }
                     ]
+                },
+                "layout_contact": {
+                    "key": "layout_contact",
+                    "name": "contact",
+                    "label": "Contact Form & Info",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_94d2494262974",
+                            "label": "Heading (EN)",
+                            "name": "heading_en",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_90529904dfea4",
+                            "label": "Heading (MS)",
+                            "name": "heading_ms",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_19334cb614cc4",
+                            "label": "Description (EN)",
+                            "name": "description_en",
+                            "type": "textarea",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_3a9fcc1f9bce4",
+                            "label": "Description (MS)",
+                            "name": "description_ms",
+                            "type": "textarea",
+                            "rows": 3
+                        }
+                    ]
                 }
             },
             "min": "",
@@ -2184,6 +2218,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786455914,
+    "modified": 1786456911,
     "local_file": "C:laragonwwwmodafinil-malaysia/wp-content/themes/modafinil-malaysia-wp/acf-json/group_page_modules.json"
 }
