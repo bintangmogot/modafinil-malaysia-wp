@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx @tailwindcss/cli -i ./assets/css/source.css -o ./assets/css/main.css --minify",
     "tailwind": "npx @tailwindcss/cli -i ./assets/css/source.css -o ./assets/css/main.css --watch",
-    "sync": "browser-sync start --proxy \"http://modafinil-malaysia.test\" --files \"**/*.php, assets/css/*.css, assets/js/*.js\"",
+    "sync": "browser-sync start --proxy \"http://modafinil-malaysia.test\" --files \"*.php, modules/**/*.php, template-parts/**/*.php, woocommerce/**/*.php, assets/css/main.css, assets/js/*.js\" --ignore \"node_modules/**/*\"",
     "dev": "npm-run-all --parallel tailwind sync"
   },
   "devDependencies": {
