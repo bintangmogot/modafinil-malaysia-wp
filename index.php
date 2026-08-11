@@ -18,11 +18,11 @@ function modmy_render_blog_loop() {
                     <a href="<?php the_permalink(); ?>" id="post-<?php the_ID(); ?>" <?php post_class('group flex flex-col rounded-xl border border-border hover:border-primary bg-card p-6 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-1'); ?>>
                         <div class="flex items-center gap-3">
                             <?php 
-                            $categories = get_the_category();
-                            if (!empty($categories)): 
-                            ?>
-                                <span class="eyebrow"><?= esc_html($categories[0]->name) ?></span>
-                            <?php endif; ?>
+                        $cat_name = modmy_get_post_category(get_the_ID());
+                        if ($cat_name): 
+                        ?>
+                            <span class="eyebrow"><?= esc_html($cat_name) ?></span>
+                        <?php endif; ?>
                             
                             <time class="text-xs text-muted-foreground" datetime="<?= get_the_date('c') ?>">
                                 <?= get_the_date('j M Y') ?>
@@ -57,22 +57,35 @@ function modmy_render_blog_loop() {
         <?php if (have_posts()) : ?>
         <div class="container-site mt-12 flex justify-center">
             <?php
-            $pagination = get_the_posts_pagination(array(
+            $pages = paginate_links(array(
                 'mid_size'  => 2,
                 'prev_text' => '&larr;',
                 'next_text' => '&rarr;',
-                'type'      => 'list',
-                'class'     => 'pagination-nav'
+                'type'      => 'array'
             ));
             
-            $pagination = str_replace("<ul class='page-numbers'>", '<ul class="flex flex-wrap items-center gap-2">', $pagination);
-            $pagination = preg_replace('/<li><span aria-current="page" class="page-numbers current">(.*?)<\/span><\/li>/', '<li><span class="page-numbers current flex items-center justify-center w-10 h-10 rounded-md font-bold text-sm transition-colors bg-primary text-primary-foreground pointer-events-none">$1</span></li>', $pagination);
-            $pagination = preg_replace('/<li><a class="page-numbers"(.*?)>(.*?)<\/a><\/li>/', '<li><a class="page-numbers flex items-center justify-center w-10 h-10 rounded-md font-bold text-sm transition-colors bg-card border border-border text-card-foreground hover:bg-primary-soft hover:text-primary-dark hover:border-primary-soft"$1>$2</a></li>', $pagination);
-            $pagination = preg_replace('/<li><a class="(prev|next) page-numbers"(.*?)>(.*?)<\/a><\/li>/', '<li><a class="page-numbers flex items-center justify-center w-10 h-10 rounded-md font-bold text-sm transition-colors bg-card border border-border text-card-foreground hover:bg-primary-soft hover:text-primary-dark hover:border-primary-soft"$2>$3</a></li>', $pagination);
-            $pagination = preg_replace('/<li><span class="page-numbers dots">(.*?)<\/span><\/li>/', '<li><span class="page-numbers dots flex items-center justify-center w-10 h-10 bg-transparent text-muted-foreground font-normal">$1</span></li>', $pagination);
-            $pagination = preg_replace('/<h2 class="screen-reader-text">(.*?)<\/h2>/', '', $pagination);
-            
-            echo $pagination;
+            if (!empty($pages)) {
+                echo '<ul class="flex flex-wrap items-center justify-center gap-2">';
+                foreach ($pages as $page) {
+                    if (strpos($page, 'current') !== false) {
+                        $num = strip_tags($page);
+                        echo '<li><span class="flex items-center justify-center w-10 h-10 rounded-md font-bold text-sm bg-primary text-primary-foreground shadow-sm pointer-events-none">' . $num . '</span></li>';
+                    } elseif (strpos($page, 'dots') !== false) {
+                        echo '<li><span class="flex items-center justify-center w-10 h-10 text-muted-foreground font-normal">&hellip;</span></li>';
+                    } else {
+                        $styled_link = preg_replace(
+                            '/class="([^"]*)"/',
+                            'class="$1 flex items-center justify-center w-10 h-10 rounded-md font-bold text-sm transition-all bg-card border border-border text-foreground hover:border-primary hover:text-primary hover:shadow-sm"',
+                            $page
+                        );
+                        if (strpos($styled_link, 'class=') === false) {
+                            $styled_link = str_replace('<a ', '<a class="flex items-center justify-center w-10 h-10 rounded-md font-bold text-sm transition-all bg-card border border-border text-foreground hover:border-primary hover:text-primary hover:shadow-sm" ', $styled_link);
+                        }
+                        echo '<li>' . $styled_link . '</li>';
+                    }
+                }
+                echo '</ul>';
+            }
             ?>
         </div>
         <?php endif; ?>

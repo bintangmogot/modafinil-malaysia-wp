@@ -24,12 +24,7 @@ get_header();
             <span><?= get_the_author() ?></span>
             <span>&middot;</span>
             <span>
-                <?php
-                $categories = get_the_category();
-                if (!empty($categories)) {
-                    echo esc_html($categories[0]->name);
-                }
-                ?>
+                <?= esc_html(modmy_get_post_category()) ?>
             </span>
         </div>
     </div>

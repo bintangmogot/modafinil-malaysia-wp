@@ -3143,6 +3143,100 @@
                             ]
                         }
                     ]
+                },
+                "layout_privacy_policy": {
+                    "key": "layout_privacy_policy",
+                    "name": "privacy_policy",
+                    "label": "Privacy Policy Page",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title (EN)",
+                            "name": "title_en",
+                            "type": "text",
+                            "default": "Privacy Policy",
+                            "key": "field_prv_75a7e76c6b6d"
+                        },
+                        {
+                            "label": "Title (MS)",
+                            "name": "title_ms",
+                            "type": "text",
+                            "default": "Dasar Privasi",
+                            "key": "field_prv_d30588402abe"
+                        },
+                        {
+                            "label": "Subtitle (EN)",
+                            "name": "subtitle_en",
+                            "type": "textarea",
+                            "default": "We collect the absolute minimum data required to process and deliver your order.",
+                            "key": "field_prv_9f1a915df9a3"
+                        },
+                        {
+                            "label": "Subtitle (MS)",
+                            "name": "subtitle_ms",
+                            "type": "textarea",
+                            "default": "Kami mengumpul data sekurang-kurangnya yang diperlukan untuk memproses pesanan anda.",
+                            "key": "field_prv_543c3b416765"
+                        },
+                        {
+                            "key": "field_prv_4e7ceb8fef70",
+                            "label": "Badges / Highlights",
+                            "name": "badges",
+                            "type": "repeater",
+                            "layout": "block",
+                            "button_label": "Add Badge",
+                            "sub_fields": [
+                                {
+                                    "key": "field_prv_33d845bce880",
+                                    "label": "Badge (EN)",
+                                    "name": "badge_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_prv_5b8bc8d820d4",
+                                    "label": "Badge (MS)",
+                                    "name": "badge_ms",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_prv_e5a3ba5f46bb",
+                            "label": "Policy Sections",
+                            "name": "sections",
+                            "type": "repeater",
+                            "layout": "block",
+                            "button_label": "Add Section",
+                            "sub_fields": [
+                                {
+                                    "key": "field_prv_e5d908c1e544",
+                                    "label": "Section Title (EN)",
+                                    "name": "title_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_prv_1ee18cacafb5",
+                                    "label": "Section Title (MS)",
+                                    "name": "title_ms",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_prv_35c0999f1336",
+                                    "label": "Content (EN)",
+                                    "name": "content_en",
+                                    "type": "textarea",
+                                    "rows": 4
+                                },
+                                {
+                                    "key": "field_prv_26b63c38abd5",
+                                    "label": "Content (MS)",
+                                    "name": "content_ms",
+                                    "type": "textarea",
+                                    "rows": 4
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "min": "",
