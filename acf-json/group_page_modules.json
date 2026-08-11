@@ -2358,6 +2358,165 @@
                             ]
                         }
                     ]
+                },
+                "layout_seo_text": {
+                    "key": "layout_seo_text",
+                    "name": "seo_text",
+                    "label": "SEO Text with CTA",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_seo_text_content_en",
+                            "label": "Content (EN)",
+                            "name": "content_en",
+                            "type": "wysiwyg",
+                            "required": false
+                        },
+                        {
+                            "key": "field_seo_text_content_ms",
+                            "label": "Content (MS)",
+                            "name": "content_ms",
+                            "type": "wysiwyg",
+                            "required": false
+                        },
+                        {
+                            "key": "field_seo_text_show_cta",
+                            "label": "Show CTA?",
+                            "name": "show_cta",
+                            "type": "true_false",
+                            "default_value": 1,
+                            "ui": 1,
+                            "required": false
+                        },
+                        {
+                            "key": "field_seo_text_cta_title_en",
+                            "label": "CTA Title (EN)",
+                            "name": "cta_title_en",
+                            "type": "text",
+                            "required": false
+                        },
+                        {
+                            "key": "field_seo_text_cta_title_ms",
+                            "label": "CTA Title (MS)",
+                            "name": "cta_title_ms",
+                            "type": "text",
+                            "required": false
+                        },
+                        {
+                            "key": "field_seo_text_cta_desc_en",
+                            "label": "CTA Description (EN)",
+                            "name": "cta_desc_en",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": false
+                        },
+                        {
+                            "key": "field_seo_text_cta_desc_ms",
+                            "label": "CTA Description (MS)",
+                            "name": "cta_desc_ms",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": false
+                        },
+                        {
+                            "key": "field_seo_text_cta_link",
+                            "label": "CTA Link",
+                            "name": "cta_link",
+                            "type": "text",
+                            "required": false
+                        }
+                    ]
+                },
+                "layout_734b74e312bd4": {
+                    "key": "layout_734b74e312bd4",
+                    "name": "reviews",
+                    "label": "Customer Reviews",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_c1b546c89e524",
+                            "label": "Heading (EN)",
+                            "name": "heading_en",
+                            "type": "text",
+                            "default_value": "What Malaysian Customers Say"
+                        },
+                        {
+                            "key": "field_35603c7eecc34",
+                            "label": "Heading (MS)",
+                            "name": "heading_ms",
+                            "type": "text",
+                            "default_value": "Apa Kata Pelanggan Malaysia"
+                        },
+                        {
+                            "key": "field_6f47fd49d5334",
+                            "label": "Description (EN)",
+                            "name": "description_en",
+                            "type": "text",
+                            "default_value": "Real testimonials from ModafinilMY users across Malaysia."
+                        },
+                        {
+                            "key": "field_b85ef437c54e4",
+                            "label": "Description (MS)",
+                            "name": "description_ms",
+                            "type": "text",
+                            "default_value": "Testimoni sebenar dari pengguna ModafinilMY di seluruh Malaysia."
+                        },
+                        {
+                            "key": "field_b7c8757ea2b14",
+                            "label": "Reviews List",
+                            "name": "reviews_list",
+                            "type": "repeater",
+                            "layout": "block",
+                            "button_label": "Add Review",
+                            "sub_fields": [
+                                {
+                                    "key": "field_83ad2bc470474",
+                                    "label": "Name",
+                                    "name": "name",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_f3c5241b254c4",
+                                    "label": "Meta (Verified / City)",
+                                    "name": "meta",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_0a9181857cc84",
+                                    "label": "Title (EN)",
+                                    "name": "title_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_0bd1b15992744",
+                                    "label": "Title (MS)",
+                                    "name": "title_ms",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_bb25909fa8f14",
+                                    "label": "Body (EN)",
+                                    "name": "body_en",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_6868693789f04",
+                                    "label": "Body (MS)",
+                                    "name": "body_ms",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_faceeb3ffe7b4",
+                                    "label": "Rating",
+                                    "name": "rating",
+                                    "type": "number",
+                                    "default_value": 5,
+                                    "min": 1,
+                                    "max": 5
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "min": "",
@@ -2386,6 +2545,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786457887,
+    "modified": 1786458969,
     "local_file": "C:laragonwwwmodafinil-malaysia/wp-content/themes/modafinil-malaysia-wp/acf-json/group_page_modules.json"
 }

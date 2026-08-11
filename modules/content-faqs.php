@@ -73,8 +73,8 @@ $link_url = get_sub_field('link_url') ?: home_url('/faq');
 
         <?php if($show_link): ?>
         <div class="text-center mt-8">
-            <a href="<?= esc_url($link_url) ?>" class="inline-flex items-center gap-2 border-2 border-primary-light text-primary-dark font-bold px-7 py-3 rounded-full hover:bg-primary-light hover:text-white hover:border-primary-light transition-all uppercase tracking-widest text-sm">
-                <?= modmy_t($link_en, $link_ms) ?>
+            <a href="<?= esc_url($link_url) ?>" class="inline-flex items-center gap-1 font-bold text-primary hover:text-primary-dark transition-colors text-sm">
+                <?= modmy_t($link_en, $link_ms) ?> &rarr;
             </a>
         </div>
         <?php endif; ?>

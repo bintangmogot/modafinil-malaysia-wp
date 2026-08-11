@@ -15,6 +15,11 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 // Disable product category lists display across product templates
 add_filter('wc_get_product_category_list', '__return_empty_string');
 
+// Set maximum products per page to 16
+add_filter('loop_shop_per_page', function($cols) {
+    return 16;
+}, 20);
+
 // 2. Add Custom "Buy via WhatsApp" button on Single Product
 add_action('woocommerce_single_product_summary', 'modmy_whatsapp_buy_button', 30);
 function modmy_whatsapp_buy_button() {
