@@ -42,33 +42,33 @@ $in_stock = $product->is_in_stock();
     </a>
 
     <!-- Product Info -->
-    <div class="flex flex-1 flex-col p-5">
-        <h3 class="font-heading text-base font-bold text-card-foreground">
-            <a href="<?= esc_url($link) ?>">
+    <div class="flex flex-1 flex-col p-3 md:p-5">
+        <h3 class="font-heading text-sm md:text-base font-bold text-card-foreground leading-tight">
+            <a href="<?= esc_url($link) ?>" class="line-clamp-2">
                 <?= esc_html($title) ?>
             </a>
         </h3>
 
         <!-- Price Range -->
-        <p class="mt-4 font-heading text-lg font-bold text-price">
+        <p class="mt-2 md:mt-4 font-heading text-[15px] md:text-lg font-bold text-price leading-tight">
             <?= $product->get_price_html() ?>
         </p>
 
         <!-- As low as -->
         <?php if ($per_tab): ?>
-        <p class="mt-1 text-sm font-medium text-primary-dark">
+        <p class="mt-1 text-xs md:text-sm font-medium text-primary-dark line-clamp-1">
             <?= modmy_t("As low as", "Serendah") ?> <?= esc_html($per_tab) ?>/<?= modmy_t("tab", "biji") ?>
         </p>
         <?php endif; ?>
 
         <!-- CTA Button -->
-        <div class="mt-5">
+        <div class="mt-auto pt-4">
             <?php if ($in_stock): ?>
-            <a href="<?= esc_url($link) ?>" class="flex w-full items-center justify-center rounded-full bg-primary px-2 py-2.5 sm:px-5 sm:py-3 text-[11px] sm:text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-pill transition-colors hover:bg-primary-dark">
+            <a href="<?= esc_url($link) ?>" class="flex w-full items-center justify-center text-center rounded-full bg-primary px-1 py-2 sm:px-5 sm:py-3 text-[10px] sm:text-sm font-bold uppercase leading-tight sm:tracking-wider text-primary-foreground shadow-pill transition-colors hover:bg-primary-dark">
                 <?= modmy_t("Buy Now", "Beli Sekarang") ?>
             </a>
             <?php else: ?>
-            <span class="flex w-full items-center justify-center rounded-full bg-destructive-soft px-2 py-2.5 sm:px-5 sm:py-3 text-[11px] sm:text-sm font-semibold text-destructive">
+            <span class="flex w-full items-center justify-center text-center rounded-full bg-destructive-soft px-1 py-2 sm:px-5 sm:py-3 text-[10px] sm:text-sm font-semibold leading-tight text-destructive">
                 <?= modmy_t("Out of Stock", "Habis Stok") ?>
             </span>
             <?php endif; ?>
