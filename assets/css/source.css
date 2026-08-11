@@ -402,3 +402,70 @@
   display: none !important;
 }
 
+/*
+ * ============================================================
+ * GRAVITY FORMS PREMIUM STYLING
+ * ============================================================
+ */
+.gform_wrapper form {
+  @apply flex flex-col;
+}
+.gform_wrapper .gform_fields {
+  @apply flex flex-col gap-2;
+}
+.gform_wrapper .gfield {
+  @apply flex flex-col mb-4;
+}
+.gform_wrapper .gfield_label {
+  @apply text-sm font-semibold text-foreground mb-2;
+}
+.gform_wrapper input[type="text"],
+.gform_wrapper input[type="email"],
+.gform_wrapper input[type="tel"],
+.gform_wrapper input[type="number"],
+.gform_wrapper input[type="url"],
+.gform_wrapper input[type="password"],
+.gform_wrapper textarea,
+.gform_wrapper select {
+  @apply w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-ring/30;
+}
+.gform_wrapper textarea {
+  @apply resize-y min-h-[120px];
+}
+.gform_wrapper .gform_footer {
+  @apply mt-2;
+}
+.gform_wrapper .button,
+.gform_wrapper .gform_button {
+  @apply rounded-full bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-pill transition-colors hover:bg-primary-dark cursor-pointer border-none;
+}
+.gform_wrapper .gfield_description {
+  @apply text-xs text-muted-foreground mt-1;
+}
+.gform_wrapper .gfield_required {
+  @apply text-destructive ml-1;
+}
+.gform_wrapper .gform_validation_errors {
+  @apply bg-destructive-soft text-destructive px-4 py-3 rounded-lg mb-6 border border-destructive/20 text-sm;
+}
+.gform_wrapper .gfield_error input,
+.gform_wrapper .gfield_error textarea {
+  @apply border-destructive focus:border-destructive focus:ring-destructive/30;
+}
+.gform_wrapper .gfield_validation_message {
+  @apply text-destructive text-xs mt-1;
+}
+.gform_wrapper .gform_confirmation_message {
+  @apply mt-4 p-4 rounded-lg bg-primary-softer text-primary-dark font-medium text-sm;
+}
+
+/* Complex field styling (like Name fields which have sub-labels) */
+.gform_wrapper .ginput_complex {
+  @apply flex flex-col md:flex-row gap-4;
+}
+.gform_wrapper .ginput_complex span {
+  @apply flex flex-col w-full;
+}
+.gform_wrapper .ginput_complex label {
+  @apply text-xs text-muted-foreground mt-1 font-normal;
+}

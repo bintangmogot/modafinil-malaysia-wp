@@ -68,42 +68,8 @@ $email = get_field('contact_email', 'option') ?: 'support@modafinil-malaysia.com
             </div>
         </div>
 
-        <form class="rounded-2xl border border-border bg-card p-7 shadow-card" action="<?= esc_url(admin_url('admin-post.php')) ?>" method="POST">
-            <input type="hidden" name="action" value="modmy_contact_form">
-            <?php wp_nonce_field('modmy_contact', 'modmy_contact_nonce'); ?>
-            
-            <h2 class="font-heading text-xl font-bold"><?= modmy_t("Send Message", "Hantar Mesej") ?></h2>
-            <p class="mt-1 text-sm text-muted-foreground">
-                <?= modmy_t("Fill in the form and we will contact you.", "Isikan borang dan kami akan menghubungi anda.") ?>
-            </p>
-
-            <?php if(isset($_GET['sent']) && $_GET['sent'] == '1'): ?>
-            <div class="mt-4 p-4 rounded-lg bg-primary-softer text-primary-dark font-medium text-sm">
-                <?= modmy_t("Thank you! We will reply within 24 hours.", "Terima kasih! Kami akan membalas dalam masa 24 jam.") ?>
-            </div>
-            <?php endif; ?>
-
-            <div class="mt-6 grid gap-5">
-                <div>
-                    <label for="name" class="text-sm font-semibold text-foreground"><?= modmy_t("Full Name", "Nama Penuh") ?></label>
-                    <input id="name" name="name" type="text" required placeholder="<?= modmy_t('Ahmad bin Ismail', 'Ahmad bin Ismail') ?>" class="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-ring/30" />
-                </div>
-                <div>
-                    <label for="email" class="text-sm font-semibold text-foreground"><?= modmy_t("Email", "E-mel") ?></label>
-                    <input id="email" name="email" type="email" required placeholder="nama@email.com" class="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-ring/30" />
-                </div>
-                <div>
-                    <label for="order" class="text-sm font-semibold text-foreground"><?= modmy_t("Order No. (optional)", "No. Pesanan (pilihan)") ?></label>
-                    <input id="order" name="order" type="text" placeholder="MY-10234" class="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-ring/30" />
-                </div>
-                <div>
-                    <label for="message" class="text-sm font-semibold text-foreground"><?= modmy_t("Message", "Mesej") ?></label>
-                    <textarea id="message" name="message" required rows="5" placeholder="<?= modmy_t('How can we help?', 'Bagaimana kami boleh membantu?') ?>" class="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-ring/30"></textarea>
-                </div>
-                <button type="submit" class="rounded-full bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-pill transition-colors hover:bg-primary-dark">
-                    <?= modmy_t("Send Message", "Hantar Mesej") ?>
-                </button>
-            </div>
-        </form>
+        <div class="rounded-2xl border border-border bg-card p-7 shadow-card">
+            <?= do_shortcode('[gravityform id="1" title="true" ajax="true"]') ?>
+        </div>
     </div>
 </section>
