@@ -64,11 +64,11 @@ $in_stock = $product->is_in_stock();
         <!-- CTA Button -->
         <div class="mt-auto pt-4">
             <?php if ($in_stock): ?>
-            <a href="<?= esc_url($link) ?>" class="flex w-full items-center justify-center text-center rounded-full bg-primary px-1 py-2 sm:px-5 sm:py-3 text-[10px] sm:text-sm font-bold uppercase leading-tight sm:tracking-wider text-primary-foreground shadow-pill transition-colors hover:bg-primary-dark">
+            <a href="<?= esc_url($link) ?>" class="flex w-full items-center justify-center text-center rounded-full bg-primary px-1 py-2 sm:px-2 md:px-3 lg:px-5 sm:py-2 md:py-3 text-[10px] sm:text-xs lg:text-sm font-bold uppercase leading-tight lg:tracking-wider text-primary-foreground shadow-pill transition-colors hover:bg-primary-dark">
                 <?= modmy_t("Buy Now", "Beli Sekarang") ?>
             </a>
             <?php else: ?>
-            <span class="flex w-full items-center justify-center text-center rounded-full bg-destructive-soft px-1 py-2 sm:px-5 sm:py-3 text-[10px] sm:text-sm font-semibold leading-tight text-destructive">
+            <span class="flex w-full items-center justify-center text-center rounded-full bg-destructive-soft px-1 py-2 sm:px-2 md:px-3 lg:px-5 sm:py-2 md:py-3 text-[10px] sm:text-xs lg:text-sm font-semibold leading-tight text-destructive">
                 <?= modmy_t("Out of Stock", "Habis Stok") ?>
             </span>
             <?php endif; ?>
