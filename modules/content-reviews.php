@@ -32,7 +32,7 @@ $average_rating = $total_reviews > 0 ? round($total_stars / $total_reviews, 1) :
 $average_stars = round($average_rating);
 ?>
 <section class="section-padding bg-white">
-    <div class="container-custom max-w-5xl">
+    <div class="container-custom">
         <div class="text-center mb-12">
             <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
                 <?= modmy_t("Customer Reviews", "Ulasan Pelanggan") ?>
