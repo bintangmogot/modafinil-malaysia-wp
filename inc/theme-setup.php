@@ -52,7 +52,34 @@ function modmy_register_cpt() {
         'public' => true,
         'has_archive' => false,
         'supports' => array('title'), // ACF will handle the rest
-        'menu_icon' => 'dashicons-star-filled'
     ));
 }
 add_action('init', 'modmy_register_cpt');
+
+/**
+ * Add Tailwind CSS classes to Navigation Menus
+ */
+add_filter('nav_menu_css_class', function($classes, $item, $args) {
+    if (isset($args->theme_location) && $args->theme_location === 'primary') {
+        if (isset($args->menu_class) && strpos($args->menu_class, 'flex flex-col') !== false) {
+            // Mobile Menu LI
+            $classes[] = 'w-full';
+        }
+    }
+    return $classes;
+}, 10, 3);
+
+add_filter('nav_menu_link_attributes', function($atts, $item, $args) {
+    if (isset($args->theme_location) && $args->theme_location === 'primary') {
+        if (isset($args->menu_class) && strpos($args->menu_class, 'flex flex-col') !== false) {
+            // Mobile Menu Link
+            $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'block px-6 py-4 text-base font-bold text-foreground border-b border-border/50 hover:bg-stone-50 hover:text-primary transition-colors';
+        } else {
+            // Desktop Menu Link
+            $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'px-4 py-2 text-sm font-semibold text-foreground/80 hover:text-primary transition-colors';
+        }
+    } elseif (isset($args->theme_location) && ($args->theme_location === 'mobile_cities' || strpos($args->theme_location, 'footer_') !== false)) {
+        $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'hover:text-primary transition-colors text-muted-foreground';
+    }
+    return $atts;
+}, 10, 3);

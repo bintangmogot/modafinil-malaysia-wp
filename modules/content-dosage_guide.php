@@ -222,7 +222,7 @@ $color_map = [
         <div class="grid gap-4 md:grid-cols-2">
             <?php foreach ($faq_items as $i => $faq): ?>
             <details class="group cursor-pointer rounded-2xl border border-stone-200 bg-white p-6 shadow-sm open:bg-emerald-50/30 open:border-emerald-200" <?= $i === 0 ? 'open' : '' ?>>
-                <summary class="flex items-center justify-between gap-4 font-heading text-lg font-bold text-slate-900 marker:content-none">
+                <summary class="flex items-center justify-between gap-4 font-heading text-base md:text-lg font-bold text-slate-900 marker:content-none">
                     <?= modmy_t($faq['q_en'] ?? '', $faq['q_ms'] ?? '') ?>
                     <span class="ml-4 shrink-0 rounded-full bg-stone-100 p-1.5 text-stone-500 group-open:bg-emerald-100 group-open:text-emerald-600 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-open:-rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
