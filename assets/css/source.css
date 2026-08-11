@@ -422,8 +422,11 @@
 .gform_wrapper form {
   @apply !flex !flex-col;
 }
+.gform_wrapper .gform_fields {
+  @apply !gap-y-4 !gap-x-4;
+}
 .gform_wrapper .gfield {
-  @apply !flex !flex-col !mt-3 !mb-0 !pb-0;
+  @apply !flex !flex-col !mt-0 !mb-0 !pb-0;
 }
 .gform_wrapper .gfield_label {
   @apply !text-sm !font-semibold !text-foreground !mb-2;
