@@ -43,7 +43,7 @@ if (!$products) {
             </h2>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             <?php 
             if($products):
                 foreach($products as $p):

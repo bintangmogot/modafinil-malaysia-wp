@@ -490,7 +490,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
         <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-slate-900 text-center mb-8">
             <?= modmy_t("Related Products", "Produk Berkaitan") ?>
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             <?php
             $related_products = wc_get_related_products($product->get_id(), 4);
             foreach ($related_products as $related_product_id) {

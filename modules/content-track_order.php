@@ -2,17 +2,39 @@
 /**
  * Track Order Module
  */
+
+$badge_en = get_sub_field('badge_text_en') ?: "Track Order";
+$badge_ms = get_sub_field('badge_text_ms') ?: "Jejak Pesanan";
+
+$heading_en = get_sub_field('heading_en') ?: "Track Your Order";
+$heading_ms = get_sub_field('heading_ms') ?: "Jejak Pesanan Anda";
+
+$desc_en = get_sub_field('description_en') ?: "All ModafinilMY orders are shipped via Pos Malaysia with a tracking number that can be checked online.";
+$desc_ms = get_sub_field('description_ms') ?: "Semua pesanan ModafinilMY dihantar melalui Pos Malaysia dengan nombor penjejakan yang boleh disemak secara dalam talian.";
+
+$box_heading_en = get_sub_field('track_box_heading_en') ?: "Track via Pos Malaysia";
+$box_heading_ms = get_sub_field('track_box_heading_ms') ?: "Jejak melalui Pos Malaysia";
+
+$box_desc_en = get_sub_field('track_box_desc_en') ?: "You can track your order directly on the official Pos Malaysia website using the tracking number we sent you.";
+$box_desc_ms = get_sub_field('track_box_desc_ms') ?: "Anda boleh menjejak pesanan anda terus di laman web rasmi Pos Malaysia menggunakan nombor penjejakan yang kami hantar kepada anda.";
+
+$btn_text_en = get_sub_field('track_btn_text_en') ?: "Track at Pos Malaysia";
+$btn_text_ms = get_sub_field('track_btn_text_ms') ?: "Jejak di Pos Malaysia";
+$btn_link = get_sub_field('track_btn_link') ?: "https://track.pos.com.my/";
+
+$peninsular_days = get_sub_field('est_peninsular_days') ?: "7-12";
+$sabah_sarawak_days = get_sub_field('est_sabah_sarawak_days') ?: "10-16";
 ?>
 <section class="section-padding bg-white text-center">
     <div class="container-custom max-w-3xl">
         <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-            <?= modmy_t("Track Order", "Jejak Pesanan") ?>
+            <?= modmy_t($badge_en, $badge_ms) ?>
         </span>
         <h1 class="font-heading text-4xl md:text-5xl font-black text-slate-900 mb-4">
-            <?= modmy_t("Track Your Order", "Jejak Pesanan Anda") ?>
+            <?= modmy_t($heading_en, $heading_ms) ?>
         </h1>
         <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            <?= modmy_t("All ModafinilMY orders are shipped via Pos Malaysia with a tracking number that can be checked online.", "Semua pesanan ModafinilMY dihantar melalui Pos Malaysia dengan nombor penjejakan yang boleh disemak secara dalam talian.") ?>
+            <?= modmy_t($desc_en, $desc_ms) ?>
         </p>
     </div>
 </section>
@@ -30,13 +52,13 @@
             </svg>
             
             <h2 class="mt-5 font-heading text-xl font-bold text-slate-900">
-                <?= modmy_t("Track via Pos Malaysia", "Jejak melalui Pos Malaysia") ?>
+                <?= modmy_t($box_heading_en, $box_heading_ms) ?>
             </h2>
             <p class="mt-3 text-sm leading-relaxed text-slate-500 sm:text-base">
-                <?= modmy_t("You can track your order directly on the official Pos Malaysia website using the tracking number we sent you.", "Anda boleh menjejak pesanan anda terus di laman web rasmi Pos Malaysia menggunakan nombor penjejakan yang kami hantar kepada anda.") ?>
+                <?= modmy_t($box_desc_en, $box_desc_ms) ?>
             </p>
-            <a href="https://track.pos.com.my/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 px-6 py-3 text-sm font-bold text-white shadow-md transition-colors">
-                <?= modmy_t("Track at Pos Malaysia", "Jejak di Pos Malaysia") ?>
+            <a href="<?= esc_url($btn_link) ?>" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-500 px-6 py-3 text-sm font-bold text-white shadow-md transition-colors">
+                <?= modmy_t($btn_text_en, $btn_text_ms) ?>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                 </svg>
@@ -51,14 +73,14 @@
             <div class="mt-5 grid gap-4 sm:grid-cols-2">
                 <div class="rounded-xl border border-stone-200 bg-white p-6 shadow-sm text-center sm:text-left">
                     <h3 class="font-semibold text-slate-900"><?= modmy_t("Peninsular Malaysia", "Semenanjung Malaysia") ?></h3>
-                    <div class="mt-2 text-4xl font-extrabold text-emerald-600">7-12</div>
+                    <div class="mt-2 text-4xl font-extrabold text-emerald-600"><?= esc_html($peninsular_days) ?></div>
                     <p class="mt-1 text-sm text-slate-500">
                         <?= modmy_t("business days from shipping date", "hari bekerja dari tarikh penghantaran") ?>
                     </p>
                 </div>
                 <div class="rounded-xl border border-stone-200 bg-white p-6 shadow-sm text-center sm:text-left">
                     <h3 class="font-semibold text-slate-900"><?= modmy_t("Sabah & Sarawak", "Sabah & Sarawak") ?></h3>
-                    <div class="mt-2 text-4xl font-extrabold text-emerald-600">10-16</div>
+                    <div class="mt-2 text-4xl font-extrabold text-emerald-600"><?= esc_html($sabah_sarawak_days) ?></div>
                     <p class="mt-1 text-sm text-slate-500">
                         <?= modmy_t("business days from shipping date", "hari bekerja dari tarikh penghantaran") ?>
                     </p>
