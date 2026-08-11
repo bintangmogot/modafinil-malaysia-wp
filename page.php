@@ -20,6 +20,7 @@ get_header();
     // Otherwise, render a standard text page:
     else {
         ?>
+        <?php if ( ! ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ) ) : ?>
         <div class="bg-background pt-16 pb-8 text-center border-b border-border">
             <div class="container-site max-w-4xl">
                 <h1 class="mt-4 font-heading text-4xl font-extrabold tracking-tight md:text-5xl">
@@ -27,10 +28,11 @@ get_header();
                 </h1>
             </div>
         </div>
+        <?php endif; ?>
 
         <?php if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_account_page() ) ) : ?>
         <div class="section-padding bg-background min-h-[50vh]">
-            <div class="container-custom max-w-6xl">
+            <div class="container-custom max-w-7xl">
                 <?php
                 while (have_posts()) :
                     the_post();

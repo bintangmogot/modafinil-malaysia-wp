@@ -60,10 +60,12 @@ add_action('init', 'modmy_register_cpt');
  * Add Tailwind CSS classes to Navigation Menus
  */
 add_filter('nav_menu_css_class', function($classes, $item, $args) {
-    if (isset($args->theme_location) && $args->theme_location === 'primary') {
-        if (isset($args->menu_class) && strpos($args->menu_class, 'flex flex-col') !== false) {
+    if (isset($args->theme_location)) {
+        if ($args->theme_location === 'primary' && isset($args->menu_class) && strpos($args->menu_class, 'flex flex-col') !== false) {
             // Mobile Menu LI
-            $classes[] = 'w-full';
+            $classes[] = 'w-full list-none';
+        } elseif ($args->theme_location === 'mobile_cities') {
+            $classes[] = 'list-none';
         }
     }
     return $classes;
@@ -73,12 +75,14 @@ add_filter('nav_menu_link_attributes', function($atts, $item, $args) {
     if (isset($args->theme_location) && $args->theme_location === 'primary') {
         if (isset($args->menu_class) && strpos($args->menu_class, 'flex flex-col') !== false) {
             // Mobile Menu Link
-            $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'block px-6 py-4 text-base font-bold text-foreground border-b border-border/50 hover:bg-stone-50 hover:text-primary transition-colors';
+            $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'block px-6 py-3 text-base font-semibold text-slate-800 hover:bg-stone-50 hover:text-primary transition-colors';
         } else {
             // Desktop Menu Link
             $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'px-4 py-2 text-sm font-semibold text-foreground/80 hover:text-primary transition-colors';
         }
-    } elseif (isset($args->theme_location) && ($args->theme_location === 'mobile_cities' || strpos($args->theme_location, 'footer_') !== false)) {
+    } elseif (isset($args->theme_location) && $args->theme_location === 'mobile_cities') {
+        $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'text-sm text-[#62847A] hover:text-primary transition-colors block py-1.5 font-medium';
+    } elseif (isset($args->theme_location) && strpos($args->theme_location, 'footer_') !== false) {
         $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'hover:text-primary transition-colors text-muted-foreground';
     }
     return $atts;

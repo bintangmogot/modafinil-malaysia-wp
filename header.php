@@ -119,18 +119,34 @@ $is_en = $lang === 'en';
         </nav>
 
         <div class="px-6 py-6 pb-20">
-            <h3 class="mb-5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                <?= modmy_t("Buy Modafinil In", "Beli Modafinil Di") ?>
+            <h3 class="mb-2 text-xs font-semibold uppercase tracking-wider text-[#62847A]">
+                <?= modmy_t("BUY MODAFINIL IN", "BELI MODAFINIL DI") ?>
             </h3>
-            <div class="grid grid-cols-2 gap-y-4 gap-x-2">
+            <div class="grid grid-cols-2 gap-y-1 gap-x-4">
                 <?php
-                wp_nav_menu([
-                    'theme_location' => 'mobile_cities',
-                    'container'      => false,
-                    'menu_class'     => 'contents', // Let LI flow into grid
-                    'fallback_cb'    => false,
-                    'items_wrap'     => '%3$s',
-                ]);
+                if (has_nav_menu('mobile_cities')) {
+                    wp_nav_menu([
+                        'theme_location' => 'mobile_cities',
+                        'container'      => false,
+                        'menu_class'     => 'contents',
+                        'fallback_cb'    => false,
+                        'items_wrap'     => '%3$s',
+                    ]);
+                } else {
+                    $cities = get_posts([
+                        'post_type' => 'city',
+                        'posts_per_page' => -1,
+                        'orderby' => 'title',
+                        'order' => 'ASC'
+                    ]);
+                    foreach ($cities as $city) {
+                        $city_name = get_post_meta($city->ID, 'city_name', true);
+                        if (!$city_name) {
+                            $city_name = str_replace(['Buy Modafinil in ', 'Buy Modafinil '], '', $city->post_title);
+                        }
+                        echo '<a href="' . get_permalink($city->ID) . '" class="text-sm text-[#62847A] hover:text-primary transition-colors block py-1.5 font-medium">' . esc_html($city_name) . '</a>';
+                    }
+                }
                 ?>
             </div>
         </div>
