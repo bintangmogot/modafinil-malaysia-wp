@@ -3049,6 +3049,100 @@
                             ]
                         }
                     ]
+                },
+                "layout_refund_policy": {
+                    "key": "layout_refund_policy",
+                    "name": "refund_policy",
+                    "label": "Refund Policy Page",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title (EN)",
+                            "name": "title_en",
+                            "type": "text",
+                            "default": "Refund Policy & Guarantee",
+                            "key": "field_ref_d48a00dd46a3"
+                        },
+                        {
+                            "label": "Title (MS)",
+                            "name": "title_ms",
+                            "type": "text",
+                            "default": "Dasar Bayaran Balik & Jaminan",
+                            "key": "field_ref_9ea1f8b69f70"
+                        },
+                        {
+                            "label": "Subtitle (EN)",
+                            "name": "subtitle_en",
+                            "type": "textarea",
+                            "default": "If your order does not arrive, we will reship it for free or issue a full refund.",
+                            "key": "field_ref_4524e00f098a"
+                        },
+                        {
+                            "label": "Subtitle (MS)",
+                            "name": "subtitle_ms",
+                            "type": "textarea",
+                            "default": "Jika pesanan anda tidak sampai, kami hantar semula secara percuma atau kembalikan wang anda sepenuhnya.",
+                            "key": "field_ref_ec897aebf12a"
+                        },
+                        {
+                            "key": "field_ref_4685c02287ac",
+                            "label": "Badges / Highlights",
+                            "name": "badges",
+                            "type": "repeater",
+                            "layout": "block",
+                            "button_label": "Add Badge",
+                            "sub_fields": [
+                                {
+                                    "key": "field_ref_33f9b6e9ef9b",
+                                    "label": "Badge (EN)",
+                                    "name": "badge_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_ref_cf560e9c3db0",
+                                    "label": "Badge (MS)",
+                                    "name": "badge_ms",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_ref_a3e48e910eee",
+                            "label": "Policy Sections",
+                            "name": "sections",
+                            "type": "repeater",
+                            "layout": "block",
+                            "button_label": "Add Section",
+                            "sub_fields": [
+                                {
+                                    "key": "field_ref_a36a22a29c4f",
+                                    "label": "Section Title (EN)",
+                                    "name": "title_en",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_ref_d610844f8453",
+                                    "label": "Section Title (MS)",
+                                    "name": "title_ms",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_ref_f8e7a5d6a302",
+                                    "label": "Content (EN)",
+                                    "name": "content_en",
+                                    "type": "textarea",
+                                    "rows": 4
+                                },
+                                {
+                                    "key": "field_ref_afca2eeb31cf",
+                                    "label": "Content (MS)",
+                                    "name": "content_ms",
+                                    "type": "textarea",
+                                    "rows": 4
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "min": "",
