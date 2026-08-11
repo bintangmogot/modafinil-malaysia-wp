@@ -3,16 +3,21 @@
  * Modafinil Dosage Guide Module
  */
 
-$page_badge    = get_sub_field('page_badge') ?: ['en' => 'Dosage Guide', 'ms' => 'Panduan Dos'];
-$page_title    = get_sub_field('page_title') ?: ['en' => 'Modafinil Dosage Guide for Malaysian Users', 'ms' => 'Panduan Dos Modafinil untuk Pengguna Malaysia'];
-$page_subtitle = get_sub_field('page_subtitle') ?: ['en' => 'The optimal dosage, best time to take it, and tips specific to Malaysia\'s hot and humid climate.', 'ms' => 'Dos yang optimum, masa terbaik untuk mengambilnya, dan petua khusus untuk keadaan cuaca Malaysia.'];
-$disclaimer    = get_sub_field('disclaimer') ?: ['en' => 'This information is for educational purposes only. Please consult a licensed doctor before using Modafinil. This is not medical advice.', 'ms' => 'Maklumat ini adalah untuk tujuan pendidikan sahaja. Sila berunding dengan doktor berlesen sebelum menggunakan Modafinil. Ini bukan nasihat perubatan.'];
+// Read flat ACF fields
+$page_badge_en  = get_sub_field('page_badge_en')  ?: 'Dosage Guide';
+$page_badge_ms  = get_sub_field('page_badge_ms')  ?: 'Panduan Dos';
+$page_title_en  = get_sub_field('page_title_en')  ?: 'Modafinil Dosage Guide for Malaysian Users';
+$page_title_ms  = get_sub_field('page_title_ms')  ?: 'Panduan Dos Modafinil untuk Pengguna Malaysia';
+$page_sub_en    = get_sub_field('page_subtitle_en') ?: "The optimal dosage, best time to take it, and tips specific to Malaysia's hot and humid climate.";
+$page_sub_ms    = get_sub_field('page_subtitle_ms') ?: 'Dos yang optimum, masa terbaik untuk mengambilnya, dan petua khusus untuk keadaan cuaca Malaysia.';
+$disclaimer_en  = get_sub_field('disclaimer_en')  ?: 'This information is for educational purposes only. Please consult a licensed doctor before using Modafinil. This is not medical advice.';
+$disclaimer_ms  = get_sub_field('disclaimer_ms')  ?: 'Maklumat ini adalah untuk tujuan pendidikan sahaja. Sila berunding dengan doktor berlesen sebelum menggunakan Modafinil. Ini bukan nasihat perubatan.';
 
-$dosage_cards  = get_sub_field('dosage_cards') ?: [];
-$timing_items  = get_sub_field('timing_items') ?: [];
+$dosage_cards  = get_sub_field('dosage_cards')  ?: [];
+$timing_items  = get_sub_field('timing_items')  ?: [];
 $malaysia_tips = get_sub_field('malaysia_tips') ?: [];
 $product_cards = get_sub_field('product_cards') ?: [];
-$faq_items     = get_sub_field('faq_items') ?: [];
+$faq_items     = get_sub_field('faq_items')     ?: [];
 
 if (empty($dosage_cards)) {
     $dosage_cards = [
@@ -70,18 +75,18 @@ $color_map = [
     <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 30% 50%, #10b981 0%, transparent 50%), radial-gradient(circle at 80% 20%, #3b82f6 0%, transparent 40%);"></div>
     <div class="container-custom max-w-6xl relative z-10">
         <span class="mb-5 inline-block rounded-full bg-emerald-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-300 border border-emerald-500/30">
-            <?= modmy_t($page_badge['en'] ?? 'Dosage Guide', $page_badge['ms'] ?? 'Panduan Dos') ?>
+            <?= modmy_t($page_badge_en, $page_badge_ms) ?>
         </span>
         <h1 class="mb-5 font-heading text-4xl font-black leading-tight md:text-5xl drop-shadow">
-            <?= modmy_t($page_title['en'] ?? '', $page_title['ms'] ?? '') ?>
+            <?= modmy_t($page_title_en, $page_title_ms) ?>
         </h1>
         <p class="max-w-3xl text-lg leading-relaxed text-slate-300">
-            <?= modmy_t($page_subtitle['en'] ?? '', $page_subtitle['ms'] ?? '') ?>
+            <?= modmy_t($page_sub_en, $page_sub_ms) ?>
         </p>
         <!-- Disclaimer Banner -->
         <div class="mt-8 flex items-start gap-3 rounded-xl border border-amber-400/30 bg-amber-400/10 px-5 py-4 text-sm text-amber-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-            <span><strong class="text-amber-300"><?= modmy_t('Medical Disclaimer:', 'Penafian Perubatan:') ?></strong> <?= modmy_t($disclaimer['en'] ?? '', $disclaimer['ms'] ?? '') ?></span>
+            <span><strong class="text-amber-300"><?= modmy_t('Medical Disclaimer:', 'Penafian Perubatan:') ?></strong> <?= modmy_t($disclaimer_en, $disclaimer_ms) ?></span>
         </div>
     </div>
 </section>
