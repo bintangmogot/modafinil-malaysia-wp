@@ -7,6 +7,11 @@ if (!class_exists('WooCommerce')) {
     return;
 }
 
+// Force Classic Checkout & Cart (WooCommerce 10.x defaults to Block-based, which breaks our custom templates)
+add_filter( 'woocommerce_should_load_cart_checkout_blocks_frontend', '__return_false' );
+add_filter( 'wc_use_checkout_block', '__return_false' );
+add_filter( 'wc_use_cart_block', '__return_false' );
+
 // 1. Remove standard Add to Cart buttons & single product metadata (categories, tags)
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);

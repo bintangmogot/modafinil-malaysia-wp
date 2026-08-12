@@ -55,10 +55,10 @@
         </div>
 
         <div>
-            <h3 class="text-sm font-bold uppercase tracking-widest text-ink-foreground">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-3">
                 <?= modmy_t("Quick Links", "Pautan Pantas") ?>
             </h3>
-            <div class="mt-4">
+            <div class="mt-2">
                 <?php
                 wp_nav_menu([
                     'theme_location' => 'footer_quick',
@@ -71,10 +71,10 @@
         </div>
 
         <div>
-            <h3 class="text-sm font-bold uppercase tracking-widest text-ink-foreground">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-3">
                 <?= modmy_t("Information", "Maklumat") ?>
             </h3>
-            <div class="mt-4">
+            <div class="mt-2">
                 <?php
                 wp_nav_menu([
                     'theme_location' => 'footer_info',
@@ -87,10 +87,10 @@
         </div>
 
         <div>
-            <h3 class="text-sm font-bold uppercase tracking-widest text-ink-foreground">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-white mb-3">
                 <?= modmy_t("Malaysia Delivery", "Penghantaran Malaysia") ?>
             </h3>
-            <div class="mt-4">
+            <div class="mt-2">
                 <?php
                 wp_nav_menu([
                     'theme_location' => 'footer_cities',

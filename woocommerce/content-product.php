@@ -55,9 +55,11 @@ $in_stock = $product->is_in_stock();
         </p>
 
         <!-- As low as -->
-        <?php if ($per_tab): ?>
+        <?php if ($per_tab): 
+            $per_tab_clean = str_ireplace(['/tab', '/biji', '/unit'], '', $per_tab);
+        ?>
         <p class="mt-1 text-xs md:text-sm font-medium text-primary-dark line-clamp-1">
-            <?= modmy_t("As low as", "Serendah") ?> <?= esc_html($per_tab) ?>/<?= modmy_t("tab", "biji") ?>
+            <?= modmy_t("As low as", "Serendah") ?> <?= esc_html($per_tab_clean) ?>/<?= modmy_t("tab", "biji") ?>
         </p>
         <?php endif; ?>
 

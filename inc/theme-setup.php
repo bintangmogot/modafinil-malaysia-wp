@@ -78,7 +78,14 @@ add_filter('nav_menu_link_attributes', function($atts, $item, $args) {
             $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'block px-6 py-3 text-base font-semibold text-slate-800 hover:bg-stone-50 hover:text-primary transition-colors';
         } else {
             // Desktop Menu Link
-            $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'px-4 py-2 text-sm font-semibold text-foreground/80 hover:text-primary transition-colors';
+            $classes = 'px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200';
+            $is_current = in_array('current-menu-item', $item->classes) || $item->current || in_array('current-page-ancestor', $item->classes);
+            if ($is_current) {
+                $classes .= ' bg-primary-softer text-primary';
+            } else {
+                $classes .= ' text-foreground/80 hover:bg-primary-softer hover:text-primary';
+            }
+            $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . $classes;
         }
     } elseif (isset($args->theme_location) && $args->theme_location === 'mobile_cities') {
         $atts['class'] = (isset($atts['class']) ? $atts['class'] . ' ' : '') . 'text-sm text-[#62847A] hover:text-primary transition-colors block py-1.5 font-medium';

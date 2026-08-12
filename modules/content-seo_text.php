@@ -11,7 +11,20 @@ $cta_title_en = get_sub_field('cta_title_en') ?: "Modafinil Dosage Guide";
 $cta_title_ms = get_sub_field('cta_title_ms') ?: "Panduan Dos Modafinil";
 $cta_desc_en = get_sub_field('cta_desc_en') ?: "Not sure which dose is right for you? Read our complete dosage guide with recommendations, timing tips, and brand comparisons.";
 $cta_desc_ms = get_sub_field('cta_desc_ms') ?: "Tidak pasti dos mana yang sesuai untuk anda? Baca panduan dos lengkap kami dengan cadangan, tips masa, dan perbandingan jenama.";
-$cta_link = get_sub_field('cta_link') ?: home_url('/dosage-guide');
+
+$raw_cta_link = get_sub_field('cta_link');
+if (is_array($raw_cta_link) && !empty($raw_cta_link['url'])) {
+    $cta_link = $raw_cta_link['url'];
+} elseif (is_string($raw_cta_link) && !empty(trim($raw_cta_link))) {
+    $cta_link = trim($raw_cta_link);
+} else {
+    $cta_link = home_url('/modafinil-dosage-guide/');
+}
+
+// Automatically map legacy /dosage-guide to /modafinil-dosage-guide/
+if (strpos($cta_link, '/dosage-guide') !== false && strpos($cta_link, '/modafinil-dosage-guide') === false) {
+    $cta_link = str_replace('/dosage-guide', '/modafinil-dosage-guide/', $cta_link);
+}
 ?>
 <section class="py-12 md:py-16 bg-background">
     <div class="container-site max-w-4xl">
