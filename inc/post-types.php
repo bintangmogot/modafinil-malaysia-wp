@@ -33,7 +33,7 @@ function modmy_register_post_types() {
         'hierarchical'       => false,
         'menu_position'      => 20,
         'menu_icon'          => 'dashicons-star-filled',
-        'supports'           => array( 'title' ),
+        'supports'           => array( 'title', 'editor' ),
     );
 
     register_post_type( 'review', $review_args );
