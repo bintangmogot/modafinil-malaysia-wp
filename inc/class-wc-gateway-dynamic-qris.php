@@ -28,7 +28,6 @@ class WC_Gateway_Dynamic_QRIS extends WC_Payment_Gateway {
 		$this->description      = $this->get_option( 'description' );
 		$this->instructions     = $this->get_option( 'instructions' );
 		$this->static_qris      = $this->get_option( 'static_qris' );
-		$this->conversion_rate  = $this->get_option( 'conversion_rate', '3450' );
 
 		// Actions
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
@@ -69,12 +68,6 @@ class WC_Gateway_Dynamic_QRIS extends WC_Payment_Gateway {
 				'description' => __( 'Scan your physical QRIS using a barcode scanner app and paste the raw text here.', 'woocommerce' ),
 				'default'     => '00020101021126660016COM.GO-JEK.WWW01189360091433240224210214476123165314050312351440014ID.CO.QRIS.WWW0215ID10231362095060315ID10231362095065204581253033605802ID5914DUMMY MERCHANT6007JAKARTA61051234562520108A02010460538050414000323ID102313620950604107106095060505100000703A0163044439', // Dummy string
 			),
-			'conversion_rate' => array(
-				'title'       => __( 'RM to IDR Exchange Rate', 'woocommerce' ),
-				'type'        => 'text',
-				'description' => __( 'If your store is in RM, enter the exchange rate to Rupiah (e.g., 3450). This converts the cart total into IDR for the QR code.', 'woocommerce' ),
-				'default'     => '3450',
-			),
 			'instructions' => array(
 				'title'       => __( 'Instructions', 'woocommerce' ),
 				'type'        => 'textarea',
@@ -105,6 +98,35 @@ class WC_Gateway_Dynamic_QRIS extends WC_Payment_Gateway {
 			'result'   => 'success',
 			'redirect' => $this->get_return_url( $order )
 		);
+	}
+
+	/**
+	 * Fetch live real-time conversion rate from open.er-api.com
+	 * Caches result for 12 hours. Falls back to static setting.
+	 */
+	private function get_live_conversion_rate() {
+		$rate = get_transient( 'wc_dynamic_qris_myr_idr_rate' );
+		
+		if ( false === $rate ) {
+			$response = wp_remote_get( 'https://open.er-api.com/v6/latest/MYR', array( 'timeout' => 5 ) );
+			
+			if ( ! is_wp_error( $response ) && wp_remote_retrieve_response_code( $response ) === 200 ) {
+				$body = wp_remote_retrieve_body( $response );
+				$data = json_decode( $body, true );
+				
+				if ( isset( $data['rates']['IDR'] ) ) {
+					$rate = floatval( $data['rates']['IDR'] );
+					set_transient( 'wc_dynamic_qris_myr_idr_rate', $rate, 12 * HOUR_IN_SECONDS );
+				}
+			}
+		}
+		
+		if ( empty( $rate ) ) {
+			// Fallback rate if the API completely fails
+			$rate = 4350;
+		}
+		
+		return $rate;
 	}
 
 	/**
@@ -165,7 +187,7 @@ class WC_Gateway_Dynamic_QRIS extends WC_Payment_Gateway {
 		}
 
 		$total_rm = $order->get_total();
-		$rate = floatval( $this->conversion_rate ) > 0 ? floatval( $this->conversion_rate ) : 1;
+		$rate = $this->get_live_conversion_rate();
 		$total_idr = $total_rm * $rate;
 		
 		$static_qris = trim( $this->static_qris );
@@ -179,13 +201,13 @@ class WC_Gateway_Dynamic_QRIS extends WC_Payment_Gateway {
 			?>
 			<div class="qris-payment-box mt-6 p-6 border-2 border-primary rounded-xl bg-primary-softer flex flex-col items-center justify-center text-center">
 				<h3 class="font-heading font-bold text-xl mb-2 text-foreground">Scan to Pay with QRIS</h3>
-				<p class="text-muted-foreground mb-6">Total Amount: <strong>IDR <?php echo number_format( $total_idr, 0, ',', '.' ); ?></strong> (Converted from <?php echo wp_kses_post( $order->get_formatted_order_total() ); ?>)</p>
+				<p class="text-muted-foreground mb-6">Total Amount: <strong>IDR <?php echo number_format( $total_idr, 0, ',', '.' ); ?></strong> (Converted from <?php echo wp_kses_post( $order->get_formatted_order_total() ); ?> @ RM 1 = IDR <?php echo number_format( $rate, 0, ',', '.' ); ?>)</p>
 				
 				<div class="bg-white p-4 rounded-lg shadow-sm border border-border inline-block mb-4">
 					<img src="<?php echo esc_url( $qr_url ); ?>" alt="QRIS Code" class="w-[250px] h-[250px] object-contain mx-auto" />
 				</div>
 				
-				<p class="text-sm font-bold text-primary mt-2">✨ Exact nominal will be inputted automatically!</p>
+				<p class="text-sm font-bold text-primary mt-2">Exact nominal will be inputted automatically!</p>
 			</div>
 			<?php
 		} else {
