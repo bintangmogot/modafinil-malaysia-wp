@@ -341,6 +341,20 @@
   margin-bottom: 1.25rem !important;
 }
 
+/* Center Trust Badges / Custom HTML in Side Cart */
+.xoo-wsc-footer .xoo-wsc-sln-txt,
+.xoo-wsc-footer .xoo-wsc-bef-tot,
+.xoo-wsc-footer .xoo-wsc-aft-tot,
+.xoo-wsc-body .xoo-wsc-sln-txt,
+.xoo-wsc-footer > *:not(.xoo-wsc-subtotal):not(.xoo-wsc-ft-buttons-cont):not(.xoo-wsc-sm) {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 1rem !important;
+  width: 100% !important;
+}
+
 /* Premium Buttons Styling */
 .xoo-wsc-footer .xoo-wsc-ft-btn, 
 .xoo-wsc-ft-btn {
@@ -349,23 +363,36 @@
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
   border-radius: 9999px !important;
-  padding: 0.875rem 1.5rem !important;
+  padding: 0.875rem 0.5rem !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  font-size: 0.875rem !important;
+  font-size: 0.8rem !important;
+  line-height: 1.4 !important;
   box-shadow: var(--shadow-pill) !important;
   border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  text-align: center !important;
 }
 
 /* Primary Button (Checkout / Place Order) */
 .xoo-wsc-chkt-btn, 
-.xoo-wsc-ft-btn.xoo-wsc-chkt {
+.xoo-wsc-ft-btn.xoo-wsc-chkt,
+.xoo-wsc-ft-btn-checkout {
   background-color: var(--primary) !important;
   color: var(--primary-foreground) !important;
 }
 .xoo-wsc-chkt-btn:hover, 
-.xoo-wsc-ft-btn.xoo-wsc-chkt:hover {
+.xoo-wsc-ft-btn.xoo-wsc-chkt:hover,
+.xoo-wsc-ft-btn-checkout:hover {
   background-color: var(--primary-dark) !important;
   transform: translateY(-1px);
+}
+.xoo-wsc-chkt-btn > *, 
+.xoo-wsc-ft-btn.xoo-wsc-chkt > *,
+.xoo-wsc-ft-btn-checkout > * {
+  display: none !important;
 }
 
 /* Secondary Button (View Cart / Continue Shopping) */
@@ -789,19 +816,19 @@
   @apply !m-0 !p-0 !list-none !mb-0 !pb-0;
 }
 #payment ul.payment_methods li {
-  @apply !mb-3 !flex !flex-col !gap-2;
+  @apply !mb-3 !flex !flex-wrap !items-center !gap-x-3 !gap-y-2;
 }
 #payment ul.payment_methods li input[type="radio"] {
-  @apply !mr-2 !mt-1;
+  @apply !m-0;
 }
 #payment ul.payment_methods li label {
-  @apply !font-bold !text-foreground !flex !items-center !gap-2 !cursor-pointer;
+  @apply !font-bold !text-foreground !cursor-pointer !flex-1 !flex !items-center !gap-2 !m-0;
 }
 #payment ul.payment_methods li label img {
   @apply !max-h-8;
 }
 #payment div.payment_box {
-  @apply !mt-2 !bg-white !p-4 !rounded-lg !border !border-border !text-sm !text-muted-foreground !relative;
+  @apply !w-full !mt-2 !bg-white !p-4 !rounded-lg !border !border-border !text-sm !text-muted-foreground !relative;
 }
 #payment div.payment_box::before {
   @apply !hidden;
@@ -1175,4 +1202,202 @@ input[type="radio"], input[type="checkbox"] {
 .woocommerce-cart table.cart .actions button[name='update_cart']:disabled {
     opacity: 0.5 !important;
     cursor: not-allowed !important;
+}
+
+/*
+ * ============================================================
+ * THANK YOU PAGE STYLING
+ * ============================================================
+ */
+.woocommerce-order ul.woocommerce-order-overview li {
+  @apply !border-r-0 md:!border-r md:!border-border last:!border-r-0;
+}
+.woocommerce-order .woocommerce-table--order-details,
+.woocommerce-order .woocommerce-table--customer-details {
+  @apply !w-full !border-collapse !text-sm !mb-8;
+}
+.woocommerce-order .woocommerce-table--order-details th,
+.woocommerce-order .woocommerce-table--customer-details th {
+  @apply !font-semibold !text-foreground !py-3 !border-b !border-border !text-left;
+}
+.woocommerce-order .woocommerce-table--order-details td,
+.woocommerce-order .woocommerce-table--customer-details td {
+  @apply !py-4 !border-b !border-border;
+}
+.woocommerce-order .woocommerce-table--order-details tfoot th,
+.woocommerce-order .woocommerce-table--order-details tfoot td {
+  @apply !font-medium !py-3;
+}
+.woocommerce-order .woocommerce-table--order-details tfoot tr:last-child th,
+.woocommerce-order .woocommerce-table--order-details tfoot tr:last-child td {
+  @apply !text-base !font-bold !text-foreground !border-t-2 !border-border !py-4;
+}
+
+/* BACS / Bank Transfer Details */
+.woocommerce-order .woocommerce-bacs-bank-details {
+  @apply !mt-8 !p-6 !bg-stone-50 !rounded-xl !border !border-border;
+}
+.woocommerce-order .woocommerce-bacs-bank-details h3 {
+  @apply !mb-4 !font-heading !text-lg !font-bold;
+}
+.woocommerce-order .woocommerce-bacs-bank-details .wc-bacs-bank-details-account-name {
+  @apply !font-bold !text-foreground !text-lg !mb-2;
+}
+.woocommerce-order .woocommerce-bacs-bank-details ul {
+  @apply !list-none !p-0 !m-0;
+}
+.woocommerce-order .woocommerce-bacs-bank-details ul li {
+  @apply !py-2 !border-b !border-border last:!border-b-0 !flex !justify-between !items-center;
+}
+.woocommerce-order .woocommerce-bacs-bank-details ul li.sortcode,
+.woocommerce-order .woocommerce-bacs-bank-details ul li.account_number,
+.woocommerce-order .woocommerce-bacs-bank-details ul li.bank_name {
+  @apply !text-foreground;
+}
+
+/* Payment gateway instructions */
+.thank-you-hooks-wrapper {
+  @apply !bg-card !border !border-border !rounded-2xl !shadow-sm !p-6 md:!p-8;
+}
+.thank-you-hooks-wrapper h2 {
+  @apply !font-heading !text-xl !font-bold !text-foreground !mb-6 !pb-4 !border-b !border-border;
+}
+
+
+/* Fix WooCommerce Error Overlapping */
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message {
+    display: block !important; /* Override the !flex that squished everything */
+}
+.woocommerce-error li,
+.woocommerce-info li,
+.woocommerce-message li {
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+    background: none !important;
+    border: none !important;
+}
+.woocommerce-error li:last-child,
+.woocommerce-info li:last-child,
+.woocommerce-message li:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Fix WooCommerce Errors Breaking Checkout Grid */
+.woocommerce-checkout .woocommerce-NoticeGroup {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+}
+
+/* Hide default overlapping icons in WooCommerce notices */
+.woocommerce-error::before,
+.woocommerce-info::before,
+.woocommerce-message::before,
+.woocommerce-error li::before,
+.woocommerce-info li::before,
+.woocommerce-message li::before {
+    display: none !important;
+}
+
+/* Thank You Page Styling Fixes */
+.thank-you-hooks-wrapper {
+    margin-top: 3rem !important;
+}
+
+.thank-you-hooks-wrapper > p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 2.5rem !important;
+    color: #475569 !important; /* Slate 600 */
+}
+
+/* Bank Details Styling */
+.woocommerce-bacs-bank-details {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 1rem !important;
+    padding: 2rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.woocommerce-bacs-bank-details h3 {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 1.5rem !important;
+    color: #0f172a !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-bottom: 1rem !important;
+}
+
+.woocommerce-bacs-bank-details .wc-bacs-bank-details-account-name {
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+}
+
+.woocommerce-bacs-bank-details ul.wc-bacs-bank-details {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+.woocommerce-bacs-bank-details ul.wc-bacs-bank-details li {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+    font-size: 0.75rem !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.woocommerce-bacs-bank-details ul.wc-bacs-bank-details li strong {
+    font-size: 1rem !important;
+    color: #0f172a !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+/* Order Details Title Space */
+.thank-you-hooks-wrapper h2.woocommerce-order-details__title,
+.thank-you-hooks-wrapper h2.woocommerce-column__title {
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    margin-top: 3.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Addresses padding fix */
+.woocommerce-customer-details address {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.75rem !important;
+    padding: 1.5rem !important;
+    font-style: normal !important;
+    line-height: 1.6 !important;
+    color: #334155 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Link Hover Colors in Order Tables (e.g. Uploaded Prescription links) */
+.woocommerce-order table td a {
+    color: #334155 !important;
+    text-decoration: underline !important;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease !important;
+}
+
+.woocommerce-order table td a:hover {
+    color: #10b981 !important; /* Modafinil Green */
+    text-decoration-color: #10b981 !important;
 }
