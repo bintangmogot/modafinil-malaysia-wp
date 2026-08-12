@@ -17,7 +17,19 @@ $reviews = get_posts([
     'post_type' => 'review',
     'posts_per_page' => -1,
     'orderby' => 'date',
-    'order' => 'DESC'
+    'order' => 'DESC',
+    'meta_query' => array(
+        'relation' => 'OR',
+        array(
+            'key'     => 'linked_product',
+            'compare' => 'NOT EXISTS'
+        ),
+        array(
+            'key'     => 'linked_product',
+            'value'   => '',
+            'compare' => '='
+        )
+    )
 ]);
 ?>
 <section class="section-padding bg-white">
@@ -51,16 +63,17 @@ $reviews = get_posts([
             if($reviews):
                 foreach($reviews as $r):
                     $post_id = is_object($r) ? $r->ID : $r;
-                    $title_en = get_field('title_en', $post_id);
-                    $title_ms = get_field('title_ms', $post_id) ?: $title_en;
-                    $body_en = get_field('body_en', $post_id);
-                    $body_ms = get_field('body_ms', $post_id) ?: $body_en;
-                    $reviewer = get_the_title($post_id);
+                    $title_en = get_the_title($post_id);
+                    $title_ms = $title_en;
+                    $body_en = get_post_field('post_content', $post_id);
+                    $body_ms = $body_en;
+                    $reviewer = get_field('name', $post_id) ?: (is_object($r) ? $r->post_title : get_the_title($post_id));
                     $meta = get_field('reviewer_meta', $post_id) ?: "Verified Buyer";
+                    $rating_val = get_field('rating', $post_id) ?: 5;
             ?>
             <div class="bg-white border border-stone-200 rounded-xl p-6 hover:border-primary-soft hover:shadow-sm transition-all">
                 <div class="flex gap-0.5 mb-3 text-emerald-400">
-                    <?php for($i=0; $i<5; $i++): ?>
+                    <?php for($i=0; $i < $rating_val; $i++): ?>
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                     <?php endfor; ?>
                 </div>

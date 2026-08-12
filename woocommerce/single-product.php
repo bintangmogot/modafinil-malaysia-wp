@@ -359,7 +359,14 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
         'post_type' => 'review',
         'posts_per_page' => -1,
         'orderby' => 'date',
-        'order' => 'DESC'
+        'order' => 'DESC',
+        'meta_query' => array(
+            array(
+                'key'     => 'linked_product',
+                'value'   => get_the_ID(),
+                'compare' => '='
+            )
+        )
     ]);
     $review_count = count($reviews);
     ?>
@@ -368,6 +375,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
             <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
                 <?= modmy_t("Customer Reviews", "Ulasan Pelanggan") ?>
             </h2>
+            <?php if ($review_count > 0): ?>
             <div class="flex items-center justify-center gap-2">
                 <div class="flex items-center gap-0.5 text-emerald-400">
                     <?php for ($i = 0; $i < 5; $i++): ?>
@@ -379,23 +387,24 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                     <?php endfor; ?>
                 </div>
                 <span class="text-sm font-semibold text-slate-600">
-                    <?= sprintf(modmy_t("4.8 out of 5 (%d reviews)", "4.8 daripada 5 (%d ulasan)"), $review_count ?: 6) ?>
+                    <?= sprintf(modmy_t("4.8 out of 5 (%d reviews)", "4.8 daripada 5 (%d ulasan)"), $review_count) ?>
                 </span>
             </div>
+            <?php endif; ?>
         </div>
 
         <div class="space-y-4">
             <?php
             if ($reviews):
                 foreach ($reviews as $i => $r):
-                    $post_id = $r->ID;
-                    $title_en = get_field('title_en', $post_id);
-                    $title_ms = get_field('title_ms', $post_id) ?: $title_en;
-                    $body_en = get_field('body_en', $post_id);
-                    $body_ms = get_field('body_ms', $post_id) ?: $body_en;
-                    $reviewer = $r->post_title;
-                    $meta = get_field('reviewer_meta', $post_id) ?: "Verified Buyer";
-                    $rating_val = get_field('rating', $post_id) ?: 5;
+                      $post_id = $r->ID;
+                      $title_en = get_the_title($post_id);
+                      $title_ms = $title_en;
+                      $body_en = get_post_field('post_content', $post_id);
+                      $body_ms = $body_en;
+                      $reviewer = get_field('name', $post_id) ?: $r->post_title;
+                      $meta = get_field('reviewer_meta', $post_id) ?: "Verified Buyer";
+                      $rating_val = get_field('rating', $post_id) ?: 5;
                     ?>
                     <div class="bg-white border-2 border-slate-200 rounded-md p-5" data-testid="review-<?= $i ?>">
                         <div class="flex items-center justify-between mb-2">

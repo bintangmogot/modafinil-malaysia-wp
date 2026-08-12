@@ -12,7 +12,19 @@ $desc_ms = get_sub_field('description_ms') ?: "Testimoni sebenar dari pengguna M
 $reviews_query = new WP_Query([
     'post_type' => 'review',
     'posts_per_page' => -1,
-    'post_status' => 'publish'
+    'post_status' => 'publish',
+    'meta_query' => array(
+        'relation' => 'OR',
+        array(
+            'key'     => 'linked_product',
+            'compare' => 'NOT EXISTS'
+        ),
+        array(
+            'key'     => 'linked_product',
+            'value'   => '',
+            'compare' => '='
+        )
+    )
 ]);
 
 $total_reviews = $reviews_query->found_posts;
@@ -63,14 +75,16 @@ $average_stars = round($average_rating);
             <?php
             if ($reviews_query->have_posts()):
                 while ($reviews_query->have_posts()): $reviews_query->the_post();
-                    $name = get_the_title();
-                    $meta = get_post_meta(get_the_ID(), 'reviewer_meta', true);
-                    $title_en = get_post_meta(get_the_ID(), 'title_en', true);
-                    $title_ms = get_post_meta(get_the_ID(), 'title_ms', true);
-                    $body_en = get_post_meta(get_the_ID(), 'body_en', true);
-                    $body_ms = get_post_meta(get_the_ID(), 'body_ms', true);
+                    $post_id = get_the_ID();
+                    $name = get_field('name', $post_id) ?: get_the_title();
+                    $meta = get_field('reviewer_meta', $post_id) ?: "Verified Buyer";
                     
-                    $rating = (int) get_post_meta(get_the_ID(), 'rating', true);
+                    $title_en = get_the_title();
+                    $title_ms = $title_en;
+                    $body_en = get_the_content();
+                    $body_ms = $body_en;
+                    
+                    $rating = (int) get_field('rating', $post_id);
                     if (!$rating) $rating = 5;
                     
                     $initial = !empty($name) ? mb_substr($name, 0, 1) : 'M';
