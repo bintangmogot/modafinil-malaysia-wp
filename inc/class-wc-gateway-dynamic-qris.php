@@ -9,6 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class WC_Gateway_Dynamic_QRIS extends WC_Payment_Gateway {
 
+	public $instructions;
+	public $static_qris;
+
 	/**
 	 * Constructor for the gateway.
 	 */
