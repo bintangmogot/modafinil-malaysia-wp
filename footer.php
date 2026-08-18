@@ -2,6 +2,11 @@
 /**
  * The template for displaying the footer
  */
+$footer_desc_en = get_field('footer_description_en', 'option') ?: "Modafinil Malaysia provides genuine Modafinil for performance, vitality, and fast-acting results. Enjoy discreet online ordering and reliable delivery across Malaysia in 7-10 days.";
+$footer_desc_ms = get_field('footer_description_ms', 'option') ?: "Modafinil Malaysia menyediakan Modafinil asli untuk prestasi, kecergasan, dan hasil bertindak pantas. Nikmati pesanan dalam talian diskret dan penghantaran yang boleh dipercayai di seluruh Malaysia dalam 7-10 hari.";
+$footer_address_en = get_field('footer_address_en', 'option') ?: "Level 33, Ilham Tower No. 8, Jalan Binjai 50450 Kuala Lumpur Malaysia";
+$footer_address_ms = get_field('footer_address_ms', 'option') ?: "Aras 33, Menara Ilham No. 8, Jalan Binjai 50450 Kuala Lumpur Malaysia";
+$footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysia.com";
 ?>
 <footer class="bg-ink text-ink-foreground">
     <!-- Badge strip -->
@@ -43,10 +48,7 @@
                 </span>
             </a>
             <p class="mt-5 text-[13px] leading-relaxed text-ink-foreground/80">
-                <?= modmy_t(
-                    "Modafinil Malaysia provides genuine Modafinil for performance, vitality, and fast-acting results. Enjoy discreet online ordering and reliable delivery across Malaysia in 7-10 days.",
-                    "Modafinil Malaysia menyediakan Modafinil asli untuk prestasi, kecergasan, dan hasil bertindak pantas. Nikmati pesanan dalam talian diskret dan penghantaran yang boleh dipercayai di seluruh Malaysia dalam 7-10 hari."
-                ) ?>
+                <?= modmy_t($footer_desc_en, $footer_desc_ms) ?>
             </p>
             <p class="mt-2 text-[13px] leading-relaxed text-ink-foreground/80">
                 <strong class="text-white"><?= modmy_t("Medical & Regulatory Disclaimer:", "Penafian Perubatan & Kawal Selia:") ?></strong> <?= modmy_t(
@@ -62,7 +64,7 @@
             <div class="mt-4 space-y-3.5">
                 <div class="flex items-start gap-3 text-[13px] text-ink-foreground/80">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 text-[#FFD700] shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <span><?= modmy_t("Level 33, Ilham Tower No. 8, Jalan Binjai 50450 Kuala Lumpur Malaysia", "Aras 33, Menara Ilham No. 8, Jalan Binjai 50450 Kuala Lumpur Malaysia") ?></span>
+                    <span><?= modmy_t($footer_address_en, $footer_address_ms) ?></span>
                 </div>
                 <div class="flex items-center gap-3 text-[13px] text-ink-foreground/80">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#FFD700] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -74,7 +76,7 @@
                 </div>
                 <div class="flex items-center gap-3 text-[13px] text-ink-foreground/80">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#FFD700] shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <a href="mailto:orders@modafinil-malaysia.com" class="hover:text-white transition-colors"><?= modmy_t("orders@modafinil-malaysia.com", "orders@modafinil-malaysia.com") ?></a>
+                    <a href="mailto:<?= esc_attr($footer_email) ?>" class="hover:text-white transition-colors"><?= esc_html($footer_email) ?></a>
                 </div>
             </div>
 
