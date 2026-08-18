@@ -92,6 +92,17 @@ defined( 'ABSPATH' ) || exit;
                 <?php endif; ?>
             </div>
 
+        <div class="bg-[#F0F7FF] border border-[#BDE0FF] rounded-2xl p-6 md:p-8 mb-10 text-center">
+            <h3 class="font-heading text-xl font-bold text-foreground mb-4">Payment Instructions</h3>
+            <p class="mb-6 text-foreground text-lg leading-relaxed">
+                * Once your payment is done, just send the transaction copy to <a href="mailto:orders@kamagrajellymalaysia.com" class="text-primary hover:underline font-bold">orders@kamagrajellymalaysia.com</a> and we’ll ship your order immediately.
+            </p>
+            <div class="inline-block bg-white p-6 rounded-xl shadow-sm border border-border">
+                <img src="<?= MODMY_THEME_URI ?>/assets/images/dana-logo.png" alt="Payment Logo" class="h-10 mx-auto mb-3 object-contain">
+                <p class="font-bold text-foreground text-lg mb-0">QRIS Name: Lilis Nurlaela</p>
+            </div>
+        </div>
+
 		<?php endif; ?>
 
         <div class="thank-you-hooks-wrapper">
