@@ -98,7 +98,7 @@ defined( 'ABSPATH' ) || exit;
                 * Once your payment is done, just send the transaction copy to <a href="mailto:orders@modafinil-malaysia.com" class="text-primary hover:underline font-bold">orders@modafinil-malaysia.com</a> and we’ll ship your order immediately.
             </p>
             <div class="inline-block bg-white p-6 rounded-xl shadow-sm border border-border">
-                <img src="<?= MODMY_THEME_URI ?>/assets/images/dana-logo.png" alt="Payment Logo" class="h-10 mx-auto mb-3 object-contain">
+                <img src="<?= MODMY_THEME_URI ?>/assets/images/dana-logo.png" alt="Payment Logo" class="mx-auto mb-3 object-contain" style="height: 40px;">
                 <p class="font-bold text-foreground text-lg mb-0">QRIS Name: LILIS NURLAELA</p>
             </div>
         </div>
