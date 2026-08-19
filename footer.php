@@ -84,14 +84,14 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 <?= modmy_t("Payments Accepted", "Pembayaran Diterima") ?>
             </h3>
             <div class="mt-4 flex gap-3">
-                <img src="<?= MODMY_THEME_URI ?>/assets/images/dana-logo.png" alt="DANA" class="h-5 object-contain">
+                <img src="<?= MODMY_THEME_URI ?>/assets/images/dana-logo.png" alt="DANA" class="h-7 object-contain">
             </div>
 
             <h3 class="text-[15px] font-bold text-white mb-4 mt-8">
                 <?= modmy_t("Shipping Partner", "Rakan Penghantaran") ?>
             </h3>
             <div class="mt-4">
-                <img src="<?= MODMY_THEME_URI ?>/assets/images/pos-malaysia-logo.png" alt="Pos Malaysia" class="h-7 object-contain bg-transparent">
+                <img src="<?= MODMY_THEME_URI ?>/assets/images/pos-malaysia-logo.png" alt="Pos Malaysia" class="h-9 object-contain bg-transparent">
             </div>
         </div>
 
