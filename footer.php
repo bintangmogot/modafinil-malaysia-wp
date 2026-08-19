@@ -38,7 +38,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
 
     <div class="container-site grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-5">
         <!-- Column 1 -->
-        <div class="lg:col-span-2 pr-0 lg:pr-8">
+        <div class="lg:col-span-3 pr-0 lg:pr-8">
             <a href="<?= home_url('/') ?>" class="flex shrink-0 items-center gap-2.5" aria-label="ModafinilMY">
                 <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
@@ -110,14 +110,14 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 ]);
                 if ($footer_products) {
                     foreach($footer_products as $prod) {
-                        echo '<li><a href="' . get_permalink($prod->ID) . '" class="block hover:text-white transition-colors">' . esc_html($prod->post_title) . '</a></li>';
+                        echo '<li><a href="' . get_permalink($prod->ID) . '" class="hover:text-white transition-colors">' . esc_html($prod->post_title) . '</a></li>';
                     }
                 } else {
-                    echo '<li><a href="' . home_url('/product/modalert-200mg/') . '" class="block hover:text-white transition-colors">Modalert 200mg</a></li>';
-                    echo '<li><a href="' . home_url('/product/modvigil-200mg/') . '" class="block hover:text-white transition-colors">Modvigil 200mg</a></li>';
-                    echo '<li><a href="' . home_url('/product/waklert-150mg/') . '" class="block hover:text-white transition-colors">Waklert 150mg</a></li>';
-                    echo '<li><a href="' . home_url('/product/artvigil-150mg/') . '" class="block hover:text-white transition-colors">Artvigil 150mg</a></li>';
-                    echo '<li><a href="' . home_url('/product/modasmart-400mg/') . '" class="block hover:text-white transition-colors">Modasmart 400mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/modalert-200mg/') . '" class="hover:text-white transition-colors">Modalert 200mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/modvigil-200mg/') . '" class="hover:text-white transition-colors">Modvigil 200mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/waklert-150mg/') . '" class="hover:text-white transition-colors">Waklert 150mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/artvigil-150mg/') . '" class="hover:text-white transition-colors">Artvigil 150mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/modasmart-400mg/') . '" class="hover:text-white transition-colors">Modasmart 400mg</a></li>';
                 }
                 ?>
             </ul>
