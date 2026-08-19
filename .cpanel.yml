@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/modafini/public_html/wp-content/themes/modafinil-malaysia/
-    - /bin/cp -R * $DEPLOYPATH
