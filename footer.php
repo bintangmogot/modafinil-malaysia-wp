@@ -100,7 +100,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
             <h3 class="text-[15px] font-bold text-white mb-5">
                 <?= modmy_t("All products", "Semua Produk") ?>
             </h3>
-            <ul class="space-y-4 text-[13px] text-white/70 font-medium">
+            <ul class="space-y-4 text-[13px] text-white opacity-70 font-medium">
                 <?php
                 $footer_products = get_posts([
                     'post_type' => 'product',
@@ -133,7 +133,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 wp_nav_menu([
                     'theme_location' => 'footer_quick',
                     'container'      => false,
-                    'menu_class'     => 'space-y-4 text-[13px] text-white/70 font-medium [&_a:hover]:text-primary [&_a]:transition-colors',
+                    'menu_class'     => 'space-y-4 text-[13px] text-white opacity-70 font-medium [&_a:hover]:text-primary [&_a]:transition-colors',
                     'fallback_cb'    => false,
                 ]);
                 ?>
@@ -160,7 +160,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 wp_nav_menu([
                     'theme_location' => 'footer_info',
                     'container'      => false,
-                    'menu_class'     => 'space-y-4 text-[13px] text-white/70 font-medium [&_a:hover]:text-primary [&_a]:transition-colors',
+                    'menu_class'     => 'space-y-4 text-[13px] text-white opacity-70 font-medium [&_a:hover]:text-primary [&_a]:transition-colors',
                     'fallback_cb'    => false,
                 ]);
                 ?>
