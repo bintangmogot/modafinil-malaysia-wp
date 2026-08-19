@@ -50,9 +50,11 @@ defined( 'ABSPATH' ) || exit;
 			<!-- Custom Shipping Display Wrapper -->
 			<div class="py-4 border-b border-stone-100">
 				<div class="font-bold text-slate-900 text-base mb-3"><?php esc_html_e( 'Shipment', 'woocommerce' ); ?></div>
-				<div class="shipping-options-wrapper" data-title="<?php esc_attr_e( 'Shipping', 'woocommerce' ); ?>">
-					<?php wc_cart_totals_shipping_html(); ?>
-				</div>
+				<table class="w-full">
+					<tbody>
+						<?php wc_cart_totals_shipping_html(); ?>
+					</tbody>
+				</table>
 			</div>
 
 			<?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
