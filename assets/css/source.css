@@ -1117,11 +1117,11 @@ input[type="radio"], input[type="checkbox"] {
 .woocommerce-cart .woocommerce-shipping-totals th {
     display: none !important;
 }
-.woocommerce-cart .woocommerce-shipping-totals td {
+.woocommerce-shipping-totals td {
     padding: 0 !important;
     text-align: left !important;
 }
-.woocommerce-cart .woocommerce-shipping-totals td::before {
+.woocommerce-shipping-totals td::before {
     display: none !important;
 }
 .woocommerce-cart .shipping-calculator-form {
