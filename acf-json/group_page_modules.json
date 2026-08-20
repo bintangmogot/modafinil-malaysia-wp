@@ -3867,11 +3867,11 @@
                             "append": ""
                         },
                         {
-                            "key": "field_dsg_624949de81",
-                            "label": "FAQ Items",
-                            "name": "faq_items",
+                            "key": "field_dsg_462a8df2cf",
+                            "label": "Answer (MS)",
+                            "name": "answer_ms",
                             "aria-label": "",
-                            "type": "repeater",
+                            "type": "textarea",
                             "instructions": "",
                             "required": false,
                             "conditional_logic": false,
@@ -3880,115 +3880,55 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "block",
-                            "button_label": "Add FAQ",
-                            "min": 0,
-                            "max": 0,
-                            "rows_per_page": 20,
-                            "collapsed": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_dsg_ae5395b1a7",
-                                    "label": "Question (EN)",
-                                    "name": "question_en",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_faq_items"
-                                },
-                                {
-                                    "key": "field_dsg_f3bbb68d4e",
-                                    "label": "Question (MS)",
-                                    "name": "question_ms",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_faq_items"
-                                },
-                                {
-                                    "key": "field_dsg_4ececabc41",
-                                    "label": "Answer (EN)",
-                                    "name": "answer_en",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "rows": 4,
-                                    "default_value": "",
-                                    "new_lines": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "parent_repeater": "field_faq_items"
-                                },
-                                {
-                                    "key": "field_dsg_462a8df2cf",
-                                    "label": "Answer (MS)",
-                                    "name": "answer_ms",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "rows": 4,
-                                    "default_value": "",
-                                    "new_lines": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "parent_repeater": "field_faq_items"
-                                }
-                            ],
+                            "rows": 4,
                             "default_value": [
                                 {
-                                    "": "Modafinil ialah agen penggalak kewaspadaan (eugeroic) yang digunakan secara meluas sebagai pengingkat kognitif oleh pelajar, profesional, dan pekerja syif untuk meningkatkan fokus, kepekatan, dan kejelasan mental. Ia pada asalnya dibangunkan untuk merawat narkolepsi dan gangguan tidur."
+                                    "field_dsg_ae5395b1a7": "What is Modanil 200mg used for?",
+                                    "field_dsg_f3bbb68d4e": "Apakah kegunaan Modanil 200mg?",
+                                    "field_dsg_4ececabc41": "Modanil 200 mg is useful for the improvement of narcolepsy, obstructive sleep apnea, or shift work sleep disorder.",
+                                    "field_dsg_462a8df2cf": "Modanil 200 mg berguna untuk pembaikan narkolepsi, apnea tidur obstruktif, atau gangguan tidur kerja syif."
                                 },
                                 {
-                                    "": "Dos disyorkan standard ialah 200mg diambil sekali pada waktu pagi. Pemula harus bermula dengan 100mg (separuh tablet) untuk menilai toleransi. Baca panduan dos lengkap kami untuk cadangan terperinci."
+                                    "field_dsg_ae5395b1a7": "How does Modanil 200mg work?",
+                                    "field_dsg_f3bbb68d4e": "Bagaimanakah Modanil 200mg berfungsi?",
+                                    "field_dsg_4ececabc41": "Modanil works by affecting certain chemicals in the brain that regulate the sleep-wake cycle, helping you stay awake and alert.",
+                                    "field_dsg_462a8df2cf": "Modanil berfungsi dengan mempengaruhi bahan kimia tertentu di dalam otak yang mengawal selitaran tidur-jaga, membantu anda kekal berjaga dan peka."
                                 },
                                 {
-                                    "": "100% asli. Kami mendapatkan semua Modafinil kami secara eksklusif dari pengeluar bertauliah dan bereputasi tinggi termasuk Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), dan syarikat farmaseutikal dipercayai yang lain. Setiap produk adalah asli."
+                                    "field_dsg_ae5395b1a7": "How should I take Modanil 200mg?",
+                                    "field_dsg_f3bbb68d4e": "Bagaimanakah cara saya mengambil Modanil 200mg?",
+                                    "field_dsg_4ececabc41": "Take one tablet in the morning with a glass of water. Do not exceed the recommended dose.",
+                                    "field_dsg_462a8df2cf": "Ambil sebiji tablet pada waktu pagi dengan segelas air. Jangan melebihi dos yang disyorkan."
                                 },
                                 {
-                                    "": "Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399."
+                                    "field_dsg_ae5395b1a7": "Can I take Modanil with food?",
+                                    "field_dsg_f3bbb68d4e": "Bolehkah saya mengambil Modanil dengan makanan?",
+                                    "field_dsg_4ececabc41": "Yes, it can be taken with or without food.",
+                                    "field_dsg_462a8df2cf": "Ya, ia boleh diambil dengan atau tanpa makanan."
                                 },
                                 {
-                                    "": "Sangat diskret. Semua pesanan dihantar dalam bungkusan biasa tanpa sebarang tanda kandungan. Tiada jenama atau maklumat produk kelihatan di luar bungkusan. Privasi anda ialah keutamaan kami."
+                                    "field_dsg_ae5395b1a7": "What should I do if I miss a dose?",
+                                    "field_dsg_f3bbb68d4e": "Apakah yang harus saya lakukan jika terlepas dos?",
+                                    "field_dsg_4ececabc41": "If you miss a dose, take it as soon as you remember. If it is close to your next dose, skip the missed dose. Do not take a double dose.",
+                                    "field_dsg_462a8df2cf": "Jika anda terlepas dos, ambil sebaik sahaja anda teringat. Jika ia hampir dengan dos seterusnya, abaikan dos yang terlepas. Jangan ambil dos berganda."
+                                },
+                                {
+                                    "field_dsg_ae5395b1a7": "How long does Modanil 200mg last?",
+                                    "field_dsg_f3bbb68d4e": "Berapa lamakah Modanil 200mg bertahan?",
+                                    "field_dsg_4ececabc41": "The effects typically last between 12 to 15 hours.",
+                                    "field_dsg_462a8df2cf": "Kesannya biasanya bertahan antara 12 hingga 15 jam."
+                                },
+                                {
+                                    "field_dsg_ae5395b1a7": "What are the common side effects of Modanil 200mg?",
+                                    "field_dsg_f3bbb68d4e": "Apakah kesan sampingan biasa Modanil 200mg?",
+                                    "field_dsg_4ececabc41": "Common side effects include headache, nausea, nervousness, dizziness, or difficulty sleeping.",
+                                    "field_dsg_462a8df2cf": "Kesan sampingan biasa termasuk sakit kepala, loya, gementar, pening, atau kesukaran tidur."
                                 }
-                            ]
+                            ],
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_faq_items"
                         },
                         {
                             "key": "field_dsg_f19a521ac1",
