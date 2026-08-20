@@ -1411,36 +1411,69 @@ label, .variations label { cursor: pointer !important; }
 
 /* Mobile Stacked Layout for Checkout Review Table */
 @media (max-width: 767px) {
-    .woocommerce-checkout-review-order-table,
-    .woocommerce-checkout-review-order-table thead,
+    .woocommerce-checkout-review-order-table {
+        display: block !important;
+        border: none !important;
+    }
+    .woocommerce-checkout-review-order-table thead {
+        display: none !important;
+    }
     .woocommerce-checkout-review-order-table tbody,
-    .woocommerce-checkout-review-order-table tfoot,
-    .woocommerce-checkout-review-order-table tr,
-    .woocommerce-checkout-review-order-table th,
-    .woocommerce-checkout-review-order-table td {
+    .woocommerce-checkout-review-order-table tfoot {
         display: block !important;
         width: 100% !important;
     }
     
-    .woocommerce-checkout-review-order-table thead {
-        display: none !important; /* Hide Product / Subtotal headers */
-    }
-    
     .woocommerce-checkout-review-order-table tr {
-        margin-bottom: 1rem !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 0 !important;
         border-bottom: 1px solid #e2e8f0 !important;
-        padding-bottom: 1rem !important;
+        padding: 1rem 0 !important;
     }
     
     .woocommerce-checkout-review-order-table th,
     .woocommerce-checkout-review-order-table td {
+        display: block !important;
         border: none !important;
-        padding: 0.25rem 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Titles on the left */
+    .woocommerce-checkout-review-order-table .product-name,
+    .woocommerce-checkout-review-order-table th {
+        width: 60% !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        text-align: left !important;
+    }
+
+    /* Prices on the right */
+    .woocommerce-checkout-review-order-table .product-total,
+    .woocommerce-checkout-review-order-table td {
+        width: 40% !important;
+        text-align: right !important;
+        font-weight: 600 !important;
+        color: #059669 !important;
+    }
+
+    /* Shipping row needs full width for radio buttons */
+    .woocommerce-checkout-review-order-table .shipping th {
+        width: 100% !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .woocommerce-checkout-review-order-table .shipping td {
+        width: 100% !important;
+        text-align: left !important;
+        color: inherit !important;
+        font-weight: normal !important;
     }
     
-    .woocommerce-checkout-review-order-table th {
-        font-weight: 700 !important;
-        padding-bottom: 0.25rem !important;
-        color: #0f172a !important;
+    /* Remove stray borders */
+    html body .woocommerce-checkout-review-order-table th,
+    html body .woocommerce-checkout-review-order-table td {
+        border: 0 !important;
     }
 }
