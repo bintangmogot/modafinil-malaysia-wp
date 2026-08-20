@@ -81,6 +81,7 @@ $is_en = $lang === 'en';
 
         <!-- Right Actions -->
         <div class="flex items-center gap-3 ml-auto lg:ml-0">
+            <!-- Call CTA -->
             <a href="tel:0455241294" class="hidden items-center gap-2.5 transition-opacity hover:opacity-80 sm:flex mr-1">
                 <div class="relative flex h-[40px] w-[40px] items-center justify-center">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#00b09b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-full w-full">
