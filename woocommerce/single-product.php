@@ -431,33 +431,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
     </div>
 </section>
 
-<!-- Product FAQs Section -->
-<?php if (have_rows('product_faqs', $product->get_id())): ?>
-<section class="section-padding bg-white border-t border-slate-200" data-testid="section-faqs">
-    <div class="container-site max-w-3xl">
-        <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-slate-900 text-center mb-8">
-            <?= modmy_t("Frequently Asked Questions", "Soalan Lazim") ?>
-        </h2>
-        <div class="space-y-4">
-            <?php while (have_rows('product_faqs', $product->get_id())): the_row(); ?>
-                <details open class="group border border-slate-200 rounded-xl bg-white hover:border-emerald-300 transition-colors">
-                    <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none hover:bg-slate-50 rounded-xl group-open:bg-emerald-50/50 group-open:rounded-b-none transition-colors">
-                        <h3 class="font-heading font-bold text-slate-900 text-[15px]">
-                            <?= modmy_t(get_sub_field('question_en'), get_sub_field('question_ms')) ?>
-                        </h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-600 flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4 bg-white rounded-b-xl prose prose-sm max-w-none">
-                        <?= modmy_t(wp_kses_post(get_sub_field('answer_en')), wp_kses_post(get_sub_field('answer_ms'))) ?>
-                    </div>
-                </details>
-            <?php endwhile; ?>
-        </div>
-    </div>
-</section>
-<?php endif; ?>
+
 
 <!-- Dynamic ACF Modules (Replaces Hardcoded FAQs) -->
 <?php

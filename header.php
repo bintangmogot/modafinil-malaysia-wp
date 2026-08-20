@@ -82,8 +82,22 @@ $is_en = $lang === 'en';
         <!-- Right Actions -->
         <div class="flex items-center gap-3 ml-auto lg:ml-0">
             <!-- Call CTA -->
-            <a href="tel:0455241294" class="hidden items-center gap-2.5 transition-opacity hover:opacity-80 sm:flex mr-1">
-                <div class="relative flex h-[40px] w-[40px] items-center justify-center">
+            <style>
+            .modmy-call-cta { display: flex; align-items: center; gap: 8px; margin-right: 4px; transition: opacity 0.2s; }
+            .modmy-call-cta:hover { opacity: 0.8; }
+            .modmy-call-cta .call-text { display: none; flex-direction: column; color: #0033A0; }
+            .modmy-call-cta .call-icon { position: relative; display: flex; align-items: center; justify-content: center; }
+            @media (min-width: 640px) {
+                .modmy-call-cta { gap: 10px; margin-right: 4px; }
+                .modmy-call-cta .call-text { display: flex; }
+                .modmy-call-cta .call-icon { width: 40px; height: 40px; }
+            }
+            @media (max-width: 639px) {
+                .modmy-call-cta .call-icon { width: 36px; height: 36px; }
+            }
+            </style>
+            <a href="tel:0455241294" class="modmy-call-cta">
+                <div class="call-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#00b09b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-full w-full">
                         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                         <path d="M15.4 12.6c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.3-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.1-.3 0-.4.1-.5.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.6-1.6-.9-2.2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.9.8 2.5.8 3.4.7.9-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z" fill="#00b09b" stroke="none" />
@@ -95,7 +109,7 @@ $is_en = $lang === 'en';
                         </svg>
                     </div>
                 </div>
-                <div class="flex flex-col text-[#0033A0]">
+                <div class="call-text">
                     <span class="text-[14px] font-bold leading-none tracking-wide">Call</span>
                     <span class="text-[21px] font-extrabold leading-tight tracking-tight">0455 241 294</span>
                 </div>
