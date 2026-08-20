@@ -349,17 +349,17 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                       $rating_val = get_field('rating', $post_id) ?: 5;
                     ?>
                     <div class="bg-white border-2 border-slate-200 rounded-md p-5" data-testid="review-<?= $i ?>">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="flex items-center gap-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                            <div class="flex items-start sm:items-center gap-3">
                                 <div
-                                    class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm uppercase">
-                                    <?= substr($reviewer, 0, 1) ?>
+                                    class="w-9 h-9 flex-shrink-0 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm uppercase">
+                                    <?= substr(esc_html($reviewer), 0, 1) ?>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-sm text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
+                                    <p class="font-bold text-sm text-slate-900 flex flex-wrap items-center gap-1.5">
                                         <?= esc_html($reviewer) ?>
                                         <span
-                                            class="inline-flex items-center gap-0.5 text-[10px] font-bold text-green-600 leading-none"
+                                            class="inline-flex items-center gap-0.5 text-[10px] font-bold text-green-600 leading-none whitespace-nowrap"
                                             data-testid="badge-verified-buyer">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -440,17 +440,17 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
         </h2>
         <div class="space-y-4">
             <?php while (have_rows('product_faqs', $product->get_id())): the_row(); ?>
-                <details class="group border border-slate-200 rounded-xl bg-white hover:border-emerald-300 transition-colors">
+                <details open class="group border border-slate-200 rounded-xl bg-white hover:border-emerald-300 transition-colors">
                     <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none hover:bg-slate-50 rounded-xl group-open:bg-emerald-50/50 group-open:rounded-b-none transition-colors">
                         <h3 class="font-heading font-bold text-slate-900 text-[15px]">
-                            <?= esc_html(get_sub_field('question')) ?>
+                            <?= modmy_t(get_sub_field('question_en'), get_sub_field('question_ms')) ?>
                         </h3>
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-600 flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
                     <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4 bg-white rounded-b-xl prose prose-sm max-w-none">
-                        <?= wp_kses_post(get_sub_field('answer')) ?>
+                        <?= modmy_t(wp_kses_post(get_sub_field('answer_en')), wp_kses_post(get_sub_field('answer_ms'))) ?>
                     </div>
                 </details>
             <?php endwhile; ?>

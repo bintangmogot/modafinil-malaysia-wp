@@ -77,22 +77,36 @@
             "button_label": "Add FAQ",
             "sub_fields": [
                 {
-                    "key": "field_pf_question",
-                    "label": "Question",
-                    "name": "question",
+                    "key": "field_pf_question_en",
+                    "label": "Question (EN)",
+                    "name": "question_en",
                     "type": "text",
                     "required": 1
                 },
                 {
-                    "key": "field_pf_answer",
-                    "label": "Answer",
-                    "name": "answer",
+                    "key": "field_pf_question_ms",
+                    "label": "Question (MS)",
+                    "name": "question_ms",
+                    "type": "text",
+                    "required": 1
+                },
+                {
+                    "key": "field_pf_answer_en",
+                    "label": "Answer (EN)",
+                    "name": "answer_en",
                     "type": "wysiwyg",
                     "required": 1,
                     "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0
+                    "toolbar": "basic"
+                },
+                {
+                    "key": "field_pf_answer_ms",
+                    "label": "Answer (MS)",
+                    "name": "answer_ms",
+                    "type": "wysiwyg",
+                    "required": 1,
+                    "tabs": "all",
+                    "toolbar": "basic"
                 }
             ]
         }
