@@ -28,20 +28,25 @@ $link_url = get_sub_field('link_url') ?: home_url('/faq');
             </h2>
         </div>
 
-        <div class="space-y-4">
+        <div class="border border-stone-200 rounded-xl overflow-hidden bg-white shadow-sm">
             <?php 
             if(have_rows('faq_items')): 
+                $faq_items = get_sub_field('faq_items');
+                $count = is_array($faq_items) ? count($faq_items) : 0;
+                $i = 0;
                 while(have_rows('faq_items')): the_row();
+                    $i++;
+                    $is_last = ($i === $count);
             ?>
-            <details class="group border border-stone-200 rounded-xl">
-                <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
-                    <h3 class="font-heading font-bold text-ink text-sm">
-                        <?= modmy_t(get_sub_field('question_en'), get_sub_field('question_ms')) ?>
+            <details class="group <?= !$is_last ? 'border-b border-stone-200' : '' ?>">
+                <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none hover:bg-slate-50 transition-colors group-open:border-l-4 group-open:border-l-[#4F46E5] group-open:bg-slate-50 [&::-webkit-details-marker]:hidden">
+                    <h3 class="font-heading font-semibold text-ink text-sm md:text-[15px] group-open:font-bold group-open:text-[#4F46E5]">
+                        <?= modmy_t(get_sub_field('q_en'), get_sub_field('q_ms')) ?>
                     </h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform group-open:text-[#4F46E5]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                 </summary>
-                <div class="px-5 pb-5 text-sm text-muted-foreground leading-relaxed border-t border-stone-100 pt-4">
-                    <?= modmy_t(get_sub_field('answer_en'), get_sub_field('answer_ms')) ?>
+                <div class="px-5 pb-5 pt-2 text-sm text-slate-600 leading-relaxed pl-[22px]">
+                    <?= wpautop(wp_kses_post(modmy_t(get_sub_field('a_en'), get_sub_field('a_ms')))) ?>
                 </div>
             </details>
             <?php 
@@ -49,20 +54,25 @@ $link_url = get_sub_field('link_url') ?: home_url('/faq');
             else:
                 // Fallback default FAQs
                 $defaults = [
-                    ['Is it legal to buy Modafinil in Malaysia?', 'Adakah sah untuk membeli Modafinil di Malaysia?', 'Yes, it is legal to possess for personal use. However, Modafinil is a prescription medication, so you should consult a doctor before use.', 'Ya, ia sah dimiliki untuk kegunaan peribadi. Walau bagaimanapun, Modafinil adalah ubat preskripsi, jadi anda harus berunding dengan doktor sebelum menggunakannya.'],
-                    ['How long does delivery take?', 'Berapa lama masa penghantaran?', 'We ship via Pos Malaysia. Delivery typically takes 7-14 working days to all states including Sabah and Sarawak.', 'Kami membuat penghantaran melalui Pos Malaysia. Penghantaran biasanya mengambil masa 7-14 hari bekerja ke semua negeri termasuk Sabah dan Sarawak.']
+                    ['What is Modafinil?', 'Apakah itu Modafinil?', 'Modafinil is a wakefulness-promoting agent (eugeroic) widely used as a cognitive enhancer by students, professionals, and shift workers to improve focus, concentration, and mental clarity. It was originally developed to treat narcolepsy and sleep disorders.', 'Modafinil ialah agen penggalak kewaspadaan (eugeroic) yang digunakan secara meluas sebagai pengingkat kognitif oleh pelajar, profesional, dan pekerja syif untuk meningkatkan fokus, kepekatan, dan kejelasan mental. Ia pada asalnya dibangunkan untuk merawat narkolepsi dan gangguan tidur.'],
+                    ['What is the recommended dosage?', 'Apakah dos yang disyorkan?', 'The standard recommended dose is 200mg taken once in the morning. Beginners should start with 100mg (half a tablet) to assess tolerance. Read our complete dosage guide for detailed recommendations.', 'Dos disyorkan standard ialah 200mg diambil sekali pada waktu pagi. Pemula harus bermula dengan 100mg (separuh tablet) untuk menilai toleransi. Baca panduan dos lengkap kami untuk cadangan terperinci.'],
+                    ['Are your products genuine?', 'Adakah produk anda asli?', '100%. We source all our Modafinil exclusively from certified, reputable manufacturers including Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), and other trusted pharmaceutical companies. Every product is genuine and pharmaceutical grade.', '100% asli. Kami mendapatkan semua Modafinil kami secara eksklusif dari pengeluar bertauliah dan bereputasi tinggi termasuk Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), dan syarikat farmaseutikal dipercayai yang lain. Setiap produk adalah asli.'],
+                    ['How long does delivery take?', 'Berapa lamakah masa penghantaran?', 'Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399.', 'Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399.'],
+                    ['Is the packaging discreet?', 'Adakah pembungkusan diskret?', 'Absolutely. All orders are shipped in plain, unmarked packaging with no indication of the contents. There is no branding or product information visible on the outside of the package. Your privacy is our priority.', 'Sangat diskret. Semua pesanan dihantar dalam bungkusan biasa tanpa sebarang tanda kandungan. Tiada jenama atau maklumat produk kelihatan di luar bungkusan. Privasi anda ialah keutamaan kami.']
                 ];
-                foreach($defaults as $f):
+                $count = count($defaults);
+                foreach($defaults as $i => $f):
+                    $is_last = ($i === $count - 1);
             ?>
-            <details class="group border border-stone-200 rounded-xl">
-                <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
-                    <h3 class="font-heading font-bold text-ink text-sm">
+            <details class="group <?= !$is_last ? 'border-b border-stone-200' : '' ?>">
+                <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none hover:bg-slate-50 transition-colors group-open:border-l-4 group-open:border-l-[#4F46E5] group-open:bg-slate-50 [&::-webkit-details-marker]:hidden">
+                    <h3 class="font-heading font-semibold text-ink text-sm md:text-[15px] group-open:font-bold group-open:text-[#4F46E5]">
                         <?= modmy_t($f[0], $f[1]) ?>
                     </h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform group-open:text-[#4F46E5]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                 </summary>
-                <div class="px-5 pb-5 text-sm text-muted-foreground leading-relaxed border-t border-stone-100 pt-4">
-                    <?= modmy_t($f[2], $f[3]) ?>
+                <div class="px-5 pb-5 pt-2 text-sm text-slate-600 leading-relaxed pl-[22px]">
+                    <?= wpautop(wp_kses_post(modmy_t($f[2], $f[3]))) ?>
                 </div>
             </details>
             <?php 
