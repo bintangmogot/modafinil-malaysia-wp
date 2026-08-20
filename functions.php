@@ -251,3 +251,28 @@ add_filter('acf/load_value/name=faq_items', function($value, $post_id, $field) {
     }
     return $value;
 }, 10, 3);
+
+// Pre-fill Product FAQs with default content if empty
+add_filter('acf/load_value/name=product_faqs', function($value, $post_id, $field) {
+    if ($value === null || empty($value)) {
+        $value = [
+            [
+                'field_pf_question' => 'What is the recommended dosage for beginners?',
+                'field_pf_answer' => '<p>New users should start with 100mg (half a 200mg tablet) to assess tolerance. After a few uses, many increase to a full 200mg dose. Take it early in the morning with or without food.</p>'
+            ],
+            [
+                'field_pf_question' => 'How long do the effects last?',
+                'field_pf_answer' => '<p>The effects typically last between 10-15 hours depending on individual metabolism and dose. A single tablet will provide sustained wakefulness and focus throughout the workday.</p>'
+            ],
+            [
+                'field_pf_question' => 'How long does delivery take in Malaysia?',
+                'field_pf_answer' => '<p>Delivery within Malaysia typically takes 7-12 days via our reliable, discreet courier partners. You will receive a tracking number once your order is dispatched.</p>'
+            ],
+            [
+                'field_pf_question' => 'Are the products genuine?',
+                'field_pf_answer' => '<p>Yes, we guarantee 100% authentic products sourced directly from established pharmaceutical manufacturers.</p>'
+            ]
+        ];
+    }
+    return $value;
+}, 10, 3);
