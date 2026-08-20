@@ -206,34 +206,46 @@ add_filter('acf/load_value/name=faq_items', function($value, $post_id, $field) {
         // If we are in the context of ACF layout and the field name is faq_items
         $value = [
             [
-                'q_en' => 'What is Modafinil?',
-                'q_ms' => 'Apakah itu Modafinil?',
-                'a_en' => 'Modafinil is a wakefulness-promoting agent (eugeroic) widely used as a cognitive enhancer by students, professionals, and shift workers to improve focus, concentration, and mental clarity. It was originally developed to treat narcolepsy and sleep disorders.',
-                'a_ms' => 'Modafinil ialah agen penggalak kewaspadaan (eugeroic) yang digunakan secara meluas sebagai pengingkat kognitif oleh pelajar, profesional, dan pekerja syif untuk meningkatkan fokus, kepekatan, dan kejelasan mental. Ia pada asalnya dibangunkan untuk merawat narkolepsi dan gangguan tidur.'
+                'q_en' => 'What is Modanil 200mg used for?',
+                'q_ms' => 'Apakah kegunaan Modanil 200mg?',
+                'a_en' => 'Modanil 200 mg is useful for the improvement of narcolepsy, obstructive sleep apnea, or shift work sleep disorder.',
+                'a_ms' => 'Modanil 200 mg berguna untuk pembaikan narkolepsi, apnea tidur obstruktif, atau gangguan tidur kerja syif.'
             ],
             [
-                'q_en' => 'What is the recommended dosage?',
-                'q_ms' => 'Apakah dos yang disyorkan?',
-                'a_en' => 'The standard recommended dose is 200mg taken once in the morning. Beginners should start with 100mg (half a tablet) to assess tolerance. Read our complete dosage guide for detailed recommendations.',
-                'a_ms' => 'Dos disyorkan standard ialah 200mg diambil sekali pada waktu pagi. Pemula harus bermula dengan 100mg (separuh tablet) untuk menilai toleransi. Baca panduan dos lengkap kami untuk cadangan terperinci.'
+                'q_en' => 'How does Modanil 200mg work?',
+                'q_ms' => 'Bagaimanakah Modanil 200mg berfungsi?',
+                'a_en' => 'Modanil works by affecting certain chemicals in the brain that regulate the sleep-wake cycle, helping you stay awake and alert.',
+                'a_ms' => 'Modanil berfungsi dengan mempengaruhi bahan kimia tertentu di dalam otak yang mengawal selitaran tidur-jaga, membantu anda kekal berjaga dan peka.'
             ],
             [
-                'q_en' => 'Are your products genuine?',
-                'q_ms' => 'Adakah produk anda asli?',
-                'a_en' => '100%. We source all our Modafinil exclusively from certified, reputable manufacturers including Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), and other trusted pharmaceutical companies. Every product is genuine and pharmaceutical grade.',
-                'a_ms' => '100% asli. Kami mendapatkan semua Modafinil kami secara eksklusif dari pengeluar bertauliah dan bereputasi tinggi termasuk Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), dan syarikat farmaseutikal dipercayai yang lain. Setiap produk adalah asli.'
+                'q_en' => 'How should I take Modanil 200mg?',
+                'q_ms' => 'Bagaimanakah cara saya mengambil Modanil 200mg?',
+                'a_en' => 'Take one tablet in the morning with a glass of water. Do not exceed the recommended dose.',
+                'a_ms' => 'Ambil sebiji tablet pada waktu pagi dengan segelas air. Jangan melebihi dos yang disyorkan.'
             ],
             [
-                'q_en' => 'How long does delivery take?',
-                'q_ms' => 'Berapa lamakah masa penghantaran?',
-                'a_en' => 'Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399.',
-                'a_ms' => 'Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399.'
+                'q_en' => 'Can I take Modanil with food?',
+                'q_ms' => 'Bolehkah saya mengambil Modanil dengan makanan?',
+                'a_en' => 'Yes, it can be taken with or without food.',
+                'a_ms' => 'Ya, ia boleh diambil dengan atau tanpa makanan.'
             ],
             [
-                'q_en' => 'Is the packaging discreet?',
-                'q_ms' => 'Adakah pembungkusan diskret?',
-                'a_en' => 'Absolutely. All orders are shipped in plain, unmarked packaging with no indication of the contents. There is no branding or product information visible on the outside of the package. Your privacy is our priority.',
-                'a_ms' => 'Sangat diskret. Semua pesanan dihantar dalam bungkusan biasa tanpa sebarang tanda kandungan. Tiada jenama atau maklumat produk kelihatan di luar bungkusan. Privasi anda ialah keutamaan kami.'
+                'q_en' => 'What should I do if I miss a dose?',
+                'q_ms' => 'Apakah yang harus saya lakukan jika terlepas dos?',
+                'a_en' => 'If you miss a dose, take it as soon as you remember. If it is close to your next dose, skip the missed dose. Do not take a double dose.',
+                'a_ms' => 'Jika anda terlepas dos, ambil sebaik sahaja anda teringat. Jika ia hampir dengan dos seterusnya, abaikan dos yang terlepas. Jangan ambil dos berganda.'
+            ],
+            [
+                'q_en' => 'How long does Modanil 200mg last?',
+                'q_ms' => 'Berapa lamakah Modanil 200mg bertahan?',
+                'a_en' => 'The effects typically last between 12 to 15 hours.',
+                'a_ms' => 'Kesannya biasanya bertahan antara 12 hingga 15 jam.'
+            ],
+            [
+                'q_en' => 'What are the common side effects of Modanil 200mg?',
+                'q_ms' => 'Apakah kesan sampingan biasa Modanil 200mg?',
+                'a_en' => 'Common side effects include headache, nausea, nervousness, dizziness, or difficulty sleeping.',
+                'a_ms' => 'Kesan sampingan biasa termasuk sakit kepala, loya, gementar, pening, atau kesukaran tidur.'
             ]
         ];
     }
