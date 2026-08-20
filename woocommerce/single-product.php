@@ -282,74 +282,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
 
         </div>
     </div>
-    <!-- ACF: Extra Tabs -->
-    <?php if (have_rows('extra_tabs', $product->get_id())): ?>
-        <div class="mt-10 lg:mt-20" id="product-tabs">
-            <!-- Tab Headers -->
-            <div class="flex flex-wrap border-b-0 md:border-b border-slate-200" role="tablist">
-                <?php
-                $tab_index = 0;
-                while (have_rows('extra_tabs', $product->get_id())):
-                    the_row();
-                    $tab_title = get_sub_field('tab_title');
-                    ?>
-                    <button type="button" role="tab" aria-selected="<?= $tab_index === 0 ? 'true' : 'false' ?>"
-                        aria-controls="tab-panel-<?= $tab_index ?>" id="tab-<?= $tab_index ?>"
-                        class="tab-btn whitespace-nowrap text-xs md:text-sm font-bold transition-colors focus:outline-none border rounded-md md:rounded-none md:border-t-0 md:border-x-0 md:border-b-2 px-3.5 py-2 md:py-3 md:px-5 mr-2 mb-2 md:mr-0 md:mb-0 <?= $tab_index === 0 ? 'bg-primary text-white border-primary md:bg-transparent md:text-primary md:border-primary' : 'bg-white text-slate-500 border-slate-200 md:bg-transparent md:text-slate-500 md:border-transparent hover:text-slate-800 hover:border-slate-300' ?>"
-                        data-index="<?= $tab_index ?>">
-                        <?= esc_html($tab_title) ?>
-                    </button>
-                    <?php
-                    $tab_index++;
-                endwhile; ?>
-            </div>
-
-            <!-- Tab Panels -->
-            <div class="pt-6">
-                <?php
-                $tab_index = 0;
-                while (have_rows('extra_tabs', $product->get_id())):
-                    the_row();
-                    $tab_content = get_sub_field('tab_content');
-                    ?>
-                    <div id="tab-panel-<?= $tab_index ?>" role="tabpanel" aria-labelledby="tab-<?= $tab_index ?>"
-                        class="tab-panel prose prose-sm prose-slate max-w-none <?= $tab_index === 0 ? 'block' : 'hidden' ?>">
-                        <?= $tab_content ?>
-                    </div>
-                    <?php
-                    $tab_index++;
-                endwhile; ?>
-            </div>
-        </div>
-
-        <!-- Tabs Script -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const tabBtns = document.querySelectorAll('#product-tabs .tab-btn');
-                const tabPanels = document.querySelectorAll('#product-tabs .tab-panel');
-
-                tabBtns.forEach(btn => {
-                    btn.addEventListener('click', function () {
-                        const index = this.dataset.index;
-
-                        // Reset all
-                        tabBtns.forEach(b => {
-                            b.setAttribute('aria-selected', 'false');
-                            b.className = "tab-btn whitespace-nowrap text-xs md:text-sm font-bold transition-colors focus:outline-none border rounded-md md:rounded-none md:border-t-0 md:border-x-0 md:border-b-2 px-3.5 py-2 md:py-3 md:px-5 mr-2 mb-2 md:mr-0 md:mb-0 bg-white text-slate-500 border-slate-200 md:bg-transparent md:text-slate-500 md:border-transparent hover:text-slate-800 hover:border-slate-300";
-                        });
-                        tabPanels.forEach(p => {
-                            p.className = "tab-panel prose prose-sm prose-slate max-w-none hidden";
-                        });
-
-                        // Activate clicked
-                        this.setAttribute('aria-selected', 'true');
-                        this.className = "tab-btn whitespace-nowrap text-xs md:text-sm font-bold transition-colors focus:outline-none border rounded-md md:rounded-none md:border-t-0 md:border-x-0 md:border-b-2 px-3.5 py-2 md:py-3 md:px-5 mr-2 mb-2 md:mr-0 md:mb-0 bg-primary text-white border-primary md:bg-transparent md:text-primary md:border-primary";
-                        document.getElementById('tab-panel-' + index).className = "tab-panel prose prose-sm prose-slate max-w-none block";
-                    });
-                });
-            });
-        </script>
-    <?php endif; ?>
+    <!-- ACF: Extra Tabs (Removed as requested) -->
 </section>
 
 <!-- Reviews Section -->
@@ -489,70 +422,16 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
     </div>
 </section>
 
-<!-- FAQs Section -->
-<section class="section-padding bg-slate-50 border-t border-slate-200" data-testid="product-faq">
-    <div class="container-site max-w-4xl">
-        <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-slate-900 mb-6 text-center">
-            <?= modmy_t("Frequently Asked Questions", "Soalan Lazim") ?>
-        </h2>
-        <div class="space-y-3">
-            <?php
-            $faqs = [
-                [
-                    'q_en' => 'What is Modafinil?',
-                    'q_ms' => 'Apakah itu Modafinil?',
-                    'a_en' => 'Modafinil is a wakefulness-promoting agent (eugeroic) widely used as a cognitive enhancer by students, professionals, and shift workers to improve focus, concentration, and mental clarity. It was originally developed to treat narcolepsy and sleep disorders.',
-                    'a_ms' => 'Modafinil ialah agen penggalak kewaspadaan (eugeroic) yang digunakan secara meluas sebagai pengingkat kognitif oleh pelajar, profesional, dan pekerja syif untuk meningkatkan fokus, kepekatan, dan kejelasan mental. Ia pada asalnya dibangunkan untuk merawat narkolepsi dan gangguan tidur.'
-                ],
-                [
-                    'q_en' => 'What is the recommended dosage?',
-                    'q_ms' => 'Apakah dos yang disyorkan?',
-                    'a_en' => 'The standard recommended dose is 200mg taken once in the morning. Beginners should start with 100mg (half a tablet) to assess tolerance. Read our complete dosage guide for detailed recommendations.',
-                    'a_ms' => 'Dos disyorkan standard ialah 200mg diambil sekali pada waktu pagi. Pemula harus bermula dengan 100mg (separuh tablet) untuk menilai toleransi. Baca panduan dos lengkap kami untuk cadangan terperinci.'
-                ],
-                [
-                    'q_en' => 'Are your products genuine?',
-                    'q_ms' => 'Adakah produk anda asli?',
-                    'a_en' => '100%. We source all our Modafinil exclusively from certified, reputable manufacturers including Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), and other trusted pharmaceutical companies. Every product is genuine and pharmaceutical grade.',
-                    'a_ms' => '100% asli. Kami mendapatkan semua Modafinil kami secara eksklusif dari pengeluar bertauliah dan bereputasi tinggi termasuk Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), dan syarikat farmaseutikal dipercayai yang lain. Setiap produk adalah asli.'
-                ],
-                [
-                    'q_en' => 'How long does delivery take?',
-                    'q_ms' => 'Berapa lamakah masa penghantaran?',
-                    'a_en' => 'Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399.',
-                    'a_ms' => 'Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399.'
-                ],
-                [
-                    'q_en' => 'Is the packaging discreet?',
-                    'q_ms' => 'Adakah pembungkusan diskret?',
-                    'a_en' => 'Absolutely. All orders are shipped in plain, unmarked packaging with no indication of the contents. There is no branding or product information visible on the outside of the package. Your privacy is our priority.',
-                    'a_ms' => 'Sangat diskret. Semua pesanan dihantar dalam bungkusan biasa tanpa sebarang tanda kandungan. Tiada jenama atau maklumat produk kelihatan di luar bungkusan. Privasi anda ialah keutamaan kami.'
-                ]
-            ];
-            foreach ($faqs as $i => $faq):
-                ?>
-                <details
-                    class="group bg-white border-2 border-slate-200 rounded-md hover:border-emerald-300 transition-colors [&_summary::-webkit-details-marker]:hidden"
-                    data-testid="faq-item-product-<?= $i ?>">
-                    <summary class="flex items-center justify-between gap-4 p-4 cursor-pointer">
-                        <span class="font-heading font-extrabold text-slate-900 text-sm md:text-base">
-                            <?= modmy_t($faq['q_en'], $faq['q_ms']) ?>
-                        </span>
-                        <span class="transition-transform group-open:rotate-180 text-emerald-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </span>
-                    </summary>
-                    <div class="border-t border-slate-100 p-4 text-sm text-slate-600 leading-relaxed">
-                        <?= modmy_t($faq['a_en'], $faq['a_ms']) ?>
-                    </div>
-                </details>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
+<!-- Dynamic ACF Modules (Replaces Hardcoded FAQs) -->
+<?php
+if (have_rows('modules', $product->get_id())) {
+    while (have_rows('modules', $product->get_id())) {
+        the_row();
+        $layout = get_row_layout();
+        get_template_part('modules/content', $layout);
+    }
+}
+?>
 
 <!-- Related Products -->
 <section class="section-padding bg-slate-50 border-t border-slate-200">

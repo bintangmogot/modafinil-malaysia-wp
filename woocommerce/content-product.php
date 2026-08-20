@@ -22,6 +22,7 @@ $title = $product->get_title();
 $link = $product->get_permalink();
 $image = wp_get_attachment_image_url($product->get_image_id(), 'medium') ?: '';
 $per_tab = get_field('price_per_unit', $product->get_id()); // From ACF
+$shop_page_text = get_field('shop_page_text', $product->get_id()); // From ACF
 $in_stock = $product->is_in_stock();
 ?>
 <article class="group relative flex flex-col overflow-hidden rounded-xl border border-border hover:border-primary bg-card shadow-card transition-shadow hover:shadow-card-hover">
@@ -61,6 +62,13 @@ $in_stock = $product->is_in_stock();
         <p class="mt-1 text-xs md:text-sm font-medium text-primary-dark line-clamp-1">
             <?= modmy_t("As low as", "Serendah") ?> <?= esc_html($per_tab_clean) ?>/<?= modmy_t("tab", "biji") ?>
         </p>
+        <?php endif; ?>
+
+        <!-- Shop Page Text (Custom text from ACF) -->
+        <?php if ($shop_page_text): ?>
+        <div class="mt-3 text-xs text-slate-500 leading-relaxed line-clamp-3">
+            <?= wp_kses_post($shop_page_text) ?>
+        </div>
         <?php endif; ?>
 
         <!-- CTA Button -->
