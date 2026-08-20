@@ -1409,3 +1409,38 @@ button, input[type='button'], input[type='reset'], input[type='submit'], .button
 /* Cursor pointer for labels/variations */
 label, .variations label { cursor: pointer !important; }
 
+/* Mobile Stacked Layout for Checkout Review Table */
+@media (max-width: 767px) {
+    .woocommerce-checkout-review-order-table,
+    .woocommerce-checkout-review-order-table thead,
+    .woocommerce-checkout-review-order-table tbody,
+    .woocommerce-checkout-review-order-table tfoot,
+    .woocommerce-checkout-review-order-table tr,
+    .woocommerce-checkout-review-order-table th,
+    .woocommerce-checkout-review-order-table td {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .woocommerce-checkout-review-order-table thead {
+        display: none !important; /* Hide Product / Subtotal headers */
+    }
+    
+    .woocommerce-checkout-review-order-table tr {
+        margin-bottom: 1rem !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    .woocommerce-checkout-review-order-table th,
+    .woocommerce-checkout-review-order-table td {
+        border: none !important;
+        padding: 0.25rem 0 !important;
+    }
+    
+    .woocommerce-checkout-review-order-table th {
+        font-weight: 700 !important;
+        padding-bottom: 0.25rem !important;
+        color: #0f172a !important;
+    }
+}
