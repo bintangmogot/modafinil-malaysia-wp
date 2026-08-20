@@ -285,23 +285,29 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
     <!-- ACF: Extra Tabs (Removed as requested) -->
 </section>
 
+<!-- Product Description Section -->
+<section class="section-padding bg-slate-50 border-t border-slate-200" data-testid="section-product-description">
+    <div class="container-site max-w-4xl">
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-10 prose prose-slate max-w-none">
+            <?php the_content(); ?>
+        </div>
+    </div>
+</section>
+
 <!-- Reviews Section -->
 <section class="section-padding border-t border-slate-200 bg-white" data-testid="section-reviews">
     <?php
-    $reviews = get_posts([
-        'post_type' => 'review',
-        'posts_per_page' => -1,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'meta_query' => array(
-            array(
-                'key'     => 'linked_product',
-                'value'   => get_the_ID(),
-                'compare' => '='
-            )
-        )
-    ]);
-    $review_count = count($reviews);
+    $reviews = get_field('product_reviews');
+    $review_count = $reviews ? count($reviews) : 0;
+    
+    $avg_rating = 5.0;
+    if ($review_count > 0) {
+        $total_rating = 0;
+        foreach ($reviews as $review) {
+            $total_rating += floatval($review['review_rating'] ?: 5);
+        }
+        $avg_rating = round($total_rating / $review_count, 1);
+    }
     ?>
     <div class="container-site max-w-4xl">
         <div class="text-center mb-8">
@@ -320,7 +326,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                     <?php endfor; ?>
                 </div>
                 <span class="text-sm font-semibold text-slate-600">
-                    <?= sprintf(modmy_t("4.8 out of 5 (%d reviews)", "4.8 daripada 5 (%d ulasan)"), $review_count) ?>
+                    <?= sprintf(modmy_t("%s out of 5 (%d reviews)", "%s daripada 5 (%d ulasan)"), number_format($avg_rating, 1), $review_count) ?>
                 </span>
             </div>
             <?php endif; ?>
@@ -330,21 +336,20 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
             <?php
             if ($reviews):
                 foreach ($reviews as $i => $r):
-                      $post_id = $r->ID;
-                      $title_en = get_the_title($post_id);
-                      $title_ms = $title_en;
-                      $body_en = get_post_field('post_content', $post_id);
+                      $title_en = $r['review_title'];
+                      $title_ms = $title_en; // No separate translation fields added for simplicity, relying on identical output
+                      $body_en = $r['review_content'];
                       $body_ms = $body_en;
-                      $reviewer = get_field('name', $post_id) ?: $r->post_title;
-                      $meta = get_field('reviewer_meta', $post_id) ?: "Verified Buyer";
-                      $rating_val = get_field('rating', $post_id) ?: 5;
+                      $reviewer = $r['reviewer_name'] ?: "Anonymous";
+                      $meta = $r['reviewer_meta'] ?: "Verified Buyer";
+                      $rating_val = floatval($r['review_rating']) ?: 5;
                     ?>
                     <div class="bg-white border-2 border-slate-200 rounded-md p-5" data-testid="review-<?= $i ?>">
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm uppercase">
-                                    <?= substr($reviewer, 0, 1) ?>
+                                    <?= substr(esc_html($reviewer), 0, 1) ?>
                                 </div>
                                 <div>
                                     <p class="font-bold text-sm text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
@@ -374,9 +379,11 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                                 <?php endfor; ?>
                             </div>
                         </div>
+                        <?php if ($title_en): ?>
                         <p class="font-bold text-sm text-slate-900 mb-1 leading-snug">
                             <?= modmy_t($title_en, $title_ms) ?>
                         </p>
+                        <?php endif; ?>
                         <p class="text-sm text-slate-600 leading-relaxed">
                             &ldquo;<?= modmy_t($body_en, $body_ms) ?>&rdquo;
                         </p>

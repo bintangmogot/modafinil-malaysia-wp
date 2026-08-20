@@ -66,70 +66,51 @@
             "delay": 0
         },
         {
-            "key": "field_698ca5a269602",
-            "label": "Extra Tabs",
-            "name": "extra_tabs",
-            "aria-label": "",
+            "key": "field_prod_reviews_repeater",
+            "label": "Product Reviews",
+            "name": "product_reviews",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Add custom reviews for this product here.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
+            "layout": "block",
+            "button_label": "Add Review",
             "sub_fields": [
                 {
-                    "key": "field_698ca5af69603",
-                    "label": "Tab Title",
-                    "name": "tab_title",
-                    "aria-label": "",
+                    "key": "field_pr_reviewer_name",
+                    "label": "Reviewer Name",
+                    "name": "reviewer_name",
                     "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_698ca5a269602"
+                    "required": 1
                 },
                 {
-                    "key": "field_698ca5b569604",
-                    "label": "Tab Content",
-                    "name": "tab_content",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "allow_in_bindings": 0,
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0,
-                    "parent_repeater": "field_698ca5a269602"
+                    "key": "field_pr_reviewer_meta",
+                    "label": "Reviewer Meta (Location/Job)",
+                    "name": "reviewer_meta",
+                    "type": "text",
+                    "default_value": "Verified Buyer"
+                },
+                {
+                    "key": "field_pr_review_rating",
+                    "label": "Rating",
+                    "name": "review_rating",
+                    "type": "number",
+                    "default_value": 5,
+                    "min": 1,
+                    "max": 5
+                },
+                {
+                    "key": "field_pr_review_title",
+                    "label": "Review Title",
+                    "name": "review_title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_pr_review_content",
+                    "label": "Review Content",
+                    "name": "review_content",
+                    "type": "textarea",
+                    "required": 1
                 }
             ]
         }
