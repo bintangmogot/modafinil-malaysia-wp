@@ -1459,12 +1459,12 @@ label, .variations label { cursor: pointer !important; }
         color: #059669 !important;
     }
 
-    /* Shipping row needs full width for radio buttons */
-    .woocommerce-checkout-review-order-table .shipping th {
+    /* Shipping, Fees, and custom rows (like Insurance) need full width for radio buttons */
+    .woocommerce-checkout-review-order-table tr:not(.cart_item):not(.cart-subtotal):not(.order-total) th {
         width: 100% !important;
         margin-bottom: 0.75rem !important;
     }
-    .woocommerce-checkout-review-order-table .shipping td {
+    .woocommerce-checkout-review-order-table tr:not(.cart_item):not(.cart-subtotal):not(.order-total) td {
         width: 100% !important;
         text-align: left !important;
         color: inherit !important;
