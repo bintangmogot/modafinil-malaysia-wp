@@ -31,7 +31,7 @@ function modmy_whatsapp_buy_button() {
     global $product;
     if (!$product) return;
     
-    $whatsapp = get_field('whatsapp_number', 'option') ?: '601116284532';
+    $whatsapp = get_field('whatsapp_number', 'option') ?: '60185754182';
     // Remove non-numeric chars
     $whatsapp = preg_replace('/[^0-9]/', '', $whatsapp);
     

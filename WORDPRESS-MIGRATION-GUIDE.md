@@ -46,7 +46,7 @@
 | **Tagline (MS)** | Fokus Lebih Tajam. Perform Lebih Tinggi. |
 | **Primary Language** | Bahasa Malaysia (MS) — default; English (EN) as secondary |
 | **Tone** | Direct, practical, trust-first. Numbers over adjectives. Medical disclaimer always visible. |
-| **WhatsApp CTA** | `+60 11-1628 4532` → `https://wa.me/601116284532` |
+| **WhatsApp CTA** | `+60 18-575 4182` → `https://wa.me/60185754182` |
 | **Email** | `support@modafinil-malaysia.com` |
 | **Currency** | Malaysian Ringgit (RM) — format: `RM1,234.56` |
 | **Locale** | `ms-MY` |

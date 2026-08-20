@@ -11,7 +11,7 @@ $desc_ms = get_sub_field('description_ms') ?: "Ada soalan? Pasukan kami berbahas
 
 $btn_en = get_sub_field('button_text_en') ?: "WhatsApp Us";
 $btn_ms = get_sub_field('button_text_ms') ?: "WhatsApp Kami";
-$wa_number = preg_replace('/[^0-9]/', '', get_field('whatsapp_number', 'option') ?: '601116284532');
+$wa_number = preg_replace('/[^0-9]/', '', get_field('whatsapp_number', 'option') ?: '60185754182');
 $btn_url = get_sub_field('button_url') ?: "https://wa.me/{$wa_number}";
 
 $btn2_en = get_sub_field('secondary_button_text_en') ?: "Contact Form";

@@ -206,46 +206,46 @@ add_filter('acf/load_value/name=faq_items', function($value, $post_id, $field) {
         // If we are in the context of ACF layout and the field name is faq_items
         $value = [
             [
-                'q_en' => 'What is Modanil 200mg used for?',
-                'q_ms' => 'Apakah kegunaan Modanil 200mg?',
-                'a_en' => 'Modanil 200 mg is useful for the improvement of narcolepsy, obstructive sleep apnea, or shift work sleep disorder.',
-                'a_ms' => 'Modanil 200 mg berguna untuk pembaikan narkolepsi, apnea tidur obstruktif, atau gangguan tidur kerja syif.'
+                'field_dsg_ae5395b1a7' => 'What is Modanil 200mg used for?',
+                'field_dsg_f3bbb68d4e' => 'Apakah kegunaan Modanil 200mg?',
+                'field_dsg_4ececabc41' => 'Modanil 200 mg is useful for the improvement of narcolepsy, obstructive sleep apnea, or shift work sleep disorder.',
+                'field_dsg_462a8df2cf' => 'Modanil 200 mg berguna untuk pembaikan narkolepsi, apnea tidur obstruktif, atau gangguan tidur kerja syif.'
             ],
             [
-                'q_en' => 'How does Modanil 200mg work?',
-                'q_ms' => 'Bagaimanakah Modanil 200mg berfungsi?',
-                'a_en' => 'Modanil works by affecting certain chemicals in the brain that regulate the sleep-wake cycle, helping you stay awake and alert.',
-                'a_ms' => 'Modanil berfungsi dengan mempengaruhi bahan kimia tertentu di dalam otak yang mengawal selitaran tidur-jaga, membantu anda kekal berjaga dan peka.'
+                'field_dsg_ae5395b1a7' => 'How does Modanil 200mg work?',
+                'field_dsg_f3bbb68d4e' => 'Bagaimanakah Modanil 200mg berfungsi?',
+                'field_dsg_4ececabc41' => 'Modanil works by affecting certain chemicals in the brain that regulate the sleep-wake cycle, helping you stay awake and alert.',
+                'field_dsg_462a8df2cf' => 'Modanil berfungsi dengan mempengaruhi bahan kimia tertentu di dalam otak yang mengawal selitaran tidur-jaga, membantu anda kekal berjaga dan peka.'
             ],
             [
-                'q_en' => 'How should I take Modanil 200mg?',
-                'q_ms' => 'Bagaimanakah cara saya mengambil Modanil 200mg?',
-                'a_en' => 'Take one tablet in the morning with a glass of water. Do not exceed the recommended dose.',
-                'a_ms' => 'Ambil sebiji tablet pada waktu pagi dengan segelas air. Jangan melebihi dos yang disyorkan.'
+                'field_dsg_ae5395b1a7' => 'How should I take Modanil 200mg?',
+                'field_dsg_f3bbb68d4e' => 'Bagaimanakah cara saya mengambil Modanil 200mg?',
+                'field_dsg_4ececabc41' => 'Take one tablet in the morning with a glass of water. Do not exceed the recommended dose.',
+                'field_dsg_462a8df2cf' => 'Ambil sebiji tablet pada waktu pagi dengan segelas air. Jangan melebihi dos yang disyorkan.'
             ],
             [
-                'q_en' => 'Can I take Modanil with food?',
-                'q_ms' => 'Bolehkah saya mengambil Modanil dengan makanan?',
-                'a_en' => 'Yes, it can be taken with or without food.',
-                'a_ms' => 'Ya, ia boleh diambil dengan atau tanpa makanan.'
+                'field_dsg_ae5395b1a7' => 'Can I take Modanil with food?',
+                'field_dsg_f3bbb68d4e' => 'Bolehkah saya mengambil Modanil dengan makanan?',
+                'field_dsg_4ececabc41' => 'Yes, it can be taken with or without food.',
+                'field_dsg_462a8df2cf' => 'Ya, ia boleh diambil dengan atau tanpa makanan.'
             ],
             [
-                'q_en' => 'What should I do if I miss a dose?',
-                'q_ms' => 'Apakah yang harus saya lakukan jika terlepas dos?',
-                'a_en' => 'If you miss a dose, take it as soon as you remember. If it is close to your next dose, skip the missed dose. Do not take a double dose.',
-                'a_ms' => 'Jika anda terlepas dos, ambil sebaik sahaja anda teringat. Jika ia hampir dengan dos seterusnya, abaikan dos yang terlepas. Jangan ambil dos berganda.'
+                'field_dsg_ae5395b1a7' => 'What should I do if I miss a dose?',
+                'field_dsg_f3bbb68d4e' => 'Apakah yang harus saya lakukan jika terlepas dos?',
+                'field_dsg_4ececabc41' => 'If you miss a dose, take it as soon as you remember. If it is close to your next dose, skip the missed dose. Do not take a double dose.',
+                'field_dsg_462a8df2cf' => 'Jika anda terlepas dos, ambil sebaik sahaja anda teringat. Jika ia hampir dengan dos seterusnya, abaikan dos yang terlepas. Jangan ambil dos berganda.'
             ],
             [
-                'q_en' => 'How long does Modanil 200mg last?',
-                'q_ms' => 'Berapa lamakah Modanil 200mg bertahan?',
-                'a_en' => 'The effects typically last between 12 to 15 hours.',
-                'a_ms' => 'Kesannya biasanya bertahan antara 12 hingga 15 jam.'
+                'field_dsg_ae5395b1a7' => 'How long does Modanil 200mg last?',
+                'field_dsg_f3bbb68d4e' => 'Berapa lamakah Modanil 200mg bertahan?',
+                'field_dsg_4ececabc41' => 'The effects typically last between 12 to 15 hours.',
+                'field_dsg_462a8df2cf' => 'Kesannya biasanya bertahan antara 12 hingga 15 jam.'
             ],
             [
-                'q_en' => 'What are the common side effects of Modanil 200mg?',
-                'q_ms' => 'Apakah kesan sampingan biasa Modanil 200mg?',
-                'a_en' => 'Common side effects include headache, nausea, nervousness, dizziness, or difficulty sleeping.',
-                'a_ms' => 'Kesan sampingan biasa termasuk sakit kepala, loya, gementar, pening, atau kesukaran tidur.'
+                'field_dsg_ae5395b1a7' => 'What are the common side effects of Modanil 200mg?',
+                'field_dsg_f3bbb68d4e' => 'Apakah kesan sampingan biasa Modanil 200mg?',
+                'field_dsg_4ececabc41' => 'Common side effects include headache, nausea, nervousness, dizziness, or difficulty sleeping.',
+                'field_dsg_462a8df2cf' => 'Kesan sampingan biasa termasuk sakit kepala, loya, gementar, pening, atau kesukaran tidur.'
             ]
         ];
     }

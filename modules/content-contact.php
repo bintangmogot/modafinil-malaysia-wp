@@ -9,7 +9,7 @@ $heading_ms = get_sub_field('heading_ms') ?: "Ada Soalan? Kami Di Sini.";
 $desc_en = get_sub_field('description_en') ?: "Our team speaks English and Malaysia. We usually reply within 30 minutes during business hours.";
 $desc_ms = get_sub_field('description_ms') ?: "Pasukan kami berbahasa Malaysia dan English. Kami biasanya membalas dalam masa 30 minit pada waktu perniagaan.";
 
-$whatsapp = get_field('whatsapp_number', 'option') ?: 'https://wa.me/601116284532';
+$whatsapp = get_field('whatsapp_number', 'option') ?: 'https://wa.me/60185754182';
 $email = get_field('contact_email', 'option') ?: 'support@modafinil-malaysia.com';
 ?>
 <section class="bg-background pt-8 pb-4 md:pt-16 md:pb-8 text-center">
@@ -35,7 +35,7 @@ $email = get_field('contact_email', 'option') ?: 'support@modafinil-malaysia.com
                 </span>
                 <div>
                     <h2 class="font-heading text-base font-bold text-foreground"><?= modmy_t("WhatsApp (Fastest Option)", "WhatsApp (Pilihan Terpantas)") ?></h2>
-                    <p class="mt-1 text-sm leading-relaxed text-muted-foreground">+60 11-1628 4532 &middot; <?= modmy_t("Replies within 30 minutes", "Balas dalam masa 30 minit") ?></p>
+                    <p class="mt-1 text-sm leading-relaxed text-muted-foreground">+60 18-575 4182 &middot; <?= modmy_t("Replies within 30 minutes", "Balas dalam masa 30 minit") ?></p>
                 </div>
             </a>
 
