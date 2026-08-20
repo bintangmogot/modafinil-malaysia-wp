@@ -29,9 +29,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 ?>
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout grid gap-6 lg:gap-8 lg:grid-cols-12" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data" aria-label="<?php echo esc_attr__( 'Checkout', 'woocommerce' ); ?>">
+<form name="checkout" method="post" class="checkout woocommerce-checkout grid gap-6 lg:gap-8 lg:grid-cols-[55fr_45fr]" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data" aria-label="<?php echo esc_attr__( 'Checkout', 'woocommerce' ); ?>">
 
-	<div class="lg:col-span-7 space-y-4">
+	<div class="space-y-4">
 		<?php if ( $checkout->get_checkout_fields() ) : ?>
 
 			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
@@ -51,7 +51,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<?php endif; ?>
 	</div>
 	
-	<div class="lg:col-span-5">
+	<div>
 		<div class="sticky top-24 rounded-2xl border border-border bg-card p-6 shadow-card lg:p-8">
 			<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
 			
