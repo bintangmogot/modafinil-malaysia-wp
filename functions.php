@@ -198,3 +198,44 @@ add_action("manage_review_posts_custom_column", function($column, $post_id) {
     }
 }, 10, 2);
 
+
+// Prefill Product FAQs Module with default Modafinil questions
+add_filter('acf/load_value/name=faq_items', function($value, $post_id, $field) {
+    // Only prefill if it's currently empty (e.g., newly added layout row)
+    if (empty($value)) {
+        // If we are in the context of ACF layout and the field name is faq_items
+        $value = [
+            [
+                'q_en' => 'What is Modafinil?',
+                'q_ms' => 'Apakah itu Modafinil?',
+                'a_en' => 'Modafinil is a wakefulness-promoting agent (eugeroic) widely used as a cognitive enhancer by students, professionals, and shift workers to improve focus, concentration, and mental clarity. It was originally developed to treat narcolepsy and sleep disorders.',
+                'a_ms' => 'Modafinil ialah agen penggalak kewaspadaan (eugeroic) yang digunakan secara meluas sebagai pengingkat kognitif oleh pelajar, profesional, dan pekerja syif untuk meningkatkan fokus, kepekatan, dan kejelasan mental. Ia pada asalnya dibangunkan untuk merawat narkolepsi dan gangguan tidur.'
+            ],
+            [
+                'q_en' => 'What is the recommended dosage?',
+                'q_ms' => 'Apakah dos yang disyorkan?',
+                'a_en' => 'The standard recommended dose is 200mg taken once in the morning. Beginners should start with 100mg (half a tablet) to assess tolerance. Read our complete dosage guide for detailed recommendations.',
+                'a_ms' => 'Dos disyorkan standard ialah 200mg diambil sekali pada waktu pagi. Pemula harus bermula dengan 100mg (separuh tablet) untuk menilai toleransi. Baca panduan dos lengkap kami untuk cadangan terperinci.'
+            ],
+            [
+                'q_en' => 'Are your products genuine?',
+                'q_ms' => 'Adakah produk anda asli?',
+                'a_en' => '100%. We source all our Modafinil exclusively from certified, reputable manufacturers including Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), and other trusted pharmaceutical companies. Every product is genuine and pharmaceutical grade.',
+                'a_ms' => '100% asli. Kami mendapatkan semua Modafinil kami secara eksklusif dari pengeluar bertauliah dan bereputasi tinggi termasuk Sun Pharma (Modalert, Waklert), HAB Pharma (Modvigil, Artvigil), dan syarikat farmaseutikal dipercayai yang lain. Setiap produk adalah asli.'
+            ],
+            [
+                'q_en' => 'How long does delivery take?',
+                'q_ms' => 'Berapa lamakah masa penghantaran?',
+                'a_en' => 'Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399.',
+                'a_ms' => 'Semenanjung Malaysia (KL, Selangor, Penang, Johor, dll.) biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Semua pesanan dilengkapi penjejakan dan penghantaran percuma atas RM399.'
+            ],
+            [
+                'q_en' => 'Is the packaging discreet?',
+                'q_ms' => 'Adakah pembungkusan diskret?',
+                'a_en' => 'Absolutely. All orders are shipped in plain, unmarked packaging with no indication of the contents. There is no branding or product information visible on the outside of the package. Your privacy is our priority.',
+                'a_ms' => 'Sangat diskret. Semua pesanan dihantar dalam bungkusan biasa tanpa sebarang tanda kandungan. Tiada jenama atau maklumat produk kelihatan di luar bungkusan. Privasi anda ialah keutamaan kami.'
+            ]
+        ];
+    }
+    return $value;
+}, 10, 3);
