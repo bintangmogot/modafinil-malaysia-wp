@@ -1125,7 +1125,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "http:\/\/modafinil-malaysia.test\/faq",
+                            "default_value": "http://modafinil-malaysia.test/faq",
                             "placeholder": ""
                         }
                     ],
@@ -2379,7 +2379,7 @@
                             "name": "content_en",
                             "type": "wysiwyg",
                             "required": false,
-                            "default_value": "<h2>Ordering Modafinil in Malaysia<\/h2>\n<p>We've made the process of buying modafinil online as straightforward as possible. Here's what to expect when you place an order with ModafinilMY.<\/p>\n\n<h3>Delivery Timeframes<\/h3>\n<p>Semua pesanan dihantar dengan cepat ke seluruh Malaysia dengan penjejakan penuh. Bandar-bandar utama Semenanjung seperti KL, Selangor, Penang, dan Johor biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Pesanan atas RM399 layak untuk penghantaran percuma.<\/p>\n\n<h3>Customs & Packaging<\/h3>\n<p>Every order is shipped in plain, unmarked packaging with no indication of the contents. There is no branding or product information visible on the outside. Our shipments are processed through international channels and we maintain a high delivery success rate across all Malaysian states and territories.<\/p>\n\n<h3>What to Expect After Ordering<\/h3>\n<p>Once your order is placed, you'll receive a confirmation email with your order details. Tracking information is provided within 1-2 business days. If you have any questions about your order at any point, our support team is available via our contact page.<\/p>"
+                            "default_value": "<h2>Ordering Modafinil in Malaysia</h2>\n<p>We've made the process of buying modafinil online as straightforward as possible. Here's what to expect when you place an order with ModafinilMY.</p>\n\n<h3>Delivery Timeframes</h3>\n<p>Semua pesanan dihantar dengan cepat ke seluruh Malaysia dengan penjejakan penuh. Bandar-bandar utama Semenanjung seperti KL, Selangor, Penang, dan Johor biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Pesanan atas RM399 layak untuk penghantaran percuma.</p>\n\n<h3>Customs & Packaging</h3>\n<p>Every order is shipped in plain, unmarked packaging with no indication of the contents. There is no branding or product information visible on the outside. Our shipments are processed through international channels and we maintain a high delivery success rate across all Malaysian states and territories.</p>\n\n<h3>What to Expect After Ordering</h3>\n<p>Once your order is placed, you'll receive a confirmation email with your order details. Tracking information is provided within 1-2 business days. If you have any questions about your order at any point, our support team is available via our contact page.</p>"
                         },
                         {
                             "key": "field_seo_text_content_ms",
@@ -2387,7 +2387,7 @@
                             "name": "content_ms",
                             "type": "wysiwyg",
                             "required": false,
-                            "default_value": "<h2>Ordering Modafinil in Malaysia<\/h2>\n<p>We've made the process of buying modafinil online as straightforward as possible. Here's what to expect when you place an order with ModafinilMY.<\/p>\n\n<h3>Delivery Timeframes<\/h3>\n<p>Semua pesanan dihantar dengan cepat ke seluruh Malaysia dengan penjejakan penuh. Bandar-bandar utama Semenanjung seperti KL, Selangor, Penang, dan Johor biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Pesanan atas RM399 layak untuk penghantaran percuma.<\/p>\n\n<h3>Customs & Packaging<\/h3>\n<p>Every order is shipped in plain, unmarked packaging with no indication of the contents. There is no branding or product information visible on the outside. Our shipments are processed through international channels and we maintain a high delivery success rate across all Malaysian states and territories.<\/p>\n\n<h3>What to Expect After Ordering<\/h3>\n<p>Once your order is placed, you'll receive a confirmation email with your order details. Tracking information is provided within 1-2 business days. If you have any questions about your order at any point, our support team is available via our contact page.<\/p>"
+                            "default_value": "<h2>Ordering Modafinil in Malaysia</h2>\n<p>We've made the process of buying modafinil online as straightforward as possible. Here's what to expect when you place an order with ModafinilMY.</p>\n\n<h3>Delivery Timeframes</h3>\n<p>Semua pesanan dihantar dengan cepat ke seluruh Malaysia dengan penjejakan penuh. Bandar-bandar utama Semenanjung seperti KL, Selangor, Penang, dan Johor biasanya menerima pesanan dalam masa 7-12 hari bekerja. Sabah dan Sarawak mengambil 10-16 hari bekerja. Pesanan atas RM399 layak untuk penghantaran percuma.</p>\n\n<h3>Customs & Packaging</h3>\n<p>Every order is shipped in plain, unmarked packaging with no indication of the contents. There is no branding or product information visible on the outside. Our shipments are processed through international channels and we maintain a high delivery success rate across all Malaysian states and territories.</p>\n\n<h3>What to Expect After Ordering</h3>\n<p>Once your order is placed, you'll receive a confirmation email with your order details. Tracking information is provided within 1-2 business days. If you have any questions about your order at any point, our support team is available via our contact page.</p>"
                         },
                         {
                             "key": "field_seo_text_show_cta",
@@ -2438,7 +2438,7 @@
                             "name": "cta_link",
                             "type": "text",
                             "required": false,
-                            "default_value": "\/dosage-guide"
+                            "default_value": "/dosage-guide"
                         }
                     ]
                 },
@@ -2702,7 +2702,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "https:\/\/track.pos.com.my\/",
+                            "default_value": "https://track.pos.com.my/",
                             "placeholder": ""
                         },
                         {
@@ -2802,7 +2802,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "Frequently Asked Questions \/ FAQ",
+                            "default_value": "Frequently Asked Questions / FAQ",
                             "placeholder": ""
                         },
                         {
@@ -2819,7 +2819,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "Soalan Lazim \/ FAQ",
+                            "default_value": "Soalan Lazim / FAQ",
                             "placeholder": ""
                         },
                         {
@@ -2972,7 +2972,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "https:\/\/wa.me\/60185754182",
+                            "default_value": "https://wa.me/60185754182",
                             "placeholder": ""
                         },
                         {
@@ -3086,7 +3086,7 @@
                         },
                         {
                             "key": "field_ref_4685c02287ac",
-                            "label": "Badges \/ Highlights",
+                            "label": "Badges / Highlights",
                             "name": "badges",
                             "type": "repeater",
                             "layout": "block",
@@ -3180,7 +3180,7 @@
                         },
                         {
                             "key": "field_prv_4e7ceb8fef70",
-                            "label": "Badges \/ Highlights",
+                            "label": "Badges / Highlights",
                             "name": "badges",
                             "type": "repeater",
                             "layout": "block",
@@ -3274,7 +3274,7 @@
                         },
                         {
                             "key": "field_trm_32c5220a5e9b",
-                            "label": "Badges \/ Highlights",
+                            "label": "Badges / Highlights",
                             "name": "badges",
                             "type": "repeater",
                             "layout": "block",
@@ -3608,7 +3608,7 @@
                                 },
                                 {
                                     "key": "field_dsg_4a43414c43",
-                                    "label": "Color (blue\/emerald\/amber)",
+                                    "label": "Color (blue/emerald/amber)",
                                     "name": "color",
                                     "type": "text"
                                 }
@@ -3934,7 +3934,7 @@
                                     "label": "Answer (EN)",
                                     "name": "answer_en",
                                     "aria-label": "",
-                                    "type": "textarea",
+                                    "type": "wysiwyg",
                                     "instructions": "",
                                     "required": false,
                                     "conditional_logic": false,
@@ -3943,19 +3943,20 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "rows": 4,
                                     "default_value": "",
-                                    "new_lines": "",
                                     "maxlength": "",
                                     "placeholder": "",
-                                    "parent_repeater": "field_faq_items"
+                                    "parent_repeater": "field_faq_items",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1
                                 },
                                 {
                                     "key": "field_dsg_462a8df2cf",
                                     "label": "Answer (MS)",
                                     "name": "answer_ms",
                                     "aria-label": "",
-                                    "type": "textarea",
+                                    "type": "wysiwyg",
                                     "instructions": "",
                                     "required": false,
                                     "conditional_logic": false,
@@ -3964,12 +3965,13 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "rows": 4,
                                     "default_value": "",
-                                    "new_lines": "",
                                     "maxlength": "",
                                     "placeholder": "",
-                                    "parent_repeater": "field_faq_items"
+                                    "parent_repeater": "field_faq_items",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1
                                 }
                             ],
                             "default_value": [
@@ -4064,7 +4066,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "http:\/\/modafinil-malaysia.test\/faq",
+                            "default_value": "http://modafinil-malaysia.test/faq",
                             "placeholder": ""
                         }
                     ],
@@ -4106,5 +4108,5 @@
     "allow_ai_access": false,
     "ai_description": "",
     "modified": 1786461296,
-    "local_file": "C:laragonwwwmodafinil-malaysia\/wp-content\/themes\/modafinil-malaysia-wp\/acf-json\/group_page_modules.json"
+    "local_file": "C:laragonwwwmodafinil-malaysia/wp-content/themes/modafinil-malaysia-wp/acf-json/group_page_modules.json"
 }
