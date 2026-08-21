@@ -200,7 +200,7 @@ add_action("manage_review_posts_custom_column", function($column, $post_id) {
 
 
 // Prefill Product FAQs Module with default Modafinil questions
-add_filter('acf/load_value/name=faq_items', function($value, $post_id, $field) {
+add_filter('acf/load_value/key=field_dsg_624949de81', function($value, $post_id, $field) {
     // Only prefill if it's currently empty or contains only empty rows
     $is_empty = true;
     if (!empty($value) && is_array($value)) {
@@ -304,3 +304,53 @@ add_filter('acf/load_value/name=product_faqs', function($value, $post_id, $field
     }
     return $value;
 }, 10, 3);
+
+
+// Force default_value on the field config itself to bypass JSON cache issues
+add_filter('acf/load_field/key=field_dsg_624949de81', function($field) {
+    $field['default_value'] = [
+        [
+            'field_dsg_ae5395b1a7' => 'What is Modanil 200mg used for?',
+            'field_dsg_f3bbb68d4e' => 'Apakah kegunaan Modanil 200mg?',
+            'field_dsg_4ececabc41' => 'Modanil 200 mg is useful for the improvement of narcolepsy, obstructive sleep apnea, or shift work sleep disorder.',
+            'field_dsg_462a8df2cf' => 'Modanil 200 mg berguna untuk pembaikan narkolepsi, apnea tidur obstruktif, atau gangguan tidur kerja syif.'
+        ],
+        [
+            'field_dsg_ae5395b1a7' => 'How does Modanil 200mg work?',
+            'field_dsg_f3bbb68d4e' => 'Bagaimanakah Modanil 200mg berfungsi?',
+            'field_dsg_4ececabc41' => 'Modanil works by affecting certain chemicals in the brain that regulate the sleep-wake cycle, helping you stay awake and alert.',
+            'field_dsg_462a8df2cf' => 'Modanil berfungsi dengan mempengaruhi bahan kimia tertentu di dalam otak yang mengawal selitaran tidur-jaga, membantu anda kekal berjaga dan peka.'
+        ],
+        [
+            'field_dsg_ae5395b1a7' => 'How should I take Modanil 200mg?',
+            'field_dsg_f3bbb68d4e' => 'Bagaimanakah cara saya mengambil Modanil 200mg?',
+            'field_dsg_4ececabc41' => 'Take one tablet in the morning with a glass of water. Do not exceed the recommended dose.',
+            'field_dsg_462a8df2cf' => 'Ambil sebiji tablet pada waktu pagi dengan segelas air. Jangan melebihi dos yang disyorkan.'
+        ],
+        [
+            'field_dsg_ae5395b1a7' => 'Can I take Modanil with food?',
+            'field_dsg_f3bbb68d4e' => 'Bolehkah saya mengambil Modanil dengan makanan?',
+            'field_dsg_4ececabc41' => 'Yes, it can be taken with or without food.',
+            'field_dsg_462a8df2cf' => 'Ya, ia boleh diambil dengan atau tanpa makanan.'
+        ],
+        [
+            'field_dsg_ae5395b1a7' => 'What should I do if I miss a dose?',
+            'field_dsg_f3bbb68d4e' => 'Apakah yang harus saya lakukan jika terlepas dos?',
+            'field_dsg_4ececabc41' => 'If you miss a dose, take it as soon as you remember. If it is close to your next dose, skip the missed dose. Do not take a double dose.',
+            'field_dsg_462a8df2cf' => 'Jika anda terlepas dos, ambil sebaik sahaja anda teringat. Jika ia hampir dengan dos seterusnya, abaikan dos yang terlepas. Jangan ambil dos berganda.'
+        ],
+        [
+            'field_dsg_ae5395b1a7' => 'How long does Modanil 200mg last?',
+            'field_dsg_f3bbb68d4e' => 'Berapa lamakah Modanil 200mg bertahan?',
+            'field_dsg_4ececabc41' => 'The effects typically last between 12 to 15 hours.',
+            'field_dsg_462a8df2cf' => 'Kesannya biasanya bertahan antara 12 hingga 15 jam.'
+        ],
+        [
+            'field_dsg_ae5395b1a7' => 'What are the common side effects of Modanil 200mg?',
+            'field_dsg_f3bbb68d4e' => 'Apakah kesan sampingan biasa Modanil 200mg?',
+            'field_dsg_4ececabc41' => 'Common side effects include headache, nausea, nervousness, dizziness, or difficulty sleeping.',
+            'field_dsg_462a8df2cf' => 'Kesan sampingan biasa termasuk sakit kepala, loya, gementar, pening, atau kesukaran tidur.'
+        ]
+    ];
+    return $field;
+});
