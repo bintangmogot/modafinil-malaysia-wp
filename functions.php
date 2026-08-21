@@ -371,10 +371,52 @@ acf_add_local_field_group(array(
         ),
     ),
     'menu_order' => 0,
-    'position' => 'normal',
+    
     'style' => 'default',
     'label_placement' => 'top',
     'instruction_placement' => 'label',
-    'hide_on_screen' => '',
+    'hide_on_screen' => array('the_content', 'excerpt'),
+    'position' => 'acf_after_title',
 ));
 endif;
+
+
+// Auto-migrate native WooCommerce descriptions into ACF Bilingual Fields on load
+add_filter('acf/load_value/name=main_desc_en', function($value, $post_id, $field) {
+    if (empty($value) && $post_id) {
+        $post = get_post($post_id);
+        if ($post && !empty($post->post_content)) {
+            return $post->post_content;
+        }
+    }
+    return $value;
+}, 10, 3);
+
+add_filter('acf/load_value/name=short_desc_en', function($value, $post_id, $field) {
+    if (empty($value) && $post_id) {
+        $post = get_post($post_id);
+        if ($post && !empty($post->post_excerpt)) {
+            $excerpt = $post->post_excerpt;
+            if (preg_match('/<!-- en -->(.+?)<!-- \/en -->/s', $excerpt, $match)) {
+                return trim($match[1]);
+            }
+            // If no tags, return the whole excerpt
+            $clean = strip_tags($excerpt, '<p><a><strong><b><i><em><ul><ol><li><br>');
+            return trim($clean);
+        }
+    }
+    return $value;
+}, 10, 3);
+
+add_filter('acf/load_value/name=short_desc_ms', function($value, $post_id, $field) {
+    if (empty($value) && $post_id) {
+        $post = get_post($post_id);
+        if ($post && !empty($post->post_excerpt)) {
+            $excerpt = $post->post_excerpt;
+            if (preg_match('/<!-- ms -->(.+?)<!-- \/ms -->/s', $excerpt, $match)) {
+                return trim($match[1]);
+            }
+        }
+    }
+    return $value;
+}, 10, 3);
