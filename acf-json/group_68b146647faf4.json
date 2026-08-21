@@ -64,51 +64,6 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
-        },
-        {
-            "key": "field_prod_faqs_repeater",
-            "label": "Product FAQs",
-            "name": "product_faqs",
-            "type": "repeater",
-            "instructions": "Add FAQs for this product here.",
-            "required": 0,
-            "conditional_logic": 0,
-            "layout": "row",
-            "button_label": "Add FAQ",
-            "sub_fields": [
-                {
-                    "key": "field_pf_question_en",
-                    "label": "Question (EN)",
-                    "name": "question_en",
-                    "type": "text",
-                    "required": 1
-                },
-                {
-                    "key": "field_pf_question_ms",
-                    "label": "Question (MS)",
-                    "name": "question_ms",
-                    "type": "text",
-                    "required": 1
-                },
-                {
-                    "key": "field_pf_answer_en",
-                    "label": "Answer (EN)",
-                    "name": "answer_en",
-                    "type": "wysiwyg",
-                    "required": 1,
-                    "tabs": "all",
-                    "toolbar": "basic"
-                },
-                {
-                    "key": "field_pf_answer_ms",
-                    "label": "Answer (MS)",
-                    "name": "answer_ms",
-                    "type": "wysiwyg",
-                    "required": 1,
-                    "tabs": "all",
-                    "toolbar": "basic"
-                }
-            ]
         }
     ],
     "location": [

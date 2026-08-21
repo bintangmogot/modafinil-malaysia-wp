@@ -263,47 +263,6 @@ add_filter('acf/load_value/key=field_dsg_624949de81', function($value, $post_id,
     return $value;
 }, 10, 3);
 
-// Pre-fill Product FAQs with default content if empty
-add_filter('acf/load_value/name=product_faqs', function($value, $post_id, $field) {
-    $is_empty = true;
-    if (!empty($value) && is_array($value)) {
-        foreach ($value as $row) {
-            if (!empty($row['field_pf_question_en']) || !empty($row['field_pf_question_ms'])) {
-                $is_empty = false;
-                break;
-            }
-        }
-    }
-    if ($is_empty) {
-        $value = [
-            [
-                'field_pf_question_en' => 'What is the recommended dosage for beginners?',
-                'field_pf_question_ms' => 'Apakah dos yang disyorkan untuk pemula?',
-                'field_pf_answer_en' => '<p>New users should start with 100mg (half a 200mg tablet) to assess tolerance. After a few uses, many increase to a full 200mg dose. Take it early in the morning with or without food.</p>',
-                'field_pf_answer_ms' => '<p>Pengguna baru harus bermula dengan 100mg (setengah tablet 200mg) untuk menilai toleransi. Selepas beberapa penggunaan, ramai yang meningkat kepada dos penuh 200mg. Ambil pada awal pagi dengan atau tanpa makanan.</p>'
-            ],
-            [
-                'field_pf_question_en' => 'How long do the effects last?',
-                'field_pf_question_ms' => 'Berapa lama kesan bertahan?',
-                'field_pf_answer_en' => '<p>The effects typically last between 10-15 hours depending on individual metabolism and dose. A single tablet will provide sustained wakefulness and focus throughout the workday.</p>',
-                'field_pf_answer_ms' => '<p>Kesannya biasanya bertahan antara 10-15 jam bergantung pada metabolisme individu dan dos. Satu tablet akan memberikan keberjagaan dan fokus yang berterusan sepanjang hari kerja.</p>'
-            ],
-            [
-                'field_pf_question_en' => 'How long does delivery take in Malaysia?',
-                'field_pf_question_ms' => 'Berapa lama tempoh penghantaran di Malaysia?',
-                'field_pf_answer_en' => '<p>Delivery within Malaysia typically takes 7-12 days via our reliable, discreet courier partners. You will receive a tracking number once your order is dispatched.</p>',
-                'field_pf_answer_ms' => '<p>Penghantaran dalam Malaysia biasanya mengambil masa 7-12 hari melalui rakan kurier kami yang boleh dipercayai dan diskret. Anda akan menerima nombor penjejakan sebaik sahaja pesanan anda dihantar.</p>'
-            ],
-            [
-                'field_pf_question_en' => 'Are the products genuine?',
-                'field_pf_question_ms' => 'Adakah produk ini asli?',
-                'field_pf_answer_en' => '<p>Yes, we guarantee 100% authentic products sourced directly from established pharmaceutical manufacturers.</p>',
-                'field_pf_answer_ms' => '<p>Ya, kami menjamin 100% produk tulen yang diperoleh terus dari pengeluar farmaseutikal yang mapan.</p>'
-            ]
-        ];
-    }
-    return $value;
-}, 10, 3);
 
 
 // Force default_value on the field config itself to bypass JSON cache issues
