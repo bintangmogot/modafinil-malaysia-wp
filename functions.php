@@ -185,7 +185,7 @@ add_action("manage_review_posts_custom_column", function($column, $post_id) {
             $term_names = array_map(function($term) { return $term->name; }, $terms);
             echo implode(", ", $term_names);
         } else {
-            echo "—";
+            echo "";
         }
     }
     if ($column === "linked_product") {
@@ -193,7 +193,7 @@ add_action("manage_review_posts_custom_column", function($column, $post_id) {
         if ($product_id) {
             echo get_the_title($product_id);
         } else {
-            echo "—";
+            echo "";
         }
     }
 }, 10, 2);
@@ -201,8 +201,19 @@ add_action("manage_review_posts_custom_column", function($column, $post_id) {
 
 // Prefill Product FAQs Module with default Modafinil questions
 add_filter('acf/load_value/name=faq_items', function($value, $post_id, $field) {
-    // Only prefill if it's currently empty (e.g., newly added layout row)
-    if (empty($value)) {
+    // Only prefill if it's currently empty or contains only empty rows
+    $is_empty = true;
+    if (!empty($value) && is_array($value)) {
+        foreach ($value as $row) {
+            // Check if either English or Malay question is filled
+            if (!empty($row['field_dsg_ae5395b1a7']) || !empty($row['field_dsg_f3bbb68d4e'])) {
+                $is_empty = false;
+                break;
+            }
+        }
+    }
+
+    if ($is_empty) {
         // If we are in the context of ACF layout and the field name is faq_items
         $value = [
             [
@@ -254,7 +265,16 @@ add_filter('acf/load_value/name=faq_items', function($value, $post_id, $field) {
 
 // Pre-fill Product FAQs with default content if empty
 add_filter('acf/load_value/name=product_faqs', function($value, $post_id, $field) {
-    if ($value === null || empty($value)) {
+    $is_empty = true;
+    if (!empty($value) && is_array($value)) {
+        foreach ($value as $row) {
+            if (!empty($row['field_pf_question_en']) || !empty($row['field_pf_question_ms'])) {
+                $is_empty = false;
+                break;
+            }
+        }
+    }
+    if ($is_empty) {
         $value = [
             [
                 'field_pf_question_en' => 'What is the recommended dosage for beginners?',
