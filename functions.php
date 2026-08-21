@@ -354,3 +354,56 @@ add_filter('acf/load_field/key=field_dsg_624949de81', function($field) {
     ];
     return $field;
 });
+
+// Register Bilingual Product Fields
+if( function_exists('acf_add_local_field_group') ):
+acf_add_local_field_group(array(
+    'key' => 'group_product_bilingual',
+    'title' => 'Product Content (Bilingual)',
+    'fields' => array(
+        array(
+            'key' => 'field_short_desc_en',
+            'label' => 'Short Description (English)',
+            'name' => 'short_desc_en',
+            'type' => 'wysiwyg',
+            'instructions' => 'Description below the product title.',
+        ),
+        array(
+            'key' => 'field_short_desc_ms',
+            'label' => 'Short Description (Malay)',
+            'name' => 'short_desc_ms',
+            'type' => 'wysiwyg',
+            'instructions' => 'Description below the product title.',
+        ),
+        array(
+            'key' => 'field_main_desc_en',
+            'label' => 'Main Description (English)',
+            'name' => 'main_desc_en',
+            'type' => 'wysiwyg',
+            'instructions' => 'Full product description (appears below product images/buy section).',
+        ),
+        array(
+            'key' => 'field_main_desc_ms',
+            'label' => 'Main Description (Malay)',
+            'name' => 'main_desc_ms',
+            'type' => 'wysiwyg',
+            'instructions' => 'Full product description (appears below product images/buy section).',
+        ),
+    ),
+    'location' => array(
+        array(
+            array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'product',
+            ),
+        ),
+    ),
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+));
+endif;

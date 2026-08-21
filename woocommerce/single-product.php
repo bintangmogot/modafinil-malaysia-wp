@@ -24,13 +24,20 @@ if (!$product) {
 
 $brand = $product->get_meta('brand') ?: 'HAB Pharma';
 $per_tab = get_field('price_per_unit', $product->get_id()); // ACF field
-$summary_raw = $product->get_short_description();
+$acf_short_en = get_field('short_desc_en', $product->get_id());
+$acf_short_ms = get_field('short_desc_ms', $product->get_id());
 
-// Parse bilingual summary from <!-- en -->...<!-- /en --><!-- ms -->...<!-- /ms --> format
-preg_match('/<!-- en -->(.+?)<!-- \/en -->/s', $summary_raw, $en_match);
-preg_match('/<!-- ms -->(.+?)<!-- \/ms -->/s', $summary_raw, $ms_match);
-$summary_en = !empty($en_match[1]) ? trim($en_match[1]) : strip_tags($summary_raw);
-$summary_ms = !empty($ms_match[1]) ? trim($ms_match[1]) : $summary_en;
+if ($acf_short_en || $acf_short_ms) {
+    $summary_en = $acf_short_en ?: '';
+    $summary_ms = $acf_short_ms ?: $summary_en;
+} else {
+    // Parse bilingual summary from <!-- en -->...<!-- /en --><!-- ms -->...<!-- /ms --> format
+    $summary_raw = $product->get_short_description();
+    preg_match('/<!-- en -->(.+?)<!-- \/en -->/s', $summary_raw, $en_match);
+    preg_match('/<!-- ms -->(.+?)<!-- \/ms -->/s', $summary_raw, $ms_match);
+    $summary_en = !empty($en_match[1]) ? trim($en_match[1]) : strip_tags($summary_raw, '<p><a><strong><b><i><em><ul><ol><li><br>');
+    $summary_ms = !empty($ms_match[1]) ? trim($ms_match[1]) : $summary_en;
+}
 
 $image = wp_get_attachment_image_url($product->get_image_id(), 'large') ?: '';
 
@@ -286,13 +293,27 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
 </section>
 
 <!-- Product Description Section -->
+<?php
+$acf_main_en = get_field('main_desc_en', $product->get_id());
+$acf_main_ms = get_field('main_desc_ms', $product->get_id());
+$main_desc = '';
+
+if ($acf_main_en || $acf_main_ms) {
+    $main_desc = modmy_t($acf_main_en, $acf_main_ms);
+} else {
+    $main_desc = get_the_content();
+}
+
+if (!empty(trim(strip_tags($main_desc)))): 
+?>
 <section class="section-padding bg-slate-50 border-t border-slate-200" data-testid="section-product-description">
     <div class="container-site">
         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-10 prose prose-slate max-w-none">
-            <?php the_content(); ?>
+            <?= apply_filters('the_content', $main_desc); ?>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- Reviews Section -->
 <section class="section-padding border-t border-slate-200 bg-white" data-testid="section-reviews">
