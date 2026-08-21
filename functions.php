@@ -420,3 +420,14 @@ add_filter('acf/load_value/name=short_desc_ms', function($value, $post_id, $fiel
     }
     return $value;
 }, 10, 3);
+
+
+// Force hide native WooCommerce editors to avoid confusion
+add_action('admin_head', function() {
+    $screen = get_current_screen();
+    if ($screen && $screen->post_type === 'product') {
+        echo '<style>
+            #postdivrich, #postexcerpt { display: none !important; }
+        </style>';
+    }
+});
