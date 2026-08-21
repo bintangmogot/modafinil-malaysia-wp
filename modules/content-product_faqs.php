@@ -3,27 +3,13 @@
  * Module: FAQs
  */
 
-$eyebrow_en = get_sub_field('eyebrow_en') ?: "FAQ";
-$eyebrow_ms = get_sub_field('eyebrow_ms') ?: "Soalan Lazim";
-$show_eyebrow = get_sub_field('show_eyebrow') !== false;
-
 $heading_en = get_sub_field('heading_en') ?: "Frequently Asked Questions";
 $heading_ms = get_sub_field('heading_ms') ?: "Soalan Yang Sering Ditanya";
-
-$show_link = get_sub_field('show_full_faq_link') !== false;
-$link_en = get_sub_field('link_text_en') ?: "Full FAQ";
-$link_ms = get_sub_field('link_text_ms') ?: "Soalan Lazim Penuh";
-$link_url = get_sub_field('link_url') ?: home_url('/faq');
 ?>
 <section class="section-padding bg-white" data-testid="faq-strip">
     <div class="container-custom max-w-3xl">
         <div class="text-center mb-10">
-            <?php if($show_eyebrow): ?>
-            <span class="inline-block bg-primary-soft text-primary-dark text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-                <?= modmy_t($eyebrow_en, $eyebrow_ms) ?>
-            </span>
-            <?php endif; ?>
-            <h2 class="font-heading text-2xl md:text-4xl font-black text-ink <?= !$show_eyebrow ? 'mb-3' : '' ?>">
+            <h2 class="font-heading text-2xl md:text-4xl font-black text-ink mb-3">
                 <?= modmy_t($heading_en, $heading_ms) ?>
             </h2>
         </div>
@@ -76,12 +62,5 @@ $link_url = get_sub_field('link_url') ?: home_url('/faq');
             ?>
         </div>
 
-        <?php if($show_link): ?>
-        <div class="text-center mt-8">
-            <a href="<?= esc_url($link_url) ?>" class="inline-flex items-center gap-1 font-bold text-primary hover:text-primary-dark transition-colors text-sm">
-                <?= modmy_t($link_en, $link_ms) ?> &rarr;
-            </a>
-        </div>
-        <?php endif; ?>
     </div>
 </section>

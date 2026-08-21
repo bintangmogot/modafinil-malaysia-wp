@@ -3767,104 +3767,18 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_dsg_13342fe802",
-                            "label": "Show Eyebrow",
-                            "name": "show_eyebrow",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 1,
-                            "ui": 1,
-                            "message": "",
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_dsg_3668545063",
-                            "label": "Eyebrow (EN)",
-                            "name": "eyebrow_en",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "FAQ",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_dsg_2836fe2442",
-                            "label": "Eyebrow (MS)",
-                            "name": "eyebrow_ms",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "Soalan Lazim",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_dsg_d1d81c26cb",
-                            "label": "Heading (EN)",
+                            "key": "field_dsg_title_en_123",
+                            "label": "FAQ Title (EN)",
                             "name": "heading_en",
-                            "aria-label": "",
                             "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "Frequently Asked Questions",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
+                            "default_value": "Frequently Asked Questions"
                         },
                         {
-                            "key": "field_dsg_334fde1fc4",
-                            "label": "Heading (MS)",
+                            "key": "field_dsg_title_ms_123",
+                            "label": "FAQ Title (MS)",
                             "name": "heading_ms",
-                            "aria-label": "",
                             "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "Soalan Yang Sering Ditanya",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
+                            "default_value": "Soalan Yang Sering Ditanya"
                         },
                         {
                             "key": "field_dsg_624949de81",
@@ -3880,7 +3794,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "block",
+                            "layout": "table",
                             "button_label": "Add FAQ",
                             "min": 0,
                             "max": 0,
@@ -4018,83 +3932,6 @@
                                     "field_dsg_462a8df2cf": "Kesan sampingan biasa termasuk sakit kepala, loya, gementar, pening, atau kesukaran tidur."
                                 }
                             ]
-                        },
-                        {
-                            "key": "field_dsg_f19a521ac1",
-                            "label": "Show Full FAQ Link",
-                            "name": "show_full_faq_link",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 1,
-                            "ui": 1,
-                            "message": "",
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_dsg_0cfc3e9811",
-                            "label": "Link Text (EN)",
-                            "name": "link_text_en",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "Full FAQ",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_dsg_7584b90e05",
-                            "label": "Link Text (MS)",
-                            "name": "link_text_ms",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "Soalan Lazim Penuh",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_dsg_90c1dc8050",
-                            "label": "Link URL",
-                            "name": "link_url",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "http://modafinil-malaysia.test/faq",
-                            "placeholder": ""
                         }
                     ],
                     "min": "",
