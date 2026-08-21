@@ -311,6 +311,19 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
         )
     ]);
     $review_count = count($reviews);
+    
+    // Calculate dynamic average rating
+    $total_rating = 0;
+    $average_rating = 5.0; // default if no reviews
+    if ($review_count > 0) {
+        foreach ($reviews as $r) {
+            $rating_val = get_field('rating', $r->ID);
+            $total_rating += $rating_val ? (float)$rating_val : 5.0;
+        }
+        $average_rating = round($total_rating / $review_count, 1);
+    }
+    $average_rating_formatted = number_format($average_rating, 1);
+    $rounded_rating = round($average_rating);
     ?>
     <div class="container-site max-w-4xl">
         <div class="text-center mb-8">
@@ -321,7 +334,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
             <div class="flex items-center justify-center gap-2">
                 <div class="flex items-center gap-0.5 text-emerald-400">
                     <?php for ($i = 0; $i < 5; $i++): ?>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 <?= ($i < $rounded_rating) ? 'text-emerald-400' : 'text-slate-200' ?>" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
                             </path>
@@ -329,7 +342,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                     <?php endfor; ?>
                 </div>
                 <span class="text-sm font-semibold text-slate-600">
-                    <?= sprintf(modmy_t("4.8 out of 5 (%d reviews)", "4.8 daripada 5 (%d ulasan)"), $review_count) ?>
+                    <?= sprintf(modmy_t("%s out of 5 (%d reviews)", "%s daripada 5 (%d ulasan)"), $average_rating_formatted, $review_count) ?>
                 </span>
             </div>
             <?php endif; ?>
