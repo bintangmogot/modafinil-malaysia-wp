@@ -326,6 +326,9 @@ acf_add_local_field_group(array(
             'name' => 'short_desc_en',
             'type' => 'wysiwyg',
             'instructions' => 'Description below the product title.',
+            'wrapper' => array(
+                'width' => '50',
+            ),
         ),
         array(
             'key' => 'field_short_desc_ms',
@@ -333,6 +336,9 @@ acf_add_local_field_group(array(
             'name' => 'short_desc_ms',
             'type' => 'wysiwyg',
             'instructions' => 'Description below the product title.',
+            'wrapper' => array(
+                'width' => '50',
+            ),
         ),
         array(
             'key' => 'field_main_desc_en',
@@ -340,6 +346,9 @@ acf_add_local_field_group(array(
             'name' => 'main_desc_en',
             'type' => 'wysiwyg',
             'instructions' => 'Full product description (appears below product images/buy section).',
+            'wrapper' => array(
+                'width' => '50',
+            ),
         ),
         array(
             'key' => 'field_main_desc_ms',
@@ -347,6 +356,9 @@ acf_add_local_field_group(array(
             'name' => 'main_desc_ms',
             'type' => 'wysiwyg',
             'instructions' => 'Full product description (appears below product images/buy section).',
+            'wrapper' => array(
+                'width' => '50',
+            ),
         ),
     ),
     'location' => array(
