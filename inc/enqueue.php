@@ -19,6 +19,18 @@ function modmy_enqueue_scripts() {
     
     if (file_exists($css_path)) {
         wp_enqueue_style('modmy-style', $css_url, array(), filemtime($css_path));
+        
+        // Add missing prose table styles since Tailwind CLI stripped them
+        $custom_css = "
+            .prose table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; border-collapse: collapse; }
+            .prose thead { border-bottom: 2px solid var(--color-primary-light); background-color: var(--color-primary-softer); }
+            .prose th { font-weight: 700; color: var(--color-foreground); padding: 0.75rem 1rem; vertical-align: bottom; }
+            .prose td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border); vertical-align: top; color: var(--color-muted-foreground); }
+            .prose tbody tr:last-child td { border-bottom: none; }
+            .prose tbody tr:nth-child(even) { background-color: var(--color-surface); }
+            .prose .table-wrapper, .prose figure.wp-block-table { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+        ";
+        wp_add_inline_style('modmy-style', $custom_css);
     } else {
         // Fallback to style.css if Tailwind hasn't run yet
         wp_enqueue_style('modmy-style-fallback', get_stylesheet_uri(), array(), MODMY_THEME_VERSION);
