@@ -20,7 +20,7 @@ $cta_desc_ms = get_sub_field('cta_desc_ms') ?: "Pasukan kami berbahasa Malaysia 
 
 $cta_btn_en = get_sub_field('cta_btn_text_en') ?: "WhatsApp Us Now";
 $cta_btn_ms = get_sub_field('cta_btn_text_ms') ?: "WhatsApp Kami Sekarang";
-$cta_link = get_sub_field('cta_btn_link') ?: "https://wa.me/60185754182";
+$cta_link = get_sub_field('cta_btn_link') ?: get_field('whatsapp_number', 'option') ?: "https://wa.me/60185754182";
 
 // Default Fallback Categories & Questions if ACF Repeater is empty
 $default_categories = [
