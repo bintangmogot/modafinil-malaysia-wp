@@ -16,6 +16,12 @@ function modmy_render_blog_loop() {
             <?php if (have_posts()) : ?>
                 <?php while (have_posts()) : the_post(); ?>
                     <a href="<?php the_permalink(); ?>" id="post-<?php the_ID(); ?>" <?php post_class('group flex flex-col rounded-xl border border-border hover:border-primary bg-card p-6 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-1'); ?>>
+                        <?php if (has_post_thumbnail()) : ?>
+                            <div class="mb-5 overflow-hidden rounded-lg aspect-video">
+                                <?php the_post_thumbnail('medium_large', ['class' => 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-105', 'loading' => 'lazy']); ?>
+                            </div>
+                        <?php endif; ?>
+
                         <div class="flex items-center gap-3">
                             <?php 
                         $cat_name = modmy_get_post_category(get_the_ID());
