@@ -147,7 +147,7 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 wp_nav_menu([
                     'theme_location' => 'footer_cities',
                     'container'      => false,
-                    'menu_class'     => 'grid grid-cols-2 gap-y-3 gap-x-2 text-[13px] text-white opacity-70 font-medium [&_a:hover]:text-primary [&_a]:transition-colors',
+                    'menu_class'     => 'space-y-3 text-[13px] text-white opacity-70 font-medium [&_a:hover]:text-primary [&_a]:transition-colors',
                     'fallback_cb'    => false,
                 ]);
                 ?>
