@@ -10,6 +10,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <?php if (is_single() || is_page()) : ?>
+        <?php 
+        global $post;
+        $og_url = get_permalink();
+        $og_title = get_the_title();
+        $og_description = get_the_excerpt();
+        $og_image = get_the_post_thumbnail_url($post->ID, 'full');
+        if (!$og_image) {
+            $og_image = get_template_directory_uri() . '/screenshot.jpg';
+        }
+        ?>
+        <meta property="og:title" content="<?php echo esc_attr($og_title); ?>" />
+        <meta property="og:description" content="<?php echo esc_attr($og_description); ?>" />
+        <meta property="og:url" content="<?php echo esc_url($og_url); ?>" />
+        <meta property="og:image" content="<?php echo esc_url($og_image); ?>" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="<?php echo esc_attr($og_title); ?>">
+        <meta name="twitter:description" content="<?php echo esc_attr($og_description); ?>">
+        <meta name="twitter:image" content="<?php echo esc_url($og_image); ?>">
+    <?php else : ?>
+        <meta property="og:title" content="<?php echo esc_attr(get_bloginfo('name')); ?>" />
+        <meta property="og:description" content="<?php echo esc_attr(get_bloginfo('description')); ?>" />
+        <meta property="og:url" content="<?php echo esc_url(home_url('/')); ?>" />
+        <meta property="og:type" content="website" />
+    <?php endif; ?>
     <?php wp_head(); ?>
 </head>
 
