@@ -1519,7 +1519,7 @@ label, .variations label { cursor: pointer !important; }
 #respond .comment-form {
   @apply !flex !flex-col !gap-5;
 }
-#respond .comment-form > p:not(.form-submit):not(.comment-notes):not(.logged-in-as) {
+#respond .comment-form > p:not(.form-submit):not(.comment-notes):not(.logged-in-as):not(.comment-form-cookies-consent) {
   @apply !m-0 !flex !flex-col;
 }
 #respond .comment-form label {
