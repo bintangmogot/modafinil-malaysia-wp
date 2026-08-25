@@ -1497,3 +1497,58 @@ label, .variations label { cursor: pointer !important; }
         border: 0 !important;
     }
 }
+
+/*
+ * ============================================================
+ * WORDPRESS COMMENTS STYLING
+ * ============================================================
+ */
+#respond.comment-respond {
+  @apply !mt-12 !pt-8 !border-t !border-border;
+}
+#respond .comment-reply-title {
+  @apply !mb-4 !font-heading !text-2xl !font-bold !text-foreground;
+}
+#respond .comment-notes,
+#respond .logged-in-as {
+  @apply !text-sm !text-muted-foreground !mb-6;
+}
+#respond .logged-in-as a {
+  @apply !text-primary hover:!text-primary-dark !underline !underline-offset-2;
+}
+#respond .comment-form {
+  @apply !flex !flex-col !gap-5;
+}
+#respond .comment-form > p:not(.form-submit):not(.comment-notes):not(.logged-in-as) {
+  @apply !m-0 !flex !flex-col;
+}
+#respond .comment-form label {
+  @apply !text-sm !font-semibold !text-foreground !mb-2;
+}
+#respond .comment-form .required {
+  @apply !text-destructive !no-underline;
+}
+#respond .comment-form input[type="text"],
+#respond .comment-form input[type="email"],
+#respond .comment-form input[type="url"],
+#respond .comment-form textarea {
+  @apply !w-full !rounded-lg !border !border-input !bg-background !px-4 !py-3 !text-sm !outline-none !transition-colors focus:!border-primary focus:!ring-2 focus:!ring-ring/30 !shadow-sm;
+}
+#respond .comment-form textarea {
+  @apply !resize-y !min-h-[120px];
+}
+#respond .comment-form .comment-form-cookies-consent {
+  @apply !flex !flex-row !items-center !gap-2 !mt-2;
+}
+#respond .comment-form .comment-form-cookies-consent input[type="checkbox"] {
+  @apply !mt-0 !w-auto !h-auto !static;
+}
+#respond .comment-form .comment-form-cookies-consent label {
+  @apply !mb-0 !font-normal !text-muted-foreground !text-sm !inline;
+}
+#respond .comment-form .form-submit {
+  @apply !mt-2 !mb-0;
+}
+#respond .comment-form .submit {
+  @apply !inline-flex !rounded-full !bg-primary !px-8 !py-3 !text-sm !font-bold !uppercase !tracking-wider !text-primary-foreground !shadow-pill !transition-all hover:!bg-primary-dark hover:!-translate-y-0.5 !cursor-pointer !border-none;
+}
