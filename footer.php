@@ -143,10 +143,10 @@ $footer_email = get_field('footer_email', 'option') ?: "orders@modafinil-malaysi
                 <?= modmy_t("Our Malaysia-Wide Delivery Coverage", "Liputan Penghantaran Seluruh Malaysia") ?>
             </h3>
             <div class="space-y-4 text-[13px] text-ink-foreground/80">
-                <p><strong class="text-white font-semibold"><?= modmy_t("Central Region:", "Wilayah Tengah:") ?></strong> Kuala Lumpur (KL), Selangor</p>
-                <p><strong class="text-white font-semibold"><?= modmy_t("Southern Region:", "Wilayah Selatan:") ?></strong> Johor Bahru, Melaka</p>
-                <p><strong class="text-white font-semibold"><?= modmy_t("Northern Region:", "Wilayah Utara:") ?></strong> Penang, George Town, Ipoh</p>
-                <p><strong class="text-white font-semibold"><?= modmy_t("East Malaysia:", "Malaysia Timur:") ?></strong> Kuching, Kota Kinabalu</p>
+                <p><strong class="text-white font-semibold"><?= modmy_t("Central Region:", "Wilayah Tengah:") ?></strong> <a href="<?= home_url('/buy-modafinil/kuala-lumpur/') ?>" class="hover:text-primary transition-colors">Kuala Lumpur (KL)</a>, <a href="<?= home_url('/buy-modafinil/selangor/') ?>" class="hover:text-primary transition-colors">Selangor</a></p>
+                <p><strong class="text-white font-semibold"><?= modmy_t("Southern Region:", "Wilayah Selatan:") ?></strong> <a href="<?= home_url('/buy-modafinil/johor-bahru/') ?>" class="hover:text-primary transition-colors">Johor Bahru</a>, <a href="<?= home_url('/buy-modafinil/melaka/') ?>" class="hover:text-primary transition-colors">Melaka</a></p>
+                <p><strong class="text-white font-semibold"><?= modmy_t("Northern Region:", "Wilayah Utara:") ?></strong> <a href="<?= home_url('/buy-modafinil/penang/') ?>" class="hover:text-primary transition-colors">Penang</a>, <a href="<?= home_url('/buy-modafinil/george-town/') ?>" class="hover:text-primary transition-colors">George Town</a>, <a href="<?= home_url('/buy-modafinil/ipoh/') ?>" class="hover:text-primary transition-colors">Ipoh</a></p>
+                <p><strong class="text-white font-semibold"><?= modmy_t("East Malaysia:", "Malaysia Timur:") ?></strong> <a href="<?= home_url('/buy-modafinil/kuching/') ?>" class="hover:text-primary transition-colors">Kuching</a>, <a href="<?= home_url('/buy-modafinil/kota-kinabalu/') ?>" class="hover:text-primary transition-colors">Kota Kinabalu</a></p>
             </div>
         </div>
 
