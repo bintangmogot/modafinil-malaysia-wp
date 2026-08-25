@@ -10,7 +10,7 @@ $desc_en = get_sub_field('description_en') ?: "Our team speaks English and Malay
 $desc_ms = get_sub_field('description_ms') ?: "Pasukan kami berbahasa Malaysia dan English. Kami biasanya membalas dalam masa 30 minit pada waktu perniagaan.";
 
 $whatsapp = get_field('whatsapp_number', 'option') ?: 'https://wa.me/60185754182';
-$email = get_field('contact_email', 'option') ?: 'support@modafinil-malaysia.com';
+$email = get_field('contact_email', 'option') ?: 'orders@modafinil-malaysia.com';
 ?>
 <section class="bg-background pt-8 pb-4 md:pt-16 md:pb-8 text-center">
     <div class="container-site max-w-3xl">
