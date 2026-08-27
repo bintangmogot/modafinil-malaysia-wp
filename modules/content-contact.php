@@ -35,7 +35,7 @@ $email = get_field('contact_email', 'option') ?: 'orders@modafinil-malaysia.com'
                 </span>
                 <div>
                     <h2 class="font-heading text-base font-bold text-foreground"><?= modmy_t("WhatsApp (Fastest Option)", "WhatsApp (Pilihan Terpantas)") ?></h2>
-                    <p class="mt-1 text-sm leading-relaxed text-muted-foreground">+60 18-575 4182 &middot; <?= modmy_t("Replies within 30 minutes", "Balas dalam masa 30 minit") ?></p>
+                    <p class="mt-1 text-sm leading-relaxed text-muted-foreground">+60 18-575 4182</p>
                 </div>
             </a>
 
