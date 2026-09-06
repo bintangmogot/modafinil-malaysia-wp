@@ -54,11 +54,17 @@ $is_en = $lang === 'en';
             <svg xmlns="http://www.w3.org/2000/svg" class="hidden h-3.5 w-3.5 shrink-0 sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
             </svg>
+            <?php 
+                $long_en = get_field('trust_bar_long_text_en', 'option') ?: (get_field('long_text_en', 'option') ?: "Free Shipping Over RM399 &nbsp;&middot;&nbsp; 100% Genuine");
+                $long_ms = get_field('trust_bar_long_text_ms', 'option') ?: (get_field('long_text_ms', 'option') ?: "Penghantaran Percuma RM399+ &nbsp;&middot;&nbsp; 100% Asli");
+                $short_en = get_field('trust_bar_short_text_en', 'option') ?: (get_field('short_text_en', 'option') ?: "🚚 Free Shipping RM399+");
+                $short_ms = get_field('trust_bar_short_text_ms', 'option') ?: (get_field('short_text_ms', 'option') ?: "🚚 Percuma Penghantaran RM399+");
+            ?>
             <span class="hidden text-sm tracking-wide sm:inline">
-                <?= modmy_t("Free Shipping Over RM399 &nbsp;&middot;&nbsp; 100% Genuine", "Penghantaran Percuma RM399+ &nbsp;&middot;&nbsp; 100% Asli") ?>
+                <?= modmy_t($long_en, $long_ms) ?>
             </span>
             <span class="text-xs sm:hidden">
-                <?= modmy_t("🚚 Free Shipping RM399+", "🚚 Percuma Penghantaran RM399+") ?>
+                <?= modmy_t($short_en, $short_ms) ?>
             </span>
         </div>
         <div class="flex items-center gap-2 text-xs font-bold tracking-wider">
