@@ -482,3 +482,192 @@ function modamal_custom_social_meta_tags() {
         echo "<!-- End Custom Social Meta Tags -->\n\n";
     }
 }
+
+/**
+ * Hide variation attributes (e.g., Pack Size) from the "Product specs" / Additional Information tab.
+ */
+add_filter( 'woocommerce_display_product_attributes', 'modmy_hide_variation_attributes_from_specs', 10, 2 );
+function modmy_hide_variation_attributes_from_specs( $product_attributes, $product ) {
+    if ( ! is_object( $product ) ) return $product_attributes;
+    
+    $attributes = $product->get_attributes();
+    
+    foreach ( $attributes as $attribute ) {
+        if ( $attribute->get_variation() ) {
+            $label = wc_attribute_label( $attribute->get_name() );
+            
+            foreach ( $product_attributes as $key => $formatted_attribute ) {
+                if ( isset( $formatted_attribute['label'] ) && $formatted_attribute['label'] === $label ) {
+                    unset( $product_attributes[ $key ] );
+                }
+            }
+        }
+    }
+    
+    return $product_attributes;
+}
+
+/**
+ * Remove the "Additional Information" tab entirely if there are no non-variation attributes to display.
+ */
+add_filter( 'woocommerce_product_tabs', 'modmy_remove_empty_additional_information_tab', 98 );
+function modmy_remove_empty_additional_information_tab( $tabs ) {
+    global $product;
+    if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
+        return $tabs;
+    }
+    
+    $has_non_variation_attributes = false;
+    $attributes = $product->get_attributes();
+    
+    foreach ( $attributes as $attribute ) {
+        if ( $attribute->get_visible() && ! $attribute->get_variation() ) {
+            $has_non_variation_attributes = true;
+            break;
+        }
+    }
+    
+    if ( ! $has_non_variation_attributes && isset( $tabs['additional_information'] ) ) {
+        unset( $tabs['additional_information'] );
+    }
+    
+    return $tabs;
+}
+
+/**
+ * ONE-TIME SCRIPT TO FIX "0" VARIATIONS (Run by visiting /?fix_pack_sizes=1)
+ */
+add_action( 'init', 'modmy_fix_zero_pack_sizes' );
+function modmy_fix_zero_pack_sizes() {
+    if ( ! isset( $_GET['fix_pack_sizes'] ) || ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
+    $args = array(
+        'post_type'      => 'product',
+        'posts_per_page' => 100, // Process in batches to avoid timeout
+        'paged'          => isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1,
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'product_type',
+                'field'    => 'slug',
+                'terms'    => 'variable',
+            ),
+        ),
+    );
+
+    $products = get_posts( $args );
+    if ( empty( $products ) ) {
+        echo "<h1>Migration Complete!</h1>";
+        echo "<p>All products have been processed.</p>";
+        echo "<p>Please remove the <code>modmy_fix_zero_pack_sizes</code> function from <code>functions.php</code> now.</p>";
+        exit;
+    }
+
+    $count = 0;
+    $skipped = 0;
+
+    foreach ( $products as $post ) {
+        $product = wc_get_product( $post->ID );
+        if ( ! $product ) continue;
+        
+        $variations = $product->get_children();
+        if ( empty( $variations ) ) continue;
+
+        $attributes = $product->get_attributes();
+        foreach ( $attributes as $attr ) {
+            if ( $attr->get_variation() ) {
+                $attr_key = 'attribute_' . sanitize_title( $attr->get_name() );
+                
+                // Check if already processed (first variation has a numeric value > 0)
+                $first_var = wc_get_product( $variations[0] );
+                if ( $first_var ) {
+                    $existing_val = $first_var->get_meta( $attr_key );
+                    if ( preg_match( '/\d+/', (string) $existing_val, $m ) && (int) $m[0] > 0 ) {
+                        $skipped++;
+                        break; // Skip this product
+                    }
+                }
+
+                $pack_sizes = array();
+                
+                // Handle both Global Taxonomies (pa_pack-size) and Custom Product Attributes ("Pack Size")
+                if ( $attr->is_taxonomy() ) {
+                    $terms = wc_get_product_terms( $product->get_id(), $attr->get_name(), array( 'fields' => 'names' ) );
+                    if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+                        foreach ( $terms as $term ) {
+                            if ( preg_match( '/\d+/', $term, $matches ) ) {
+                                $pack_sizes[] = (int) $matches[0];
+                            }
+                        }
+                    }
+                } else {
+                    $options = $attr->get_options();
+                    if ( ! empty( $options ) ) {
+                        foreach ( $options as $option ) {
+                            if ( preg_match( '/\d+/', $option, $matches ) ) {
+                                $pack_sizes[] = (int) $matches[0];
+                            }
+                        }
+                    }
+                }
+                
+                if ( empty( $pack_sizes ) ) break;
+
+                sort( $pack_sizes ); // Sort ascending: 50, 100, 200, 300...
+
+                $var_objs = array();
+                foreach ( $variations as $var_id ) {
+                    $var_obj = wc_get_product( $var_id );
+                    if ( $var_obj ) {
+                        $var_objs[] = $var_obj;
+                    }
+                }
+
+                // Sort variations by price ascending
+                usort( $var_objs, function( $a, $b ) {
+                    return (float) $a->get_price() <=> (float) $b->get_price();
+                });
+
+                $offset = max( 0, count( $pack_sizes ) - count( $var_objs ) );
+                
+                foreach ( $var_objs as $index => $var_obj ) {
+                    if ( isset( $pack_sizes[ $index + $offset ] ) ) {
+                        $new_val = $pack_sizes[ $index + $offset ];
+                        $term_slug = (string) $new_val;
+                        
+                        if ( $attr->is_taxonomy() ) {
+                            foreach ( $attr->get_terms() as $term_obj ) {
+                                if ( preg_match( '/\d+/', $term_obj->name, $m ) && $m[0] == $new_val ) {
+                                    $term_slug = $term_obj->slug;
+                                    break;
+                                }
+                            }
+                        } else {
+                            foreach ( $attr->get_options() as $option ) {
+                                if ( preg_match( '/\d+/', $option, $m ) && $m[0] == $new_val ) {
+                                    $term_slug = $option;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        update_post_meta( $var_obj->get_id(), $attr_key, $term_slug );
+                    }
+                }
+                $count++;
+                
+                break; // process only the primary variation attribute (Pack Size)
+            }
+        }
+    }
+
+    $next_page = $args['paged'] + 1;
+    $next_url = "/?fix_pack_sizes=1&paged={$next_page}";
+
+    echo "<h1>Migration Batch Complete!</h1>";
+    echo "<p>Processed page {$args['paged']} (Updated: {$count}, Skipped: {$skipped}).</p>";
+    echo "<p><a href='{$next_url}' style='font-size: 20px; font-weight: bold; color: blue;'>Click here to process the NEXT 100 products!</a></p>";
+    echo "<p>(Keep clicking until it says 'All products have been processed.')</p>";
+    exit;
+}

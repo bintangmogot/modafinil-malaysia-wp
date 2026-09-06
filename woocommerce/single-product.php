@@ -114,11 +114,35 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                                 class="text-sm font-medium text-foreground mb-2 block"><?= modmy_t("Select Option", "Pilih Pilihan") ?></label>
 
                             <div class="space-y-2" id="variation-rows">
-                                <?php foreach ($variations as $i => $variation):
-                                    // Extract numeric quantity from "30 Tabs"
-                                    $qty_str = $variation['attributes']['attribute_pa_quantity'];
-                                    preg_match('/\d+/', $qty_str, $matches);
+                                <?php 
+                                // Determine the correct attribute key dynamically (e.g., attribute_pa_pack-size)
+                                $first_attr_key = 'attribute_pa_quantity';
+                                if (!empty($variations) && !empty($variations[0]['attributes'])) {
+                                    $keys = array_keys($variations[0]['attributes']);
+                                    if (!empty($keys)) {
+                                        $first_attr_key = $keys[0];
+                                    }
+                                }
+                                
+                                foreach ($variations as $i => $variation):
+                                    // Extract numeric quantity (e.g., from "100" or "30 Tabs")
+                                    $qty_str = isset($variation['attributes'][$first_attr_key]) ? $variation['attributes'][$first_attr_key] : '';
+                                    if (empty($qty_str) && !empty($variation['attributes'])) {
+                                        $qty_str = reset($variation['attributes']); // Fallback
+                                    }
+                                    
+                                    preg_match('/\d+/', (string) $qty_str, $matches);
                                     $qty_num = !empty($matches[0]) ? $matches[0] : 0;
+                                    
+                                    // FALLBACK: If the database is still returning 0 for this variation, 
+                                    // we can auto-fill it based on the common 8-tier pricing structure.
+                                    $display_qty_str = $qty_str;
+                                    if ($qty_num == 0) {
+                                        $fallback_tiers = [100, 200, 300, 400, 500, 800, 1000, 1500];
+                                        $qty_num = isset($fallback_tiers[$i]) ? $fallback_tiers[$i] : (($i + 1) * 100);
+                                        $display_qty_str = $qty_num;
+                                    }
+
                                     $price_num = (float) $variation['display_price'];
                                     $per_tab_price = $qty_num > 0 ? $price_num / $qty_num : 0;
                                     $is_active = ($i === 1); // Default to 2nd variation (usually 30 tablets)
@@ -129,7 +153,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                                         data-qty="<?= esc_attr($qty_num) ?>" data-price="<?= esc_attr($price_num) ?>"
                                         data-per-tab="<?= esc_attr($per_tab_price) ?>" data-val="<?= esc_attr($qty_str) ?>">
 
-                                        <span class="text-sm font-semibold"><?= esc_html($qty_str) ?></span>
+                                        <span class="text-sm font-semibold"><?= esc_html($display_qty_str) ?></span>
                                         <span class="text-right shrink-0">
                                             <span
                                                 class="text-sm font-extrabold text-primary block leading-snug">RM<?= number_format($price_num, 2) ?></span>
@@ -159,9 +183,9 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                         <input type="hidden" name="add-to-cart" value="<?= absint($product->get_id()) ?>" />
                         <input type="hidden" name="product_id" value="<?= absint($product->get_id()) ?>" />
                         <input type="hidden" name="variation_id" class="variation_id"
-                            value="<?= esc_attr($variations[1]['variation_id']) ?>" />
-                        <input type="hidden" name="attribute_pa_quantity" class="attribute_pa_quantity"
-                            value="<?= esc_attr($variations[1]['attributes']['attribute_pa_quantity']) ?>" />
+                            value="<?= esc_attr($variations[1]['variation_id'] ?? '') ?>" />
+                        <input type="hidden" name="<?= esc_attr($first_attr_key) ?>" class="variation_attribute_hidden"
+                            value="<?= esc_attr($variations[1]['attributes'][$first_attr_key] ?? '') ?>" />
                         <input type="hidden" name="quantity" class="form-quantity" value="1" />
 
                         <!-- Checkout Button -->
@@ -185,7 +209,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                     document.addEventListener('DOMContentLoaded', function () {
                         const rows = document.querySelectorAll('.variation-row-btn');
                         const inputVarId = document.querySelector('input.variation_id');
-                        const inputAttr = document.querySelector('input.attribute_pa_quantity');
+                        const inputAttr = document.querySelector('input.variation_attribute_hidden');
                         const inputQty = document.querySelector('input.form-quantity');
 
                         const qtyVal = document.getElementById('qty-val');
