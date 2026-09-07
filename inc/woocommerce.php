@@ -89,7 +89,7 @@ function modmy_hide_checkout_coupon_css_override() {
  */
 add_action('wp_footer', 'modmy_remove_qris_text_js', 9999);
 function modmy_remove_qris_text_js() {
-    ?>
+?>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // 1. Bulletproof text replacer (preserves events and HTML)
@@ -127,7 +127,7 @@ function modmy_remove_qris_text_js() {
         }
     });
     </script>
-    <?php
+<?php
 }
 
 /**
