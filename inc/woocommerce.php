@@ -71,17 +71,17 @@ function modmy_remove_wc_elements() {
 // }
 
 /**
- * Force hide the WooCommerce coupon section on the checkout page using CSS
+ * Force hide the WooCommerce coupon section on the checkout page & side cart using CSS
  */
 add_action('wp_head', 'modmy_hide_checkout_coupon_css_override', 999);
 function modmy_hide_checkout_coupon_css_override() {
-    if (is_checkout() && !is_order_received_page()) {
-        echo '<style>
-            .woocommerce-form-coupon-toggle,
-            form.checkout_coupon,
-            .woocommerce-form-coupon { display: none !important; }
-        </style>';
-    }
+    echo '<style>
+        .woocommerce-form-coupon-toggle,
+        form.checkout_coupon,
+        .woocommerce-form-coupon,
+        .xoo-wsc-coupon,
+        .xoo-wsc-sm-coupon { display: none !important; }
+    </style>';
 }
 
 /**
@@ -89,43 +89,48 @@ function modmy_hide_checkout_coupon_css_override() {
  */
 add_action('wp_footer', 'modmy_remove_qris_text_js', 9999);
 function modmy_remove_qris_text_js() {
-    if (is_product() || is_checkout() || is_cart()) {
-        ?>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var removeQris = function() {
-                var elements = document.querySelectorAll('button, a, .checkout-button, .add_to_cart_button, .single_add_to_cart_button');
-                elements.forEach(function(el) {
-                    if (el.innerHTML && el.innerHTML.includes('QRIS')) {
-                        el.innerHTML = el.innerHTML.replace(/\s*\(QRIS\)/g, '').replace(/\s*QRIS/g, '');
-                    }
-                });
-            };
-            
-            // Run immediately
-            removeQris();
-            
-            // Run again after a short delay to catch dynamic injections
-            setTimeout(removeQris, 500);
-            setTimeout(removeQris, 1500);
-            
-            // Re-run if WooCommerce variations change
-            if (typeof jQuery !== 'undefined') {
-                jQuery(document).on('found_variation', removeQris);
-            }
-        });
-        </script>
-        <?php
-    }
+    ?>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var removeQris = function() {
+            var elements = document.querySelectorAll('button, a, .button, .btn, [type="submit"], [type="button"], .checkout-button, .add_to_cart_button, .single_add_to_cart_button, .xoo-wsc-btn');
+            elements.forEach(function(el) {
+                if (el.innerHTML && el.innerHTML.includes('QRIS')) {
+                    el.innerHTML = el.innerHTML.replace(/\s*\(QRIS\)/g, '').replace(/\s*QRIS/g, '');
+                }
+            });
+        };
+        
+        removeQris();
+        
+        // Aggressively check for 3 seconds to catch delayed plugin injections
+        var interval = setInterval(removeQris, 500);
+        setTimeout(function() { clearInterval(interval); }, 3000);
+        
+        if (typeof jQuery !== 'undefined') {
+            jQuery(document).on('found_variation updated_wc_div wc_fragments_refreshed wc_fragments_loaded', removeQris);
+        }
+    });
+    </script>
+    <?php
 }
 
 /**
  * Make Phone Number Mandatory on Checkout
  */
-add_filter('woocommerce_billing_fields', 'modmy_make_phone_mandatory');
+add_filter('woocommerce_billing_fields', 'modmy_make_phone_mandatory', 9999);
 function modmy_make_phone_mandatory($fields) {
     if (isset($fields['billing_phone'])) {
         $fields['billing_phone']['required'] = true;
     }
     return $fields;
 }
+
+add_filter('woocommerce_checkout_fields', 'modmy_make_phone_mandatory_checkout', 9999);
+function modmy_make_phone_mandatory_checkout($fields) {
+    if (isset($fields['billing']['billing_phone'])) {
+        $fields['billing']['billing_phone']['required'] = true;
+    }
+    return $fields;
+}
+
