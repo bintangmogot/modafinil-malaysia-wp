@@ -197,7 +197,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
                                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                             <span id="submit-btn-text">
-                                <?= modmy_t("ADD TO CART", "TAMBAHKAN KE KOTAK") ?> -
+                                <?= modmy_t("Checkout & Pay", "Beli & Bayar") ?> -
                                 RM<?= number_format((float) $variations[1]['display_price'], 2) ?>
                             </span>
                         </button>
@@ -222,7 +222,7 @@ $text_under_image = get_field('text_under_product_image', $product->get_id()); /
 
                         function updateBtnText() {
                             const total = selectedPrice * quantity;
-                            btnText.innerHTML = '<?= modmy_t("Checkout & Pay (QRIS)", "Beli & Bayar (QRIS)") ?> - RM' + total.toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                            btnText.innerHTML = '<?= modmy_t("Checkout & Pay", "Beli & Bayar") ?> - RM' + total.toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                         }
 
                         rows.forEach(row => {
