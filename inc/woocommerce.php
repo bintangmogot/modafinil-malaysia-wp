@@ -92,23 +92,38 @@ function modmy_remove_qris_text_js() {
     ?>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var removeQris = function() {
-            var elements = document.querySelectorAll('button, a, .button, .btn, [type="submit"], [type="button"], .checkout-button, .add_to_cart_button, .single_add_to_cart_button, .xoo-wsc-btn');
-            elements.forEach(function(el) {
-                if (el.innerHTML && el.innerHTML.includes('QRIS')) {
-                    el.innerHTML = el.innerHTML.replace(/\s*\(QRIS\)/g, '').replace(/\s*QRIS/g, '');
+        // 1. Bulletproof text replacer (preserves events and HTML)
+        var removeQris = function(node) {
+            if (node.nodeType === 3) { // Text node
+                if (node.nodeValue && node.nodeValue.includes('QRIS')) {
+                    node.nodeValue = node.nodeValue.replace(/\s*\(QRIS\)/g, '').replace(/\s*QRIS/g, '');
                 }
+            } else if (node.nodeType === 1 && node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
+                node.childNodes.forEach(removeQris);
+            }
+        };
+        
+        // 2. Hide side cart coupon via JS as fallback
+        var hideCoupons = function() {
+            var coupons = document.querySelectorAll('.xoo-wsc-coupon, .woocommerce-form-coupon, form.checkout_coupon, .woocommerce-form-coupon-toggle, .xoo-wsc-sm-coupon, [data-id="coupon"]');
+            coupons.forEach(function(el) {
+                el.style.setProperty('display', 'none', 'important');
             });
         };
         
-        removeQris();
+        var runAllFixes = function() {
+            removeQris(document.body);
+            hideCoupons();
+        };
+        
+        runAllFixes();
         
         // Aggressively check for 3 seconds to catch delayed plugin injections
-        var interval = setInterval(removeQris, 500);
+        var interval = setInterval(runAllFixes, 500);
         setTimeout(function() { clearInterval(interval); }, 3000);
         
         if (typeof jQuery !== 'undefined') {
-            jQuery(document).on('found_variation updated_wc_div wc_fragments_refreshed wc_fragments_loaded', removeQris);
+            jQuery(document).on('found_variation updated_wc_div wc_fragments_refreshed wc_fragments_loaded', runAllFixes);
         }
     });
     </script>
