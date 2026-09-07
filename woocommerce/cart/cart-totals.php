@@ -18,14 +18,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<h2 class="text-xl font-bold font-heading text-slate-900 mb-5"><?php esc_html_e( 'Carts Totals', 'woocommerce' ); ?></h2>
 
-    <?php if ( wc_coupons_enabled() ) { ?>
-        <form class="mb-6 flex gap-3" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
-            <label for="coupon_code" class="sr-only"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> 
-            <input type="text" name="coupon_code" class="input-text flex-1 rounded-full border-stone-300 py-2.5 px-5 shadow-sm focus:border-primary focus:ring-primary text-sm" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Discount voucher', 'woocommerce' ); ?>" /> 
-            <button type="submit" class="button px-6 py-2.5 bg-yellow-400 hover:bg-yellow-500 text-slate-900 text-sm font-bold rounded-full transition-colors whitespace-nowrap shadow-sm" name="apply_coupon" value="<?php esc_attr_e( 'Apply', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply', 'woocommerce' ); ?></button>
-            <?php do_action( 'woocommerce_cart_coupon' ); ?>
-        </form>
-    <?php } ?>
+
 
 	<div class="w-full text-sm">
 
