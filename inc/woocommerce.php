@@ -67,8 +67,65 @@ function modmy_remove_wc_elements() {
 // 4. Disable Cart & Checkout pages redirect (Commented out to allow side cart checkout)
 // add_action('template_redirect', 'modmy_redirect_cart_checkout');
 // function modmy_redirect_cart_checkout() {
-//     if (is_cart() || is_checkout()) {
-//         wp_redirect(wc_get_page_permalink('shop'));
-//         exit;
 //     }
 // }
+
+/**
+ * Force hide the WooCommerce coupon section on the checkout page using CSS
+ */
+add_action('wp_head', 'modmy_hide_checkout_coupon_css_override', 999);
+function modmy_hide_checkout_coupon_css_override() {
+    if (is_checkout() && !is_order_received_page()) {
+        echo '<style>
+            .woocommerce-form-coupon-toggle,
+            form.checkout_coupon,
+            .woocommerce-form-coupon { display: none !important; }
+        </style>';
+    }
+}
+
+/**
+ * Remove 'QRIS' text from Add to Cart / Checkout buttons dynamically
+ */
+add_action('wp_footer', 'modmy_remove_qris_text_js', 9999);
+function modmy_remove_qris_text_js() {
+    if (is_product() || is_checkout() || is_cart()) {
+        ?>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var removeQris = function() {
+                var elements = document.querySelectorAll('button, a, .checkout-button, .add_to_cart_button, .single_add_to_cart_button');
+                elements.forEach(function(el) {
+                    if (el.innerHTML && el.innerHTML.includes('QRIS')) {
+                        el.innerHTML = el.innerHTML.replace(/\s*\(QRIS\)/g, '').replace(/\s*QRIS/g, '');
+                    }
+                });
+            };
+            
+            // Run immediately
+            removeQris();
+            
+            // Run again after a short delay to catch dynamic injections
+            setTimeout(removeQris, 500);
+            setTimeout(removeQris, 1500);
+            
+            // Re-run if WooCommerce variations change
+            if (typeof jQuery !== 'undefined') {
+                jQuery(document).on('found_variation', removeQris);
+            }
+        });
+        </script>
+        <?php
+    }
+}
+
+/**
+ * Make Phone Number Mandatory on Checkout
+ */
+add_filter('woocommerce_billing_fields', 'modmy_make_phone_mandatory');
+function modmy_make_phone_mandatory($fields) {
+    if (isset($fields['billing_phone'])) {
+        $fields['billing_phone']['required'] = true;
+    }
+    return $fields;
+}
