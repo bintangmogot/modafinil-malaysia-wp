@@ -97,7 +97,9 @@ function modafinil_add_shipping_note_thankyou( $order_id ) {
     ?>
     <div class="shipping-notice-thankyou mt-8 mb-8 p-6 bg-blue-50 border-l-4 border-blue-500 rounded">
         <h3 class="text-blue-700 font-bold mb-2">Note</h3>
-        <p class="text-blue-700">The average shipping time is 10 - 15 days. Please note that delivery may take up to 30 days from the date of dispatch due to potential disruptions in postal services caused by weather issues or natural disaster.</p>
+        <p class="text-blue-700 mb-4">Please <strong>DO NOT</strong> reference anything related to medicine or website name. Just mention your order number.</p>
+        <p class="text-blue-700 mb-4">The average shipping time is 7 - 10 business days. Please note that delivery may take up to 30 days from the date of dispatch due to potential disruptions in postal services caused by weather issues or natural disaster.</p>
+        <p class="text-blue-700 font-semibold">modafinil-malaysia.com</p>
     </div>
     <?php
 }
@@ -671,3 +673,34 @@ function modmy_fix_zero_pack_sizes() {
     echo "<p>(Keep clicking until it says 'All products have been processed.')</p>";
     exit;
 }
+
+// Custom BACS display format
+add_action("woocommerce_thankyou_bacs", "modmy_custom_bacs_details", 5);
+function modmy_custom_bacs_details($order_id) {
+    $gateways = WC()->payment_gateways->payment_gateways();
+    if (!isset($gateways["bacs"])) return;
+    
+    $bacs = $gateways["bacs"];
+    $bacs_accounts = $bacs->account_details;
+    if (empty($bacs_accounts)) return;
+    
+    echo "<style>.woocommerce-bacs-bank-details { display: none !important; }</style>";
+    echo "<div class=\"custom-bacs-details mt-8 mb-8 p-6 bg-[#F0F7FF] border border-[#BDE0FF] rounded-2xl text-center text-foreground\">";
+    echo "<h3 class=\"font-bold text-xl mb-4 text-foreground\">Bank Details</h3>";
+    
+    foreach ($bacs_accounts as $account) {
+        $bank_name = !empty($account["bank_name"]) ? $account["bank_name"] : "ING Bank";
+        $account_name = !empty($account["account_name"]) ? $account["account_name"] : "Steven Waldberg";
+        $sort_code = !empty($account["sort_code"]) ? $account["sort_code"] : "923100";
+        $account_number = !empty($account["account_number"]) ? $account["account_number"] : "320629252";
+        $bic = !empty($account["bic"]) ? $account["bic"] : "INGBAU2S";
+        
+        echo "<p class=\"mb-1 text-lg\"><strong>Bank:</strong> " . esc_html($bank_name) . "</p>";
+        echo "<p class=\"mb-1 text-lg\"><strong>Account Name:</strong> " . esc_html($account_name) . "</p>";
+        echo "<p class=\"mb-1 text-lg\"><strong>BSB:</strong> " . esc_html($sort_code) . "</p>";
+        echo "<p class=\"mb-1 text-lg\"><strong>Account Number:</strong> " . esc_html($account_number) . "</p>";
+        echo "<p class=\"mb-4 text-lg\"><strong>SWIFT/BIC:</strong> " . esc_html($bic) . "</p>";
+    }
+    echo "</div>";
+}
+
