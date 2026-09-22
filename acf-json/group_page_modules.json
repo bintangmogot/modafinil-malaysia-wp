@@ -321,6 +321,51 @@
                             },
                             "default_value": "",
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_hero_stats",
+                            "label": "Hero Stats",
+                            "name": "stats",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "The 3 stats boxes at the bottom of the hero section.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "pagination": 0,
+                            "min": 0,
+                            "max": 3,
+                            "collapsed": "",
+                            "button_label": "Add Stat",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_hero_stat_value",
+                                    "label": "Value (e.g. 2,000+)",
+                                    "name": "value",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_hero_stat_label_en",
+                                    "label": "Label (EN)",
+                                    "name": "label_en",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_hero_stat_label_ms",
+                                    "label": "Label (MS)",
+                                    "name": "label_ms",
+                                    "type": "text",
+                                    "required": 1
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -1936,14 +1981,14 @@
                             "label": "Desc (EN)",
                             "name": "desc_en",
                             "type": "textarea",
-                            "default_value": "ModafinilMY serves students, professionals, and shift workers across Malaysia \u2014 from Kuala Lumpur to Kota Kinabalu."
+                            "default_value": "ModafinilMY serves students, professionals, and shift workers across Malaysia — from Kuala Lumpur to Kota Kinabalu."
                         },
                         {
                             "key": "field_b3378e9034bf4",
                             "label": "Desc (MS)",
                             "name": "desc_ms",
                             "type": "textarea",
-                            "default_value": "ModafinilMY berkhidmat untuk pelajar, profesional, dan pekerja syif di seluruh Malaysia \u2014 dari Kuala Lumpur ke Kota Kinabalu."
+                            "default_value": "ModafinilMY berkhidmat untuk pelajar, profesional, dan pekerja syif di seluruh Malaysia — dari Kuala Lumpur ke Kota Kinabalu."
                         }
                     ]
                 },
@@ -1972,14 +2017,14 @@
                             "label": "Mission Desc (EN)",
                             "name": "mission_desc_en",
                             "type": "textarea",
-                            "default_value": "We exist to ensure Malaysians have access to high-quality, genuine Modafinil \u2014 delivered fast, discreetly, and reliably across Peninsular, Sabah, and Sarawak."
+                            "default_value": "We exist to ensure Malaysians have access to high-quality, genuine Modafinil — delivered fast, discreetly, and reliably across Peninsular, Sabah, and Sarawak."
                         },
                         {
                             "key": "field_9a67f574b5bb4",
                             "label": "Mission Desc (MS)",
                             "name": "mission_desc_ms",
                             "type": "textarea",
-                            "default_value": "Kami wujud untuk memastikan rakyat Malaysia mempunyai akses kepada Modafinil asli berkualiti tinggi \u2014 dihantar dengan pantas, diskret, dan boleh dipercayai ke seluruh Semenanjung, Sabah, dan Sarawak."
+                            "default_value": "Kami wujud untuk memastikan rakyat Malaysia mempunyai akses kepada Modafinil asli berkualiti tinggi — dihantar dengan pantas, diskret, dan boleh dipercayai ke seluruh Semenanjung, Sabah, dan Sarawak."
                         },
                         {
                             "key": "field_5eaf710cafea4",
@@ -3363,7 +3408,7 @@
                             "label": "Subtitle (MS)",
                             "name": "subtitle_ms",
                             "type": "textarea",
-                            "default": "Semua halaman ModafinilMY dalam satu senarai \u2014 halaman utama, produk, artikel, dan dasar.",
+                            "default": "Semua halaman ModafinilMY dalam satu senarai — halaman utama, produk, artikel, dan dasar.",
                             "key": "field_stm_19c8c18574dc"
                         }
                     ]
