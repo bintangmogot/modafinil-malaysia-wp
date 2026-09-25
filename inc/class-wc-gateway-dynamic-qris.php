@@ -105,7 +105,7 @@ class WC_Gateway_Dynamic_QRIS extends WC_Payment_Gateway {
 
 	/**
 	 * Fetch live real-time conversion rate from open.er-api.com
-	 * Caches result for 12 hours. Falls back to static setting.
+	 * Caches result for 1 hour. Falls back to static setting.
 	 */
 	private function get_live_conversion_rate() {
 		$rate = get_transient( 'wc_dynamic_qris_myr_idr_rate' );
@@ -119,7 +119,7 @@ class WC_Gateway_Dynamic_QRIS extends WC_Payment_Gateway {
 				
 				if ( isset( $data['rates']['IDR'] ) ) {
 					$rate = floatval( $data['rates']['IDR'] );
-					set_transient( 'wc_dynamic_qris_myr_idr_rate', $rate, 12 * HOUR_IN_SECONDS );
+					set_transient( 'wc_dynamic_qris_myr_idr_rate', $rate, 1 * HOUR_IN_SECONDS );
 				}
 			}
 		}
