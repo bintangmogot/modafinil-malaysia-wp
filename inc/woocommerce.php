@@ -153,6 +153,9 @@ add_filter('woocommerce_product_single_add_to_cart_text', 'modmy_remove_qris_fro
 add_filter('woocommerce_product_add_to_cart_text', 'modmy_remove_qris_from_button', 9999);
 add_filter('woocommerce_order_button_text', 'modmy_remove_qris_from_button', 9999);
 function modmy_remove_qris_from_button($label) {
+    if ( ! is_string( $label ) ) {
+        return $label;
+    }
     // Remove any occurrence of "QRIS" (with optional surrounding spaces and parentheses)
     return preg_replace('/\s*\(?\s*QRIS\s*\)?/i', '', $label);
 }
