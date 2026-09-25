@@ -704,3 +704,18 @@ function modmy_custom_bacs_details($order_id) {
     echo "</div>";
 }
 
+
+// Polyfill for missing mbstring extension on live server
+if ( ! function_exists( 'mb_strtolower' ) ) {
+    function mb_strtolower( $string, $encoding = 'UTF-8' ) {
+        return strtolower( $string );
+    }
+}
+
+
+if ( ! function_exists( 'mb_strtoupper' ) ) {
+    function mb_strtoupper( $string, $encoding = 'UTF-8' ) {
+        return strtoupper( $string );
+    }
+}
+
