@@ -46,20 +46,11 @@ get_header();
             endwhile; // End of the loop.
             ?>
         </div>
-        
-        <div class="mt-12 pt-8 border-t border-border">
-            <?php
-            // If comments are open or we have at least one comment, load up the comment template.
-            if (comments_open() || get_comments_number()) :
-                comments_template();
-            endif;
-            ?>
-        </div>
     </div>
 </div>
 
 <?php
-// Render ACF flexible modules at the bottom of the post if any are added
+// Render ACF flexible modules at the bottom of the post if any are added (Before Comments)
 if (have_rows('modules')) {
     while (have_rows('modules')) {
         the_row();
@@ -69,6 +60,16 @@ if (have_rows('modules')) {
     }
 }
 ?>
+
+<?php if (comments_open() || get_comments_number()) : ?>
+<div class="section-padding bg-background">
+    <div class="container-site max-w-3xl">
+        <div class="pt-8 border-t border-border">
+            <?php comments_template(); ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 
 <?php
 get_footer();
