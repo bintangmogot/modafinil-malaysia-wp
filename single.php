@@ -59,4 +59,16 @@ get_header();
 </div>
 
 <?php
+// Render ACF flexible modules at the bottom of the post if any are added
+if (have_rows('modules')) {
+    while (have_rows('modules')) {
+        the_row();
+        $layout = get_row_layout();
+        // This will look for modules/content-{layout_name}.php
+        get_template_part('modules/content', $layout);
+    }
+}
+?>
+
+<?php
 get_footer();
