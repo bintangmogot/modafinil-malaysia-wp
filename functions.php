@@ -20,6 +20,9 @@ require_once MODMY_THEME_DIR . '/inc/enqueue.php';
 // 4. ACF Theme Options (Global settings)
 require_once MODMY_THEME_DIR . '/inc/theme-options.php';
 
+// 4b. Content seeder (writes admin field content on other environments)
+require_once MODMY_THEME_DIR . '/inc/content-seed.php';
+
 // 5. Shortcodes
 require_once MODMY_THEME_DIR . '/inc/shortcodes.php';
 

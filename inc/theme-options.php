@@ -70,3 +70,74 @@ if( function_exists('acf_add_local_field_group') ):
         ),
     ));
 endif;
+
+// Register Shop Page Hero ACF Fields dynamically
+if( function_exists('acf_add_local_field_group') ):
+    acf_add_local_field_group(array(
+        'key' => 'group_theme_shop_hero_settings',
+        'title' => 'Shop Page Hero',
+        'fields' => array(
+            array(
+                'key' => 'field_shop_hero_title_en',
+                'label' => 'Title (EN)',
+                'name' => 'shop_hero_title_en',
+                'type' => 'text',
+                'default_value' => 'Shop Modafinil Online',
+            ),
+            array(
+                'key' => 'field_shop_hero_title_ms',
+                'label' => 'Title (MS)',
+                'name' => 'shop_hero_title_ms',
+                'type' => 'text',
+                'default_value' => 'Beli Modafinil Online',
+            ),
+            array(
+                'key' => 'field_shop_hero_subtitle_en',
+                'label' => 'Subtitle (EN)',
+                'name' => 'shop_hero_subtitle_en',
+                'type' => 'textarea',
+                'rows' => 3,
+                'default_value' => 'Browse and buy genuine Modafinil tablets online from certified manufacturers. Fast Malaysia-wide delivery on all orders.',
+            ),
+            array(
+                'key' => 'field_shop_hero_subtitle_ms',
+                'label' => 'Subtitle (MS)',
+                'name' => 'shop_hero_subtitle_ms',
+                'type' => 'textarea',
+                'rows' => 3,
+                'default_value' => 'Semak dan beli tablet Modafinil asli secara dalam talian dari pengeluar bertauliah. Penghantaran pantas ke seluruh Malaysia.',
+            ),
+            array(
+                'key' => 'field_shop_hero_bullets',
+                'label' => 'Bullet Points',
+                'name' => 'shop_hero_bullets',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'button_label' => 'Add Bullet',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_shop_hero_bullet_en',
+                        'label' => 'Text (EN)',
+                        'name' => 'bullet_en',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_shop_hero_bullet_ms',
+                        'label' => 'Text (MS)',
+                        'name' => 'bullet_ms',
+                        'type' => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'theme-general-settings',
+                ),
+            ),
+        ),
+    ));
+endif;

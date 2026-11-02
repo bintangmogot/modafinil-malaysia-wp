@@ -15,6 +15,11 @@ if (have_rows('modules', $shop_page_id)) {
     while (have_rows('modules', $shop_page_id)) {
         the_row();
         $layout = get_row_layout();
+        if ($layout === 'page_hero') {
+            // Shop hero is managed in Theme Settings > Shop Page Hero
+            get_template_part('template-parts/shop-hero');
+            continue;
+        }
         get_template_part('modules/content', $layout);
     }
     echo '</main>';
