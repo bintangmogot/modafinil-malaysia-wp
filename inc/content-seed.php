@@ -9,10 +9,30 @@
  * Running it overwrites the listed fields with the values below.
  */
 
-const MODMY_CONTENT_SEED_VERSION = 1;
+const MODMY_CONTENT_SEED_VERSION = 2;
 
 function modmy_content_seeds() {
     return array(
+        // Brand & Contact
+        'site_tagline_en'       => 'Sharper Focus. Higher Performance.',
+        'site_tagline_ms'       => 'Fokus Lebih Tajam. Perform Lebih Tinggi.',
+        'whatsapp_number'       => 'https://wa.me/60185754182',
+
+        // Trust Bar & Shipping
+        'trust_bar_long_en'     => 'Free Shipping Over RM399 &nbsp;&middot;&nbsp; 100% Genuine',
+        'trust_bar_long_ms'     => 'Penghantaran Percuma RM399+ &nbsp;&middot;&nbsp; 100% Asli',
+        'trust_bar_short_en'    => '🚚 Free Shipping RM399+',
+        'trust_bar_short_ms'    => '🚚 Percuma Penghantaran RM399+',
+        'free_shipping_threshold' => 'RM399',
+
+        // Footer
+        'footer_description_en' => 'Modafinil Malaysia provides genuine Modafinil for performance, vitality, and fast-acting results. Enjoy discreet online ordering and reliable delivery across Malaysia in 7-10 days.',
+        'footer_description_ms' => 'Modafinil Malaysia menyediakan Modafinil asli untuk prestasi, kecergasan, dan hasil bertindak pantas. Nikmati pesanan dalam talian diskret dan penghantaran yang boleh dipercayai di seluruh Malaysia dalam 7-10 hari.',
+        'footer_address_en'     => 'Level 33, Ilham Tower No. 8, Jalan Binjai 50450 Kuala Lumpur Malaysia',
+        'footer_address_ms'     => 'Aras 33, Menara Ilham No. 8, Jalan Binjai 50450 Kuala Lumpur Malaysia',
+        'footer_email'          => 'orders@modafinil-malaysia.com',
+
+        // Shop Page
         'shop_hero_title_en'    => 'Shop Modafinil Online',
         'shop_hero_title_ms'    => 'Beli Modafinil Online',
         'shop_hero_subtitle_en' => 'Browse and buy genuine Modafinil tablets online from certified manufacturers. Fast Malaysia-wide delivery on all orders.',
