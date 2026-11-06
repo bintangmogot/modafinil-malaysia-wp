@@ -54,3 +54,88 @@ add_action('acf/init', function () {
     }
     update_option('modmy_content_seed_version', MODMY_CONTENT_SEED_VERSION);
 }, 20);
+
+/* ---------------------------------------------------------------------------
+ * Theme Settings -> Checkout & Emails (thank-you page and bank transfer block)
+ *
+ * Seeded separately from the block above, with its own version option. Unlike the
+ * block above it fills ONLY fields that are empty and never overwrites anything the
+ * client wrote in WP admin. Bumping MODMY_CONTENT_SEED_VERSION does not touch it, and
+ * bumping MODMY_CHECKOUT_SEED_VERSION does not re-run the block above.
+ * The default text lives once, as default_value in acf-json/group_theme_settings.json
+ * (tab field_tab_checkout); the seeder and the templates both read it from there.
+ * Bank details have no default on purpose: the block stays hidden until they are entered.
+ * ------------------------------------------------------------------------- */
+
+const MODMY_CHECKOUT_SEED_VERSION = 1;
+
+/** Fields of the Checkout & Emails tab: field name => [ACF field key, default value]. */
+function modmy_checkout_defaults() {
+    static $defaults = null;
+    if ($defaults === null) {
+        $defaults = array();
+        $path  = MODMY_THEME_DIR . '/acf-json/group_theme_settings.json';
+        $group = is_readable($path) ? json_decode((string) file_get_contents($path), true) : array();
+        $in_tab = false;
+        foreach ((array) ($group['fields'] ?? array()) as $field) {
+            if (($field['type'] ?? '') === 'tab') {
+                $in_tab = (($field['key'] ?? '') === 'field_tab_checkout');
+                continue;
+            }
+            if (!$in_tab || empty($field['name'])) {
+                continue;
+            }
+            $defaults[$field['name']] = array($field['key'], (string) ($field['default_value'] ?? ''));
+        }
+    }
+    return $defaults;
+}
+
+/** One Checkout & Emails value. A value saved as empty in the admin stays empty; the default only applies if it was never saved. */
+function modmy_checkout_text($name) {
+    $saved = get_option('options_' . $name, null);
+    if ($saved !== null) {
+        return is_scalar($saved) ? (string) $saved : '';
+    }
+    $defaults = modmy_checkout_defaults();
+    return isset($defaults[$name]) ? $defaults[$name][1] : '';
+}
+
+/** Bilingual value from the <name>_en / <name>_ms pair. Falls back to the other language if the active one is empty. */
+function modmy_checkout_t($name) {
+    $en    = modmy_checkout_text($name . '_en');
+    $ms    = modmy_checkout_text($name . '_ms');
+    $value = modmy_t($en, $ms);
+    if ($value !== '') {
+        return $value;
+    }
+    return $en !== '' ? $en : $ms;
+}
+
+/** Bank transfer details, single source: Theme Settings -> Checkout & Emails. Empty values are blank strings. */
+function modmy_bank_details() {
+    return array(
+        'bank'   => trim(modmy_checkout_text('bank_name')),
+        'name'   => trim(modmy_checkout_text('bank_account_name')),
+        'number' => trim(modmy_checkout_text('bank_account_number')),
+        'swift'  => trim(modmy_checkout_text('bank_swift_bic')),
+    );
+}
+
+add_action('init', function () {
+    if ((int) get_option('modmy_checkout_seed_version', 0) >= MODMY_CHECKOUT_SEED_VERSION) {
+        return;
+    }
+    foreach (modmy_checkout_defaults() as $name => $row) {
+        list($field_key, $value) = $row;
+        if ($value === '') {
+            continue;
+        }
+        $current = get_option('options_' . $name, null);
+        if ($current === null || (is_scalar($current) && trim((string) $current) === '')) {
+            update_option('options_' . $name, $value);
+            update_option('_options_' . $name, $field_key);
+        }
+    }
+    update_option('modmy_checkout_seed_version', MODMY_CHECKOUT_SEED_VERSION);
+}, 20);

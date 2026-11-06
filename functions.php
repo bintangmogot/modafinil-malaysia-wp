@@ -97,16 +97,24 @@ add_filter('gform_submit_button', function($button, $form) {
 }, 10, 2);
 add_action( "woocommerce_thankyou", "modafinil_add_shipping_note_thankyou", 5 );
 function modafinil_add_shipping_note_thankyou( $order_id ) {
+    // Text: Theme Settings -> Checkout & Emails (note box). Each line is hidden when its field is empty.
+    $allowed = array( 'strong' => array(), 'em' => array(), 'br' => array() );
+    $heading = modmy_checkout_t( 'thankyou_note_heading' );
+    $ref     = modmy_checkout_t( 'thankyou_note_reference' );
+    $ship    = modmy_checkout_t( 'thankyou_note_shipping' );
+    $site    = modmy_checkout_text( 'thankyou_note_site' );
+    if ( '' === $heading . $ref . $ship . $site ) {
+        return;
+    }
     ?>
     <div class="shipping-notice-thankyou mt-8 mb-8 p-6 bg-blue-50 border-l-4 border-blue-500 rounded">
-        <h3 class="text-blue-700 font-bold mb-2">Note</h3>
-        <p class="text-blue-700 mb-4">Please <strong>DO NOT</strong> reference anything related to medicine or website name. Just mention your order number.</p>
-        <p class="text-blue-700 mb-4">The average shipping time is 7 - 10 business days. Please note that delivery may take up to 30 days from the date of dispatch due to potential disruptions in postal services caused by weather issues or natural disaster.</p>
-        <p class="text-blue-700 font-semibold">modafinil-malaysia.com</p>
+        <?php if ( '' !== $heading ) : ?><h3 class="text-blue-700 font-bold mb-2"><?php echo esc_html( $heading ); ?></h3><?php endif; ?>
+        <?php if ( '' !== $ref ) : ?><p class="text-blue-700 mb-4"><?php echo wp_kses( $ref, $allowed ); ?></p><?php endif; ?>
+        <?php if ( '' !== $ship ) : ?><p class="text-blue-700 mb-4"><?php echo wp_kses( $ship, $allowed ); ?></p><?php endif; ?>
+        <?php if ( '' !== $site ) : ?><p class="text-blue-700 font-semibold"><?php echo esc_html( $site ); ?></p><?php endif; ?>
     </div>
     <?php
 }
-
 
 add_action("wp_head", function() {
     if (function_exists("is_checkout") && is_checkout()) {
@@ -678,35 +686,38 @@ function modmy_fix_zero_pack_sizes() {
 }
 
 // Custom BACS display format
+// Bank details: single source is Theme Settings -> Checkout & Emails (modmy_bank_details()).
+// The WooCommerce gateway's own account list is always hidden here so there is no second source.
 add_action("woocommerce_thankyou_bacs", "modmy_custom_bacs_details", 5);
 function modmy_custom_bacs_details($order_id) {
-    $gateways = WC()->payment_gateways->payment_gateways();
-    if (!isset($gateways["bacs"])) return;
-    
-    $bacs = $gateways["bacs"];
-    $bacs_accounts = $bacs->account_details;
-    if (empty($bacs_accounts)) return;
-    
     echo "<style>.woocommerce-bacs-bank-details { display: none !important; }</style>";
+
+    $d = modmy_bank_details();
+    if ('' === $d["bank"] . $d["name"] . $d["number"] . $d["swift"]) return;
+
+    $rows = array(
+        array("bank_label_bank",           $d["bank"]),
+        array("bank_label_account_name",   $d["name"]),
+        array("bank_label_account_number", $d["number"]),
+        array("bank_label_swift_bic",      $d["swift"]),
+    );
+    $heading = modmy_checkout_t("bank_block_heading");
+    $note    = modmy_checkout_t("bank_reference_note");
+
     echo "<div class=\"custom-bacs-details mt-8 mb-8 p-6 bg-[#F0F7FF] border border-[#BDE0FF] rounded-2xl text-center text-foreground\">";
-    echo "<h3 class=\"font-bold text-xl mb-4 text-foreground\">Bank Details</h3>";
-    
-    foreach ($bacs_accounts as $account) {
-        $bank_name = !empty($account["bank_name"]) ? $account["bank_name"] : "ING Bank";
-        $account_name = !empty($account["account_name"]) ? $account["account_name"] : "Steven Waldberg";
-        $sort_code = !empty($account["sort_code"]) ? $account["sort_code"] : "923100";
-        $account_number = !empty($account["account_number"]) ? $account["account_number"] : "320629252";
-        $bic = !empty($account["bic"]) ? $account["bic"] : "INGBAU2S";
-        
-        echo "<p class=\"mb-1 text-lg\"><strong>Bank:</strong> " . esc_html($bank_name) . "</p>";
-        echo "<p class=\"mb-1 text-lg\"><strong>Account Name:</strong> " . esc_html($account_name) . "</p>";
-        echo "<p class=\"mb-1 text-lg\"><strong>BSB:</strong> " . esc_html($sort_code) . "</p>";
-        echo "<p class=\"mb-1 text-lg\"><strong>Account Number:</strong> " . esc_html($account_number) . "</p>";
-        echo "<p class=\"mb-4 text-lg\"><strong>SWIFT/BIC:</strong> " . esc_html($bic) . "</p>";
+    if ('' !== $heading) {
+        echo "<h3 class=\"font-bold text-xl mb-4 text-foreground\">" . esc_html($heading) . "</h3>";
+    }
+    foreach ($rows as $row) {
+        if ('' === $row[1]) continue;
+        echo "<p class=\"mb-1 text-lg\"><strong>" . esc_html(modmy_checkout_t($row[0])) . ":</strong> " . esc_html($row[1]) . "</p>";
+    }
+    if ('' !== $note) {
+        $label = modmy_checkout_t("bank_label_reference");
+        echo "<p class=\"mt-4 mb-0 text-lg\">" . ('' !== $label ? "<strong>" . esc_html($label) . ":</strong> " : "") . esc_html($note) . "</p>";
     }
     echo "</div>";
 }
-
 
 // Polyfill for missing mbstring extension on live server
 if ( ! function_exists( 'mb_strtolower' ) ) {

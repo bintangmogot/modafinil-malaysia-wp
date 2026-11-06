@@ -897,6 +897,1264 @@
                     "parent_repeater": "field_faqs_list"
                 }
             ]
+        },
+        {
+            "key": "field_tab_checkout",
+            "label": "Checkout &amp; Emails",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_co_msg_intro",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Text on the order thank-you page (shown after checkout). The bank transfer block at the bottom is hidden until the bank fields are filled in. Order emails are not controlled from here.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_co_msg_success",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong>Thank-you page: heading and intro<\/strong>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_co_thankyou_icon",
+            "label": "Success Icon",
+            "name": "thankyou_icon",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Round icon above the heading on the thank-you page.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "check": "Check mark",
+                "clock": "Clock",
+                "mail": "Envelope",
+                "package": "Package"
+            },
+            "default_value": "check",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_co_thankyou_title_en",
+            "label": "Heading (EN)",
+            "name": "thankyou_title_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Main heading of the thank-you page.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Thank You!",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_title_ms",
+            "label": "Heading (MS)",
+            "name": "thankyou_title_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Terima Kasih!",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_intro_en",
+            "label": "Intro Text (EN)",
+            "name": "thankyou_intro_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Line under the heading.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Your order has been received and is now being processed.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_intro_ms",
+            "label": "Intro Text (MS)",
+            "name": "thankyou_intro_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Pesanan anda telah diterima dan sedang diproses.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_msg_summary",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong>Thank-you page: order summary box<\/strong>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_co_thankyou_summary_heading_en",
+            "label": "Summary Heading (EN)",
+            "name": "thankyou_summary_heading_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Order Summary",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_summary_heading_ms",
+            "label": "Summary Heading (MS)",
+            "name": "thankyou_summary_heading_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ringkasan Pesanan",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_order_en",
+            "label": "Label: Order Number (EN)",
+            "name": "thankyou_label_order_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Order number",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_order_ms",
+            "label": "Label: Order Number (MS)",
+            "name": "thankyou_label_order_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Nombor pesanan",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_date_en",
+            "label": "Label: Date (EN)",
+            "name": "thankyou_label_date_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Date",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_date_ms",
+            "label": "Label: Date (MS)",
+            "name": "thankyou_label_date_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tarikh",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_total_en",
+            "label": "Label: Total (EN)",
+            "name": "thankyou_label_total_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Total",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_total_ms",
+            "label": "Label: Total (MS)",
+            "name": "thankyou_label_total_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Jumlah",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_payment_en",
+            "label": "Label: Payment Method (EN)",
+            "name": "thankyou_label_payment_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Payment method",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_payment_ms",
+            "label": "Label: Payment Method (MS)",
+            "name": "thankyou_label_payment_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Kaedah pembayaran",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_email_en",
+            "label": "Label: Email (EN)",
+            "name": "thankyou_label_email_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Email",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_label_email_ms",
+            "label": "Label: Email (MS)",
+            "name": "thankyou_label_email_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "E-mel",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_msg_payinstr",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong>Thank-you page: payment instructions box<\/strong> (shown under the order summary for every order)",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_co_payment_instructions_heading_en",
+            "label": "Heading (EN)",
+            "name": "payment_instructions_heading_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Payment Instructions",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_payment_instructions_heading_ms",
+            "label": "Heading (MS)",
+            "name": "payment_instructions_heading_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Arahan Pembayaran",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_payment_instructions_text_en",
+            "label": "Text (EN)",
+            "name": "payment_instructions_text_en",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Use {email} where the order email address should appear. It is read from Brand &amp; Contact \/ Footer Email and shown as a link.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "* Once your payment is done, just send the transaction copy to {email} and we'll ship your order immediately.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_payment_instructions_text_ms",
+            "label": "Text (MS)",
+            "name": "payment_instructions_text_ms",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "* Selepas pembayaran dibuat, hantar salinan transaksi ke {email} dan kami akan menghantar pesanan anda dengan segera.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_msg_note",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong>Thank-you page: note box (next steps)<\/strong> (blue box under the payment details)",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_co_thankyou_note_heading_en",
+            "label": "Note Heading (EN)",
+            "name": "thankyou_note_heading_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Note",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_note_heading_ms",
+            "label": "Note Heading (MS)",
+            "name": "thankyou_note_heading_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Nota",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_note_reference_en",
+            "label": "Note: Payment Reference (EN)",
+            "name": "thankyou_note_reference_en",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "You may use &lt;strong&gt; for bold. Leave both empty to hide this line.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Please <strong>DO NOT<\/strong> reference anything related to medicine or website name. Just mention your order number.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_thankyou_note_reference_ms",
+            "label": "Note: Payment Reference (MS)",
+            "name": "thankyou_note_reference_ms",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Sila <strong>JANGAN<\/strong> menyebut apa-apa berkaitan ubat atau nama laman web. Cukup nyatakan nombor pesanan anda.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_thankyou_note_shipping_en",
+            "label": "Note: Shipping Time (EN)",
+            "name": "thankyou_note_shipping_en",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Leave both empty to hide this line.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "The average shipping time is 7 - 10 business days. Please note that delivery may take up to 30 days from the date of dispatch due to potential disruptions in postal services caused by weather issues or natural disaster.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_thankyou_note_shipping_ms",
+            "label": "Note: Shipping Time (MS)",
+            "name": "thankyou_note_shipping_ms",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Purata masa penghantaran ialah 7 - 10 hari bekerja. Penghantaran mungkin mengambil masa sehingga 30 hari dari tarikh dihantar kerana gangguan perkhidmatan pos akibat cuaca atau bencana alam.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_thankyou_note_site",
+            "label": "Note: Site Name",
+            "name": "thankyou_note_site",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bold line at the end of the note box. Same in both languages. Leave empty to hide.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "modafinil-malaysia.com",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_msg_failed",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong>Thank-you page: failed payment<\/strong> (shown instead of the above when the order status is Failed)",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_co_thankyou_failed_icon",
+            "label": "Failed Icon",
+            "name": "thankyou_failed_icon",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Round icon above the heading when payment failed.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cross": "Cross",
+                "warning": "Warning triangle"
+            },
+            "default_value": "cross",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_co_thankyou_failed_title_en",
+            "label": "Heading (EN)",
+            "name": "thankyou_failed_title_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Order Failed",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_failed_title_ms",
+            "label": "Heading (MS)",
+            "name": "thankyou_failed_title_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Pesanan Gagal",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_failed_text_en",
+            "label": "Text (EN)",
+            "name": "thankyou_failed_text_en",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Unfortunately your order cannot be processed as the originating bank\/merchant has declined your transaction. Please attempt your purchase again.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_thankyou_failed_text_ms",
+            "label": "Text (MS)",
+            "name": "thankyou_failed_text_ms",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Maaf, pesanan anda tidak dapat diproses kerana bank atau pedagang telah menolak transaksi anda. Sila cuba buat pembelian sekali lagi.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_thankyou_failed_pay_en",
+            "label": "Pay Button (EN)",
+            "name": "thankyou_failed_pay_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Pay",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_failed_pay_ms",
+            "label": "Pay Button (MS)",
+            "name": "thankyou_failed_pay_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Bayar",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_failed_account_en",
+            "label": "My Account Button (EN)",
+            "name": "thankyou_failed_account_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Only shown to logged-in customers.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "My account",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_thankyou_failed_account_ms",
+            "label": "My Account Button (MS)",
+            "name": "thankyou_failed_account_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Akaun saya",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_msg_bank",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong>Bank transfer block<\/strong> (thank-you page, only for orders paid by bank transfer). This is the single place for bank details. If Bank Name, Account Name, Account Number and SWIFT\/BIC are all empty, the whole block is hidden. Nothing is pre-filled: enter the real details here.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_co_bank_name",
+            "label": "Bank Name",
+            "name": "bank_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Name of the bank.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_account_name",
+            "label": "Account Name",
+            "name": "bank_account_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Name of the account holder.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_account_number",
+            "label": "Account Number",
+            "name": "bank_account_number",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bank account number.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_swift_bic",
+            "label": "SWIFT\/BIC",
+            "name": "bank_swift_bic",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional. Leave empty to hide this row.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_reference_note_en",
+            "label": "Reference Note (EN)",
+            "name": "bank_reference_note_en",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Optional line shown under the details, for example how to write the payment reference. Leave empty to hide.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_bank_reference_note_ms",
+            "label": "Reference Note (MS)",
+            "name": "bank_reference_note_ms",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_co_bank_block_heading_en",
+            "label": "Block Heading (EN)",
+            "name": "bank_block_heading_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Bank Details",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_block_heading_ms",
+            "label": "Block Heading (MS)",
+            "name": "bank_block_heading_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Butiran Bank",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_bank_en",
+            "label": "Label: Bank (EN)",
+            "name": "bank_label_bank_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Bank",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_bank_ms",
+            "label": "Label: Bank (MS)",
+            "name": "bank_label_bank_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Bank",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_account_name_en",
+            "label": "Label: Account Name (EN)",
+            "name": "bank_label_account_name_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Account Name",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_account_name_ms",
+            "label": "Label: Account Name (MS)",
+            "name": "bank_label_account_name_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Nama Akaun",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_account_number_en",
+            "label": "Label: Account Number (EN)",
+            "name": "bank_label_account_number_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Account Number",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_account_number_ms",
+            "label": "Label: Account Number (MS)",
+            "name": "bank_label_account_number_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Nombor Akaun",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_swift_bic_en",
+            "label": "Label: SWIFT\/BIC (EN)",
+            "name": "bank_label_swift_bic_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "SWIFT\/BIC",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_swift_bic_ms",
+            "label": "Label: SWIFT\/BIC (MS)",
+            "name": "bank_label_swift_bic_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "SWIFT\/BIC",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_reference_en",
+            "label": "Label: Reference (EN)",
+            "name": "bank_label_reference_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Reference",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_co_bank_label_reference_ms",
+            "label": "Label: Reference (MS)",
+            "name": "bank_label_reference_ms",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Rujukan",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -920,5 +2178,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793621016
+    "modified": 1793981627
 }
