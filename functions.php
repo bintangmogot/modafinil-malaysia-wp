@@ -102,7 +102,7 @@ function modafinil_add_shipping_note_thankyou( $order_id ) {
     $heading = modmy_checkout_t( 'thankyou_note_heading' );
     $ref     = modmy_checkout_t( 'thankyou_note_reference' );
     $ship    = modmy_checkout_t( 'thankyou_note_shipping' );
-    $site    = modmy_checkout_text( 'thankyou_note_site' );
+    $site    = trim( modmy_checkout_text( 'thankyou_note_site' ) );
     if ( '' === $heading . $ref . $ship . $site ) {
         return;
     }
@@ -708,9 +708,11 @@ function modmy_custom_bacs_details($order_id) {
     if ('' !== $heading) {
         echo "<h3 class=\"font-bold text-xl mb-4 text-foreground\">" . esc_html($heading) . "</h3>";
     }
+    // Each row needs a value; a blank label drops only the label, a blank value drops the whole row.
     foreach ($rows as $row) {
         if ('' === $row[1]) continue;
-        echo "<p class=\"mb-1 text-lg\"><strong>" . esc_html(modmy_checkout_t($row[0])) . ":</strong> " . esc_html($row[1]) . "</p>";
+        $label = modmy_checkout_t($row[0]);
+        echo "<p class=\"mb-1 text-lg\">" . ('' !== $label ? "<strong>" . esc_html($label) . ":</strong> " : "") . esc_html($row[1]) . "</p>";
     }
     if ('' !== $note) {
         $label = modmy_checkout_t("bank_label_reference");

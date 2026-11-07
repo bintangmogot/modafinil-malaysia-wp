@@ -103,8 +103,13 @@ function modmy_checkout_text($name) {
 
 /** Bilingual value from the <name>_en / <name>_ms pair. Falls back to the other language if the active one is empty. */
 function modmy_checkout_t($name) {
-    $en    = modmy_checkout_text($name . '_en');
-    $ms    = modmy_checkout_text($name . '_ms');
+    // Whitespace-only or tag-only values count as blank, so the caller can hide the element.
+    $clean = function ($v) {
+        $v = trim((string) $v);
+        return '' === trim(wp_strip_all_tags($v)) ? '' : $v;
+    };
+    $en    = $clean(modmy_checkout_text($name . '_en'));
+    $ms    = $clean(modmy_checkout_text($name . '_ms'));
     $value = modmy_t($en, $ms);
     if ($value !== '') {
         return $value;
