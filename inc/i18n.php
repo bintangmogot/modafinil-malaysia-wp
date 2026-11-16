@@ -35,6 +35,22 @@ function modmy_t($en, $ms) {
 }
 
 /**
+ * Text for the active language from an EN/MS field pair. If the active one is blank, the other
+ * language is used. Blank or tag-only text counts as empty, so the caller can hide the element.
+ * @return string Text, or '' when both are blank
+ */
+function modmy_pick($en, $ms) {
+    $clean = static function ($value) {
+        $value = trim((string) $value);
+        return '' === trim(wp_strip_all_tags($value)) ? '' : $value;
+    };
+    $en    = $clean($en);
+    $ms    = $clean($ms);
+    $value = modmy_t($en, $ms);
+    return '' !== $value ? $value : ('' !== $en ? $en : $ms);
+}
+
+/**
  * Filter post title to respect active language
  */
 add_filter('the_title', function($title, $id = null) {

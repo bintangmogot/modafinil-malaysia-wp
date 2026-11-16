@@ -31,17 +31,6 @@ function modmy_content_seeds() {
         'footer_address_en'     => 'Level 33, Ilham Tower No. 8, Jalan Binjai 50450 Kuala Lumpur Malaysia',
         'footer_address_ms'     => 'Aras 33, Menara Ilham No. 8, Jalan Binjai 50450 Kuala Lumpur Malaysia',
         'footer_email'          => 'orders@modafinil-malaysia.com',
-
-        // Shop Page
-        'shop_hero_title_en'    => 'Shop Modafinil Online',
-        'shop_hero_title_ms'    => 'Beli Modafinil Online',
-        'shop_hero_subtitle_en' => 'Browse and buy genuine Modafinil tablets online from certified manufacturers. Fast Malaysia-wide delivery on all orders.',
-        'shop_hero_subtitle_ms' => 'Semak dan beli tablet Modafinil asli secara dalam talian dari pengeluar bertauliah. Penghantaran pantas ke seluruh Malaysia.',
-        'shop_hero_bullets'     => array(
-            array('bullet_en' => 'Free Shipping Over RM870', 'bullet_ms' => 'Penghantaran Percuma atas RM870'),
-            array('bullet_en' => '100% Genuine', 'bullet_ms' => '100% Asli'),
-            array('bullet_en' => 'Fast Malaysian Delivery', 'bullet_ms' => 'Penghantaran Tempatan Pantas'),
-        ),
     );
 }
 

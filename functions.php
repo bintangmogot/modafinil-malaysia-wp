@@ -22,6 +22,7 @@ require_once MODMY_THEME_DIR . '/inc/theme-options.php';
 
 // 4b. Content seeder (writes admin field content on other environments)
 require_once MODMY_THEME_DIR . '/inc/content-seed.php';
+require_once MODMY_THEME_DIR . '/inc/content-seed-modules.php';
 
 // 5. Shortcodes
 require_once MODMY_THEME_DIR . '/inc/shortcodes.php';
